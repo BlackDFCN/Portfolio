@@ -1,0 +1,384 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+body {
+  @apply bg-white text-gray-900 scroll-smooth antialiased;
+  font-family: "Inter", sans-serif;
+}
+
+.dark .mdx-content h3 {
+  @apply text-gray-100;
+}
+
+.dark .mdx-content p,
+.dark .mdx-content li {
+  color: #d0d0d0;
+}
+
+.dark .tech-badge img[src*="nextdotjs"],
+.dark .tech-badge img[src*="vercel"],
+.dark .tech-badge img[src*="amazonwebservices"],
+.dark .tech-badge img[src*="express"] {
+  filter: invert(1) brightness(1.1);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.section-container {
+  @apply mx-auto max-w-7xl px-6 lg:px-12;
+}
+
+.nav-link {
+  @apply relative text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 transition-all duration-300 hover:text-black;
+}
+
+.nav-link::after {
+  content: "";
+  @apply absolute left-0 -bottom-1 h-[1.5px] w-0 bg-black transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active {
+  @apply text-black;
+}
+
+.nav-link.active::after {
+  @apply w-full;
+}
+
+.eyebrow {
+  @apply mb-6 block text-[11px] font-bold uppercase tracking-[0.4em] text-gray-400;
+}
+
+.pillar-card {
+  @apply flex flex-col items-start gap-4 bg-white p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.12)];
+}
+
+.tech-badge {
+  @apply flex items-center gap-2 rounded-md border border-gray-100 bg-white px-3 py-2 transition-all duration-200 hover:border-black hover:shadow-sm;
+}
+
+.btn-talk {
+  @apply rounded-full bg-black px-6 py-2.5 text-[11px] font-bold uppercase tracking-widest text-white transition-all hover:bg-gray-800 active:scale-95;
+}
+
+.btn-primary {
+  @apply flex items-center gap-3 bg-black px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-gray-800;
+}
+
+.btn-secondary {
+  @apply flex items-center gap-3 border border-black px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-black transition-all hover:bg-gray-50;
+}
+
+.filter-btn {
+  @apply rounded-full border border-gray-100 px-5 py-2 text-[10px] font-bold uppercase tracking-widest transition-all hover:border-black;
+}
+
+.filter-btn.active {
+  @apply border-black bg-black text-white;
+}
+
+.stack-category-card {
+  @apply flex flex-col items-start gap-4 bg-white p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.12)];
+}
+
+.project-card {
+  @apply flex flex-col bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)];
+}
+
+.project-tag {
+  @apply rounded border border-gray-100 bg-gray-50 px-2.5 py-1 text-[9px] font-bold uppercase tracking-widest text-gray-500;
+}
+
+.service-card {
+  @apply flex flex-col gap-4 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.12)];
+}
+
+.footer-social-link {
+  @apply text-[12px] font-medium uppercase tracking-widest text-gray-500 transition-colors duration-300 hover:text-black;
+}
+
+.tech-pill {
+  @apply flex items-center gap-2 rounded border border-gray-100 bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-gray-600;
+}
+
+.arch-node {
+  @apply border border-gray-200 bg-white p-4 text-center text-[10px] font-bold uppercase tracking-widest;
+}
+
+.code-block {
+  @apply overflow-x-auto rounded-sm border border-gray-100 bg-gray-50 p-6 font-mono text-sm leading-relaxed text-gray-700;
+}
+
+.social-pill {
+  @apply whitespace-nowrap rounded-full border border-gray-100 px-5 py-2.5 text-[10px] font-bold uppercase tracking-widest transition-all duration-300 hover:border-black hover:bg-black hover:text-white;
+}
+
+.form-input {
+  @apply w-full border-b border-gray-200 bg-white px-0 py-4 text-[15px] transition-all focus:border-black focus:ring-0;
+}
+
+.grid-technical {
+  @apply grid gap-[1px] border-y border-gray-100 bg-gray-100;
+}
+
+.grid-cell {
+  @apply bg-white p-12 lg:p-20;
+}
+
+.section-snap {
+  scroll-snap-align: start;
+  scroll-margin-top: 80px;
+}
+
+.section-offset {
+  scroll-margin-top: 80px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.08s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.16s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.24s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.32s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.mdx-content h2 {
+  @apply mb-6 text-[11px] font-bold uppercase tracking-[0.4em] text-black;
+}
+
+.mdx-content h3 {
+  @apply mb-4 text-[11px] font-bold uppercase tracking-widest text-black;
+}
+
+.mdx-content p {
+  @apply text-gray-600;
+}
+
+.dark body {
+  @apply bg-[#0c0c0c] text-gray-100;
+}
+
+.dark .section-container {
+  @apply text-gray-100;
+}
+
+.dark .project-card,
+.dark .stack-category-card,
+.dark .pillar-card,
+.dark .service-card {
+  @apply bg-[#111111] border border-white/5;
+}
+
+.dark .project-tag {
+  @apply border-white/10 bg-white/5 text-gray-300;
+}
+
+.dark .tech-badge {
+  @apply border-white/10 bg-white/5;
+}
+
+.dark .tech-pill {
+  @apply border-white/10 bg-white/5 text-gray-300;
+}
+
+.dark .code-block {
+  @apply border-white/10 bg-white/5 text-gray-300;
+}
+
+.dark .nav-link {
+  @apply text-gray-500 hover:text-white;
+}
+
+.dark .nav-link::after {
+  @apply bg-white;
+}
+
+.dark .filter-btn {
+  @apply border-white/10 text-gray-300 hover:border-white/30;
+}
+
+.dark .filter-btn.active {
+  @apply bg-white text-black border-white;
+}
+
+.dark .footer-social-link {
+  @apply text-gray-400 hover:text-white;
+}
+
+.dark .btn-primary {
+  @apply bg-white text-black hover:bg-gray-200;
+}
+
+.dark .btn-secondary {
+  @apply border-white text-white hover:bg-white/10;
+}
+
+.dark .btn-talk {
+  @apply bg-white text-black hover:bg-gray-200;
+}
+
+.dark .social-pill {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #d0d0d0;
+}
+
+.dark .social-pill:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark .form-input {
+  @apply border-white/10 bg-transparent text-gray-100 focus:border-white;
+}
+
+.dark .grid-technical {
+  @apply border-white/10 bg-white/5;
+}
+
+.dark .grid-cell {
+  @apply bg-[#0f0f0f];
+}
+
+.dark header,
+.dark footer,
+.dark section {
+  background-color: #0f0f0f;
+}
+
+.dark header {
+  border-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(12, 12, 12, 0.85);
+}
+
+.dark footer {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark section {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .grid-technical,
+.dark .grid-cell,
+.dark .project-card,
+.dark .stack-category-card,
+.dark .pillar-card,
+.dark .service-card,
+.dark .tech-badge,
+.dark .tech-pill,
+.dark .project-tag,
+.dark .code-block,
+.dark .form-input,
+.dark .social-pill {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .grid-technical,
+.dark .grid-cell,
+.dark .project-card,
+.dark .stack-category-card,
+.dark .pillar-card,
+.dark .service-card,
+.dark .tech-badge,
+.dark .tech-pill,
+.dark .project-tag,
+.dark .code-block {
+  background-color: #141414;
+}
+
+.dark .section-container p,
+.dark .section-container li {
+  color: #c6c6c6;
+}
+
+.dark .eyebrow {
+  color: #8a8a8a;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4 {
+  color: #f7f7f7;
+}
+
+.dark .nav-link.active,
+.dark .nav-link:hover {
+  color: #ffffff;
+}
+
+.dark .project-card h3,
+.dark .stack-category-card h4,
+.dark .pillar-card h4,
+.dark .service-card h4 {
+  color: #f7f7f7;
+}
+
+.dark .mdx-content h2,
+.dark .mdx-content h3 {
+  @apply text-gray-100;
+}
+
+.dark .mdx-content p,
+.dark .mdx-content li {
+  color: #d0d0d0;
+}
+
+.dark .tech-badge img[src*="nextdotjs"],
+.dark .tech-badge img[src*="vercel"],
+.dark .tech-badge img[src*="amazonwebservices"],
+.dark .tech-badge img[src*="express"] {
+  filter: invert(1) brightness(1.1);
+}
+
+.mdx-content ul {
+  @apply space-y-4;
+}
+
+.mdx-content li {
+  @apply flex items-start gap-3 text-sm text-gray-500;
+}
+
+.mdx-content pre {
+  @apply code-block;
+}

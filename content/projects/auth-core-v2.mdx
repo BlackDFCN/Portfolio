@@ -1,0 +1,48 @@
+---
+title: "Auth Core v2"
+description: "Sistema de autenticacion centralizado con SSO, 2FA y biometria para aplicaciones empresariales."
+date: "2023-11-18"
+role: "Principal Backend Engineer"
+category: "Backend"
+tags: ["NestJS", "TypeScript", "AWS", "Kubernetes"]
+repoUrl: "https://github.com/example/auth-core-v2"
+featured: true
+metrics:
+  - label: "Tiempo de Login"
+    value: "-40%"
+  - label: "Disponibilidad"
+    value: "99.95%"
+  - label: "Flujos Automatizados"
+    value: "+120"
+problem: "Las aplicaciones empresariales dependian de multiples sistemas de autenticacion aislados, generando friccion y costos de mantenimiento elevados."
+solution: "Se implemento un core de identidad con SSO, politicas adaptativas y observabilidad en tiempo real."
+solutionPoints:
+  - "Unificacion de credenciales con flujos OAuth2 y SAML."
+  - "Motor de riesgo para MFA dinamico."
+  - "Auditoria y reportes automatizados para compliance."
+documentation:
+  - title: "Identity Platform"
+    text: "Servicios desacoplados para onboarding, sesiones y riesgos, con observabilidad en tiempo real."
+  - title: "Security"
+    text: "MFA dinamico, biometria y politicas adaptativas por region y dispositivo."
+  - title: "Infraestructura"
+    text: "Despliegue en Kubernetes con escalado automatico y monitoreo centralizado."
+codeFile: "src/auth/session.ts"
+architecture:
+  client: "Admin Console"
+  gateway: "API Gateway"
+  services:
+    - "Identity Service"
+    - "Token Service"
+    - "Risk Engine"
+  persistence:
+    - "PostgreSQL"
+    - "Redis"
+---
+```ts
+const session = await authService.issueSession({
+  userId,
+  context,
+  policies: ["mfa", "geo_fencing"]
+});
+```
