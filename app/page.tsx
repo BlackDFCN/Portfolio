@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getFeaturedProjects } from "@/lib/projects";
 import ProjectCard from "@/components/ProjectCard";
+import DownloadCVButton from "@/components/DownloadCVButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -74,15 +75,7 @@ export default function HomePage() {
               >
                 Contactar ahora
               </Link>
-              <Link
-                className="flex items-center justify-center gap-3 rounded-full border border-gray-200 bg-white px-10 py-5 text-xs font-bold uppercase tracking-widest text-gray-900 transition-all hover:bg-gray-50"
-                href="/contacto"
-              >
-                Descargar CV
-                <span className="material-symbols-outlined text-[18px]">
-                  download
-                </span>
-              </Link>
+              <DownloadCVButton />
             </div>
           </div>
           <div className="reveal reveal-delay-2 flex justify-center lg:col-span-5 lg:justify-end" data-reveal>

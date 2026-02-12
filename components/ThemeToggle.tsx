@@ -1,105 +1,29 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 type ThemeMode = "light" | "dark";
-type ThemePreference = "system" | ThemeMode;
-
-const getSystemTheme = (): ThemeMode => {
-  if (typeof window === "undefined") {
-    return "light";
-  }
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-};
-
-const getInitialPreference = (): ThemePreference => {
-  if (typeof window === "undefined") {
-    return "system";
-  }
-  const stored = window.localStorage.getItem("theme");
-  if (stored === "light" || stored === "dark") {
-    return stored;
-  }
-  return "system";
-};
 
 export default function ThemeToggle() {
-  const [preference, setPreference] = useState<ThemePreference>("system");
-  const [systemTheme, setSystemTheme] = useState<ThemeMode>("light");
-
-  const resolvedTheme = useMemo<ThemeMode>(
-    () => (preference === "system" ? systemTheme : preference),
-    [preference, systemTheme]
-  );
+  const [resolvedTheme, setResolvedTheme] = useState<ThemeMode>("light");
 
   useEffect(() => {
-    const initialPreference = getInitialPreference();
-    const initialSystem = getSystemTheme();
-    setPreference(initialPreference);
-    setSystemTheme(initialSystem);
-    window.localStorage.removeItem("themePreference");
+    const stored = window.localStorage.getItem("theme");
+    if (stored === "light" || stored === "dark") {
+      setResolvedTheme(stored);
+    } else {
+      const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setResolvedTheme(isDark ? "dark" : "light");
+    }
   }, []);
 
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-    if (preference !== "system") {
-      return;
-    }
-
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (event: MediaQueryListEvent) => {
-      setSystemTheme(event.matches ? "dark" : "light");
-    };
-
-    if (media.addEventListener) {
-      media.addEventListener("change", handleChange);
-    } else {
-      media.addListener(handleChange);
-    }
-
-    return () => {
-      if (media.removeEventListener) {
-        media.removeEventListener("change", handleChange);
-      } else {
-        media.removeListener(handleChange);
-      }
-    };
-  }, [preference]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    const root = document.documentElement;
-    const body = document.body;
-    const isDark = resolvedTheme === "dark";
-
-    root.classList.toggle("dark", isDark);
-    body?.classList.toggle("dark", isDark);
-    root.dataset.theme = resolvedTheme;
-    if (body) {
-      body.dataset.theme = resolvedTheme;
-    }
-    root.style.colorScheme = resolvedTheme;
-
-    if (preference === "system") {
-      window.localStorage.removeItem("theme");
-      return;
-    }
-
-    window.localStorage.setItem("theme", preference);
-  }, [preference, resolvedTheme]);
-
   const toggleTheme = () => {
-    setPreference((current) => {
-      const currentTheme = current === "system" ? resolvedTheme : current;
-      return currentTheme === "dark" ? "light" : "dark";
-    });
+    const newTheme = resolvedTheme === "dark" ? "light" : "dark";
+    setResolvedTheme(newTheme);
+    window.localStorage.setItem("theme", newTheme);
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    document.body?.classList.toggle("dark", newTheme === "dark");
+    document.documentElement.style.colorScheme = newTheme;
   };
 
   const label = resolvedTheme === "dark" ? "Oscuro" : "Claro";

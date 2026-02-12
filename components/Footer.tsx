@@ -9,15 +9,15 @@ export default function Footer() {
             BASTIANDEV <span className="text-gray-300">&lt;/&gt;</span>
           </Link>
           <div className="flex flex-wrap items-center gap-3">
-            <Link className="footer-social-link" href="https://wa.me/56900000000" target="_blank">
+            <Link className="footer-social-link" href="https://wa.me/56959800748" target="_blank">
               WhatsApp
             </Link>
             <span className="select-none text-gray-200">·</span>
-            <Link className="footer-social-link" href="https://linkedin.com" target="_blank">
+            <Link className="footer-social-link" href="https://linkedin.com/in/bastiantapia07" target="_blank">
               LinkedIn
             </Link>
             <span className="select-none text-gray-200">·</span>
-            <Link className="footer-social-link" href="https://github.com" target="_blank">
+            <Link className="footer-social-link" href="https://github.com/BlackDFCN" target="_blank">
               GitHub
             </Link>
           </div>

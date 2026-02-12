@@ -76,14 +76,16 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-xl">
       <nav className="section-container flex h-20 items-center justify-between">
-        <Link className="group flex items-center gap-1" href="/">
-          <span className="text-xl font-extrabold uppercase tracking-tighter text-black">
-            BastianDev
-            <span className="text-gray-300 transition-colors group-hover:text-black">
-              .&lt;/&gt;
+        <div className="flex items-center gap-4">
+          <Link className="group flex items-center gap-1" href="/">
+            <span className="text-xl font-extrabold uppercase tracking-tighter text-black">
+              BastianDev
+              <span className="text-gray-300 transition-colors group-hover:text-black">
+                .&lt;/&gt;
+              </span>
             </span>
-          </span>
-        </Link>
+          </Link>
+        </div>
         <div className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <Link

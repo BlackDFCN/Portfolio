@@ -12,79 +12,80 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="py-24 lg:py-40">
-        <div className="section-container">
-          <div className="max-w-4xl">
-            <span className="eyebrow">DISPONIBILIDAD INMEDIATA</span>
-            <h1 className="mb-10 text-6xl font-extrabold tracking-tight leading-[0.95] text-black lg:text-[6.5rem]">
-              Iniciemos tu próximo <br /> gran proyecto.
+      <section className="section-snap border-t border-gray-50 bg-white py-8 lg:py-16">
+        <div className="section-container max-w-6xl">
+          <div className="reveal mb-12 max-w-3xl" data-reveal>
+            <span className="eyebrow">CONTACTO</span>
+            <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-black lg:text-5xl">
+              Iniciemos tu próximo proyecto.
             </h1>
-            <p className="max-w-3xl text-xl font-medium leading-relaxed text-gray-500 lg:text-2xl">
-              Desarrollador Full Stack disponible para proyectos freelance o
-              integraciones en equipos de ingeniería. Te responderé a la
-              brevedad posible para analizar tu propuesta.
-            </p>
           </div>
-        </div>
-      </section>
 
-      <section className="grid-technical">
-        <div className="grid grid-cols-1 gap-[1px] lg:grid-cols-12">
-          <div className="grid-cell flex flex-col justify-center lg:col-span-6">
-            <span className="eyebrow">Email de contacto</span>
-            <h2 className="mb-6 text-xl font-bold tracking-tight text-black lg:text-3xl">
-              bastiantapia.dev@gmail.com
-            </h2>
-            <CopyEmailButton email="bastiantapia.dev@gmail.com" />
-          </div>
-          <div className="grid-cell flex flex-col justify-center lg:col-span-6">
-            <span className="eyebrow">REDES SOCIALES</span>
-            <div className="flex flex-row flex-nowrap items-center gap-3 overflow-x-auto pb-2 sm:pb-0">
-              <Link className="social-pill" href="https://wa.me/56900000000" target="_blank">
-                <img
-                  alt="WhatsApp"
-                  className="h-4 w-4"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKhq1FQd-ULGKsvYM7g61oYhd315BM15aGUHeg5M8dYWr5Etq9t-RBmwCoQKjDj_HZQ3zkF0VyCHSXYCaa9kKmkw03ZxNdv0hMKas2sJOFb1HQvWwKf938YVHSkMzQgp6CV7MgQmUCzopI-PflHIEiHkbUbhb6WfCiT0tTTo_VbLmhUPbMT9yAO9Yg8CcSjkp-aCWUabCdypsIBGIH1mlVhEfRmoXLDqXxDnkoYTbGDr4KTWICa7SKPSNMPEv6t-sRh8t2Wdf5N6Y"
-                />
-                WhatsApp
-              </Link>
-              <Link className="social-pill" href="https://linkedin.com" target="_blank">
-                <img
-                  alt="LinkedIn"
-                  className="h-4 w-4"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeEE2dWn0Mvkhoihrr-y_7IzWhEwukQFeIx0zkk4YnNvBcvArB4RgqANx6q-RDFmmY5OkKD7ErI33l-TgnyEJbswBqCppMJpFGEWRLlvhA5V7qWFiqq9z_Sqy9N2S7q-b9afDFSx1iy0h8Zacsl5K0i-TgXVeTO4_p1mnP5HSE22GCOJMocyme--gvMjOvxJqLs6GNqE5u_0uICGDKNp3WmxHJcCAnTVDQNcSj7cVgfeEGNZevSn4SGkpc4Z3lsgjmJ8zGyolameI"
-                />
-                LinkedIn
-              </Link>
-              <Link className="social-pill" href="https://github.com" target="_blank">
-                <img
-                  alt="GitHub"
-                  className="h-4 w-4"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZOHifjC3nXraku0qodBnS0vniDKRbmMD6edb8ocExFfSpTMx-rwGu62mR5kvLN0z5w-7YboN6gzcuFaYUdciW0pTCgGbEeyjZz2PWfmRN2COn6LE4lZxn1rL8lCU2w4nc9O1lNSTF4Pzak7v-QVWnx9HsKjBkgcg22G_rR7wUfc25Ju-cPsXAYgZDn_uaODIGqWgIyfdRSwK3sVgTIfqOe3XuCNJUKgXJcIo8PfX7UN3pKLk_ZvWLKZWDqt4UoSEXhCa29uoou6M"
-                />
-                GitHub
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-24 lg:py-40">
-        <div className="section-container">
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-24">
-            <div className="lg:col-span-5">
-              <span className="eyebrow">Formulario</span>
-              <h3 className="mb-6 text-4xl font-extrabold text-black">
-                Cuéntame sobre tu visión
-              </h3>
-              <p className="max-w-md text-lg leading-relaxed text-gray-500">
-                Completa el formulario y me pondré en contacto contigo para
-                analizar los detalles técnicos. Puedes enviarme un mensaje a
-                través del formulario o contactarme directamente vía WhatsApp
-                para una comunicación más ágil.
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* Lado Izquierdo - Bloque de Contacto */}
+            <div className="reveal rounded-2xl bg-gray-50 p-8 space-y-8" data-reveal>
+              {/* Descripción */}
+              <p className="text-base leading-relaxed text-gray-600">
+                Disponible para proyectos freelance o integraciones en equipos. Te responderé a la brevedad posible.
               </p>
+
+              {/* Email */}
+              <div>
+                <span className="eyebrow mb-4 block text-xs uppercase">Contáctame directamente</span>
+                <a
+                  className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-4 font-semibold text-black transition-all hover:border-gray-400 hover:bg-gray-50"
+                  href="mailto:bastiantapia.dev@gmail.com"
+                >
+                  <span className="material-symbols-outlined text-xl">mail</span>
+                  <span>bastiantapia.dev@gmail.com</span>
+                </a>
+                <CopyEmailButton email="bastiantapia.dev@gmail.com" />
+              </div>
+
+              {/* Redes Sociales */}
+              <div>
+                <span className="eyebrow mb-4 block text-xs uppercase">También en</span>
+                <div className="flex gap-3">
+                  <Link
+                    className="flex h-14 w-14 items-center justify-center rounded-lg bg-[#25D366] transition-transform hover:scale-110"
+                    href="https://wa.me/56959800748"
+                    target="_blank"
+                    title="WhatsApp"
+                  >
+                    <img
+                      alt="WhatsApp"
+                      className="h-7 w-7"
+                      src="https://cdn.simpleicons.org/whatsapp/ffffff"
+                    />
+                  </Link>
+                  <Link
+                    className="flex h-14 w-14 items-center justify-center rounded-lg bg-[#0077B5] transition-transform hover:scale-110"
+                    href="https://linkedin.com/in/bastiantapia07"
+                    target="_blank"
+                    title="LinkedIn"
+                  >
+                    <svg className="h-7 w-7 fill-white" viewBox="0 0 24 24">
+                      <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
+                    </svg>
+                  </Link>
+                  <Link
+                    className="flex h-14 w-14 items-center justify-center rounded-lg bg-black transition-transform hover:scale-110"
+                    href="https://github.com/BlackDFCN"
+                    target="_blank"
+                    title="GitHub"
+                  >
+                    <img
+                      alt="GitHub"
+                      className="h-7 w-7"
+                      src="https://cdn.simpleicons.org/github/ffffff"
+                    />
+                  </Link>
+                </div>
+              </div>
             </div>
-            <div className="lg:col-span-7">
+
+            {/* Lado Derecho */}
+            <div className="reveal" data-reveal>
               <ContactForm />
             </div>
           </div>
