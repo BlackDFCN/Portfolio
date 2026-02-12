@@ -19,7 +19,10 @@ export default function Header() {
 
   useEffect(() => {
     if (pathname !== "/") {
-      setActiveSection(null);
+      const pathnameToSection: Record<string, string> = {
+        "/proyectos": "proyectos"
+      };
+      setActiveSection(pathnameToSection[pathname] ?? null);
       return;
     }
 

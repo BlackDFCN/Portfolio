@@ -14,16 +14,16 @@ export default function ContactPage() {
     <>
       <section className="section-snap border-t border-gray-50 bg-white py-8 lg:py-16">
         <div className="section-container max-w-6xl">
-          <div className="reveal mb-12 max-w-3xl" data-reveal>
+          <div className="reveal mb-8 max-w-3xl" data-reveal>
             <span className="eyebrow">CONTACTO</span>
-            <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-black lg:text-5xl">
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-black lg:text-5xl">
               Iniciemos tu próximo proyecto.
             </h1>
           </div>
 
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Lado Izquierdo - Bloque de Contacto */}
-            <div className="reveal rounded-2xl bg-gray-50 p-8 space-y-8" data-reveal>
+            <div className="reveal contact-card rounded-2xl bg-gray-50 p-5 space-y-5" data-reveal>
               {/* Descripción */}
               <p className="text-base leading-relaxed text-gray-600">
                 Disponible para proyectos freelance o integraciones en equipos. Te responderé a la brevedad posible.
@@ -47,36 +47,36 @@ export default function ContactPage() {
                 <span className="eyebrow mb-4 block text-xs uppercase">También en</span>
                 <div className="flex gap-3">
                   <Link
-                    className="flex h-14 w-14 items-center justify-center rounded-lg bg-[#25D366] transition-transform hover:scale-110"
+                    className="contact-icon flex h-11 w-11 items-center justify-center rounded-lg bg-[#25D366]"
                     href="https://wa.me/56959800748"
                     target="_blank"
                     title="WhatsApp"
                   >
                     <img
                       alt="WhatsApp"
-                      className="h-7 w-7"
+                      className="h-5 w-5"
                       src="https://cdn.simpleicons.org/whatsapp/ffffff"
                     />
                   </Link>
                   <Link
-                    className="flex h-14 w-14 items-center justify-center rounded-lg bg-[#0077B5] transition-transform hover:scale-110"
+                    className="contact-icon flex h-11 w-11 items-center justify-center rounded-lg bg-[#0077B5]"
                     href="https://linkedin.com/in/bastiantapia07"
                     target="_blank"
                     title="LinkedIn"
                   >
-                    <svg className="h-7 w-7 fill-white" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 fill-white" viewBox="0 0 24 24">
                       <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
                     </svg>
                   </Link>
                   <Link
-                    className="flex h-14 w-14 items-center justify-center rounded-lg bg-black transition-transform hover:scale-110"
+                    className="contact-icon flex h-11 w-11 items-center justify-center rounded-lg bg-black"
                     href="https://github.com/BlackDFCN"
                     target="_blank"
                     title="GitHub"
                   >
                     <img
                       alt="GitHub"
-                      className="h-7 w-7"
+                      className="h-5 w-5"
                       src="https://cdn.simpleicons.org/github/ffffff"
                     />
                   </Link>
@@ -85,7 +85,7 @@ export default function ContactPage() {
             </div>
 
             {/* Lado Derecho */}
-            <div className="reveal" data-reveal>
+            <div className="reveal rounded-2xl border border-gray-100 bg-white p-5" data-reveal>
               <ContactForm />
             </div>
           </div>

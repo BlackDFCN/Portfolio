@@ -289,7 +289,7 @@ export default function HomePage() {
             <h3 className="mb-8 text-4xl font-extrabold tracking-tight text-black lg:text-5xl">
               Proyectos destacados
             </h3>
-            <p className="text-lg leading-relaxed text-gray-500">
+            <p className="text-xl leading-relaxed text-gray-500">
               Algunos proyectos desarrollados para empresas y proyectos personales.
             </p>
           </div>
@@ -298,7 +298,7 @@ export default function HomePage() {
               <ProjectCard key={project.slug} project={project} />
             ))}
           </div>
-          <div className="reveal reveal-delay-2 mt-10 flex flex-col items-center gap-6" data-reveal>
+          <div className="reveal reveal-delay-2 mt-8 flex flex-col items-center gap-6" data-reveal>
             <p className="font-medium italic text-gray-500">
               Explora más proyectos y experimentos técnicos
             </p>

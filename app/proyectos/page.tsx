@@ -13,9 +13,9 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <section className="pb-16 pt-24 lg:pb-24 lg:pt-32">
-        <div className="section-container">
-          <div className="max-w-3xl">
+      <section className="section-snap border-t border-gray-50 bg-white py-8 lg:py-16">
+        <div className="section-container max-w-6xl">
+          <div className="reveal mb-6 max-w-3xl" data-reveal>
             <span className="eyebrow">PROYECTOS</span>
             <h1 className="mb-8 text-5xl font-extrabold leading-[1.1] tracking-tight text-black lg:text-7xl">
               Catálogo Completo

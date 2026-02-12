@@ -48,14 +48,14 @@ export default function ContactForm() {
   };
 
   return (
-    <form className="space-y-12" onSubmit={handleSubmit}>
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+    <form className="space-y-5" onSubmit={handleSubmit}>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
             Nombre
           </label>
           <input
-            className="form-input"
+            className="form-input py-3 text-[14px]"
             name="name"
             placeholder="Tu nombre"
             required
@@ -67,7 +67,7 @@ export default function ContactForm() {
             Email
           </label>
           <input
-            className="form-input"
+            className="form-input py-3 text-[14px]"
             name="email"
             placeholder="tu@email.com"
             required
@@ -80,7 +80,7 @@ export default function ContactForm() {
           Asunto
         </label>
         <input
-          className="form-input"
+          className="form-input py-3 text-[14px]"
           name="subject"
           placeholder="¿En qué puedo ayudarte?"
           required
@@ -92,26 +92,23 @@ export default function ContactForm() {
           Mensaje
         </label>
         <textarea
-          className="form-input resize-none"
+          className="form-input resize-none py-3 text-[14px]"
           name="message"
           placeholder="Cuéntame sobre tu proyecto o propuesta técnica..."
           required
-          rows={4}
+          rows={3}
         />
       </div>
-      <div className="flex flex-col items-center gap-6 sm:flex-row">
+      <div className="flex flex-col items-center gap-3 sm:flex-row">
         <button
-          className="group flex h-[64px] w-full flex-1 items-center justify-center gap-4 bg-black text-[10px] font-bold uppercase tracking-[0.3em] text-white transition-all hover:bg-gray-800 active:scale-[0.98]"
+          className="contact-cta group flex h-[52px] w-full flex-1 items-center justify-center gap-2.5 bg-black text-[10px] font-bold uppercase tracking-[0.22em] text-white transition-all hover:bg-gray-800 active:scale-[0.98]"
           disabled={status === "loading"}
           type="submit"
         >
           {status === "loading" ? "Enviando..." : "Enviar mensaje"}
-          <span className="material-symbols-outlined text-base transition-transform group-hover:translate-x-2">
-            arrow_right_alt
-          </span>
         </button>
         <a
-          className="group flex h-[64px] w-full flex-1 items-center justify-center gap-4 border border-black bg-white text-[10px] font-bold uppercase tracking-[0.3em] text-black transition-all hover:bg-black hover:text-white active:scale-[0.98]"
+          className="contact-cta group flex h-[52px] w-full flex-1 items-center justify-center gap-2.5 border border-black bg-white text-[10px] font-bold uppercase tracking-[0.22em] text-black transition-all hover:bg-black hover:text-white active:scale-[0.98]"
           href="https://wa.me/56900000000"
           rel="noreferrer"
           target="_blank"
