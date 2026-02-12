@@ -42,7 +42,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="section-snap min-h-screen py-12 lg:py-20" data-section="inicio" id="inicio">
+      <section className="section-snap topo-section min-h-screen py-12 lg:py-20" data-section="inicio" id="inicio">
         <div className="section-container max-w-6xl grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
           <div className="reveal space-y-10 lg:col-span-7" data-reveal>
             <a
@@ -92,7 +92,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-snap min-h-screen border-t border-gray-50 bg-white py-8 lg:py-16" data-section="metodologia" id="metodologia">
+      <section className="section-snap topo-section min-h-screen border-t border-gray-50 dark:border-white/8 bg-white py-8 lg:py-16" data-section="metodologia" id="metodologia">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-6 max-w-3xl" data-reveal>
             <span className="eyebrow">Metodología</span>
@@ -100,9 +100,8 @@ export default function HomePage() {
               Filosofía de Desarrollo
             </h3>
             <p className="text-xl leading-relaxed text-gray-500">
-              Desarrollo soluciones completas con un enfoque estructurado y
-              orientado a largo plazo, priorizando la solidez interna y claridad
-              externa.
+              Soluciones solidas y escalables con un proceso claro, centrado en
+              calidad tecnica y experiencia de usuario.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-[1px] overflow-hidden rounded-sm border border-[#F3F4F6] bg-[#F3F4F6] md:grid-cols-2 lg:grid-cols-3">
@@ -176,7 +175,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-snap min-h-screen border-t border-gray-50 bg-white py-8 lg:py-16" data-section="stack" id="stack">
+      <section className="section-snap topo-section min-h-screen border-t border-gray-50 dark:border-white/8 bg-white py-8 lg:py-16" data-section="stack" id="stack">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-6 flex flex-col" data-reveal>
             <div className="max-w-3xl">
@@ -282,7 +281,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-snap min-h-screen border-t border-gray-50 bg-white py-8 lg:py-16" data-section="proyectos" id="proyectos">
+      <section className="section-snap topo-section border-t border-gray-50 dark:border-white/8 bg-white py-8 lg:py-16" data-section="proyectos" id="proyectos">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-6 max-w-3xl" data-reveal>
             <span className="eyebrow">TRABAJOS DESTACADOS</span>
@@ -313,7 +312,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-offset border-t border-gray-50 bg-white py-8 lg:py-16" data-section="servicios" id="servicios">
+      <section className="section-snap topo-section border-t border-gray-50 dark:border-white/8 bg-white py-8 lg:py-16" data-section="servicios" id="servicios">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-6 max-w-3xl" data-reveal>
             <span className="eyebrow">SERVICIOS PROFESIONALES</span>

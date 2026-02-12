@@ -172,6 +172,55 @@ body {
   scroll-margin-top: 80px;
 }
 
+:root {
+  --topo-lines-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' viewBox='0 0 1200 600' fill='none'%3E%3Cpath d='M0 90 C 180 30 360 150 540 90 C 720 30 900 150 1200 90' stroke='%23D1D5DB' stroke-width='1'/%3E%3Cpath d='M0 210 C 220 150 420 270 620 210 C 820 150 1020 270 1200 210' stroke='%23D1D5DB' stroke-width='1'/%3E%3Cpath d='M0 330 C 200 270 400 390 600 330 C 800 270 1000 390 1200 330' stroke='%23D1D5DB' stroke-width='1'/%3E%3Cpath d='M0 450 C 220 390 420 510 620 450 C 820 390 1020 510 1200 450' stroke='%23D1D5DB' stroke-width='1'/%3E%3C/svg%3E");
+  --topo-lines-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' viewBox='0 0 1200 600' fill='none'%3E%3Cpath d='M0 90 C 180 30 360 150 540 90 C 720 30 900 150 1200 90' stroke='%231F1F1F' stroke-width='1'/%3E%3Cpath d='M0 210 C 220 150 420 270 620 210 C 820 150 1020 270 1200 210' stroke='%231F1F1F' stroke-width='1'/%3E%3Cpath d='M0 330 C 200 270 400 390 600 330 C 800 270 1000 390 1200 330' stroke='%231F1F1F' stroke-width='1'/%3E%3Cpath d='M0 450 C 220 390 420 510 620 450 C 820 390 1020 510 1200 450' stroke='%231F1F1F' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.topo-section {
+  position: relative;
+  overflow: hidden;
+  --topo-shift: 0px;
+}
+
+.topo-section::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background-image: var(--topo-lines-light);
+  background-repeat: repeat;
+  background-size: 1200px 600px;
+  opacity: 0.18;
+  transform: translateY(var(--topo-shift));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.topo-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.topo-section[data-section="inicio"] {
+  --topo-shift: -30px;
+}
+
+.topo-section[data-section="metodologia"] {
+  --topo-shift: 0px;
+}
+
+.topo-section[data-section="stack"] {
+  --topo-shift: 30px;
+}
+
+.topo-section[data-section="proyectos"] {
+  --topo-shift: 60px;
+}
+
+.topo-section[data-section="servicios"] {
+  --topo-shift: 90px;
+}
+
 .section-offset {
   scroll-margin-top: 80px;
 }
@@ -236,6 +285,11 @@ body {
 .dark .pillar-card,
 .dark .service-card {
   @apply bg-[#111111] border border-white/5;
+}
+
+.dark .topo-section::before {
+  background-image: var(--topo-lines-dark);
+  opacity: 0.12;
 }
 
 .dark .project-tag {

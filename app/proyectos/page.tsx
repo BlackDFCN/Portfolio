@@ -12,8 +12,8 @@ export default function ProjectsPage() {
   const projects = getAllProjects();
 
   return (
-    <>
-      <section className="section-snap border-t border-gray-50 bg-white py-8 lg:py-16">
+    <div className="flex flex-1 flex-col">
+      <section className="border-gray-50 dark:border-white/8 bg-white py-8 lg:py-16">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-6 max-w-3xl" data-reveal>
             <span className="eyebrow">PROYECTOS</span>
@@ -27,11 +27,9 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
-      <section className="pb-32 lg:pb-48">
-        <div className="section-container">
-          <ProjectFilters projects={projects} />
-        </div>
+      <section className="flex flex-1 flex-col pb-0 w-full">
+        <ProjectFilters projects={projects} />
       </section>
-    </>
+    </div>
   );
 }
