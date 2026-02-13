@@ -100,8 +100,8 @@ export default function ContactForm() {
         />
       </div>
       <div className="flex flex-col items-center gap-3 sm:flex-row">
-        <button
-          className="contact-cta group flex h-[52px] w-full flex-1 items-center justify-center gap-2.5 bg-black text-[10px] font-bold uppercase tracking-[0.22em] text-white transition-all hover:bg-gray-800 active:scale-[0.98] dark:bg-white dark:text-black dark:hover:bg-gray-200"
+          <button
+            className="contact-cta group flex h-[52px] w-full flex-1 items-center justify-center gap-2.5 bg-black text-[10px] font-bold uppercase tracking-[0.22em] text-white transition-all active:scale-[0.98] dark:bg-white dark:text-black"
           disabled={status === "loading"}
           type="submit"
         >

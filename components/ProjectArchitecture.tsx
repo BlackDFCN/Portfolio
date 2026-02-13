@@ -1,9 +1,12 @@
 import type { ProjectArchitecture as ProjectArchitectureData } from "@/types/project";
+import MermaidDiagram from "@/components/MermaidDiagram";
 
 export default function ProjectArchitecture({
-  architecture
+  architecture,
+  diagram
 }: {
   architecture: ProjectArchitectureData;
+  diagram?: string;
 }) {
   return (
     <section className="border-y border-gray-100 bg-gray-50/50 py-20 lg:py-32 dark:border-white/10 dark:bg-white/5">
@@ -12,6 +15,11 @@ export default function ProjectArchitecture({
           03 / Arquitectura del Sistema
         </h2>
         <div className="mx-auto max-w-5xl px-0 py-8 sm:px-6 sm:py-12">
+          {diagram ? (
+            <div className="mb-12">
+              <MermaidDiagram diagram={diagram} title="Diagrama de arquitectura" />
+            </div>
+          ) : null}
           <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-5">
             <div className="arch-node">{architecture.client ?? "Client App"}</div>
             <div className="flex justify-center text-gray-300 dark:text-gray-600">

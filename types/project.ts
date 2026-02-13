@@ -17,12 +17,17 @@ export type ProjectFrontmatter = {
   role: string;
   category: string;
   tags: string[];
+  image?: string;
+  architectureDiagram?: string;
+  usageDiagram?: string;
   repoUrl?: string;
   featured: boolean;
   metrics: ProjectMetric[];
   architecture?: ProjectArchitecture;
   problem?: string;
+  problemImpact?: string;
   solution?: string;
+  solutionImpact?: string;
   solutionPoints?: string[];
   documentation?: { title: string; text: string }[];
   codeFile?: string;

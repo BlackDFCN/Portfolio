@@ -102,7 +102,7 @@ body {
 }
 
 .btn-talk {
-  @apply rounded-full bg-black px-6 py-2.5 text-[11px] font-bold uppercase tracking-widest text-white transition-all hover:bg-gray-800 active:scale-95;
+  @apply rounded-full bg-black px-6 py-2.5 text-[11px] font-bold uppercase tracking-widest text-white transition-all active:scale-95;
 }
 
 .btn-lift {
@@ -130,7 +130,7 @@ body {
 }
 
 .btn-primary {
-  @apply flex items-center gap-3 bg-black px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-gray-800;
+  @apply flex items-center gap-3 bg-black px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-all;
 }
 
 .btn-secondary {
@@ -175,6 +175,24 @@ body {
 
 .code-block {
   @apply overflow-x-auto rounded-sm border border-gray-100 bg-gray-50 p-6 font-mono text-sm leading-relaxed text-gray-700;
+}
+
+
+.mermaid-wrapper {
+  @apply rounded-sm border border-gray-100 bg-white/80 p-6 text-left shadow-[0_14px_30px_-24px_rgba(0,0,0,0.35)];
+}
+
+.mermaid-canvas {
+  @apply flex items-center justify-center overflow-x-auto;
+}
+
+.mermaid-canvas svg {
+  height: auto;
+  max-width: 100%;
+}
+
+.dark .mermaid-wrapper {
+  @apply border-white/10 bg-[#0f0f0f];
 }
 
 .social-pill {

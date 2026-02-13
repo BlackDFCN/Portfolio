@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const featuredProjects = getFeaturedProjects(3);
+  const featuredSlots = Array.from({ length: 3 }, (_, index) => featuredProjects[index] ?? null);
   const stackContent = getStackContent();
   const iconColors: Record<string, string> = {
     typescript: "3178C6",
@@ -264,7 +265,7 @@ export default function HomePage() {
         <div className="section-container max-w-6xl">
           <div className="reveal mb-6 max-w-3xl" data-reveal>
             <span className="eyebrow">TRABAJOS DESTACADOS</span>
-            <h3 className="mb-6 text-3xl font-extrabold tracking-tight text-black sm:text-4xl lg:text-5xl dark:text-white">
+            <h3 className="mb-6 text-3xl font-extrabold tracking-tight text-black sm:text-4xl lg:text-6xl dark:text-white">
               Proyectos destacados
             </h3>
             <p className="text-lg leading-relaxed text-gray-500 sm:text-xl dark:text-gray-300">
@@ -272,9 +273,31 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 gap-[1px] overflow-hidden rounded-sm border border-[#F3F4F6] bg-[#F3F4F6] md:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
+            {featuredSlots.map((project, index) =>
+              project ? (
+                <ProjectCard key={project.slug} project={project} />
+              ) : (
+                <article
+                  className="project-card reveal"
+                  data-reveal
+                  key={`empty-${index}`}
+                >
+                  <div className="aspect-[16/7] border-b border-gray-100 bg-gray-50 p-6 dark:border-white/10 dark:bg-white/5">
+                    <div className="flex h-full w-full items-center justify-center rounded bg-gray-100/60 dark:bg-white/10" />
+                  </div>
+                  <div className="flex h-full flex-col p-8">
+                    <div className="mb-3 h-5 w-2/3 rounded bg-gray-100/80 dark:bg-white/10" />
+                    <div className="mb-4 h-14 rounded bg-gray-100/80 dark:bg-white/10" />
+                    <div className="mb-4 flex gap-2">
+                      <span className="h-5 w-14 rounded-full bg-gray-100/80 dark:bg-white/10" />
+                      <span className="h-5 w-16 rounded-full bg-gray-100/80 dark:bg-white/10" />
+                      <span className="h-5 w-10 rounded-full bg-gray-100/80 dark:bg-white/10" />
+                    </div>
+                    <div className="h-4 w-24 rounded bg-gray-100/80 dark:bg-white/10" />
+                  </div>
+                </article>
+              )
+            )}
           </div>
           <div className="reveal reveal-delay-2 mt-8 flex flex-col items-center gap-6" data-reveal>
             <p className="font-medium italic text-gray-500 dark:text-gray-300">
@@ -364,7 +387,7 @@ export default function HomePage() {
               </p>
             </div>
             <Link
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-black px-8 py-3 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-xl shadow-black/10 transition-all hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-black px-8 py-3 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-xl shadow-black/10 transition-all dark:bg-white dark:text-black"
               href="/contacto"
             >
               Contactar para un servicio

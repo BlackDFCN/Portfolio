@@ -1,17 +1,33 @@
 ---
 title: "Titulo del proyecto"
 description: "Descripcion corta del proyecto."
-date: "2024-01-01"
+date: "2024-01"
 role: "Rol principal"
 category: "Categoria"
 tags: ["Tag1", "Tag2"]
+image: "/projects/nombre-imagen.png"
+architectureDiagram: |
+  flowchart LR
+    A[Cliente] --> B[Gateway]
+    B --> C[Servicio principal]
+    C --> D[(Base de datos)]
+usageDiagram: |
+  sequenceDiagram
+    participant User as Usuario
+    participant App as Aplicacion
+    participant API as API
+    User->>App: Accede al portal
+    App->>API: Consulta datos
+    API-->>App: Respuesta
 repoUrl: "https://github.com/tu-repo"
 featured: false
 metrics:
   - label: "Metrica"
     value: "Valor"
 problem: "Describe el problema."
+problemImpact: "Impacto principal en una linea."
 solution: "Describe la solucion general."
+solutionImpact: "Resultado esperado en una linea."
 solutionPoints:
   - "Punto destacado de la solucion."
 documentation:

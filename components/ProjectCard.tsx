@@ -13,15 +13,27 @@ const iconByCategory: Record<string, string> = {
 
 export default function ProjectCard({ project }: { project: ProjectSummary }) {
   const icon = iconByCategory[project.category] ?? "analytics";
+  const hasImage = Boolean(project.image);
 
   return (
     <article className="project-card reveal" data-reveal>
       <div className="aspect-[16/7] border-b border-gray-100 bg-gray-50 p-6 dark:border-white/10 dark:bg-white/5">
-        <div className="flex h-full w-full items-center justify-center rounded bg-gray-100 grayscale opacity-60 dark:bg-white/10">
-          <span className="material-symbols-outlined text-5xl text-gray-400 dark:text-gray-500">
-            {icon}
-          </span>
-        </div>
+        {hasImage ? (
+          <div className="h-full w-full overflow-hidden rounded bg-gray-100 dark:bg-white/10">
+            <img
+              alt={`Imagen de ${project.title}`}
+              className="h-full w-full object-cover"
+              loading="lazy"
+              src={project.image}
+            />
+          </div>
+        ) : (
+          <div className="flex h-full w-full items-center justify-center rounded bg-gray-100 grayscale opacity-60 dark:bg-white/10">
+            <span className="material-symbols-outlined text-5xl text-gray-400 dark:text-gray-500">
+              {icon}
+            </span>
+          </div>
+        )}
       </div>
       <div className="flex h-full flex-col p-8">
         <h3 className="mb-2 text-lg font-bold text-black dark:text-white">

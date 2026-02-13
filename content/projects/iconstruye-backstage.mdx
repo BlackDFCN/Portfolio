@@ -1,0 +1,78 @@
+---
+title: "Plataforma Backstage ICONSTRUYE"
+description: "Adopcion de Backstage como portal interno de TI, centralizando documentacion y catalogo de servicios sin exponer informacion sensible."
+date: "2024-09"
+role: "Desarrollador Full Stack"
+category: "Platform Engineering"
+tags: ["Backstage", "Azure", "GCP", "Cloudflare", "Docker", "Node.js"]
+image: "/projects/iconstruye-backstage.png"
+architectureDiagram: |
+  flowchart LR
+    CF[Cloudflare DNS] --> CA[Azure Container Apps]
+    CA --> BS[Backstage (Node.js)]
+    CA --> ACR[Azure Container Registry]
+    BS --> PG[Azure Database for PostgreSQL Flexible Server]
+    BS --> GCS[GCP Cloud Storage (TechDocs)]
+    GCS --> IAM[GCP Cloud IAM]
+    BS --> Entra[Microsoft Entra ID]
+usageDiagram: |
+  sequenceDiagram
+    participant Dev as Equipo de desarrollo
+    participant BS as Backstage
+    participant ADO as Azure DevOps
+    participant Docs as TechDocs (GCS)
+    Dev->>BS: Acceso al portal y busqueda
+    BS->>ADO: Sincroniza repositorios
+    BS->>Docs: Publica y consulta documentacion
+    BS-->>Dev: Catalogo, ownership y visibilidad
+repoUrl: "https://github.com/backstage/backstage.git"
+featured: true
+metrics:
+  - label: "Alcance"
+    value: "Portal de TI"
+  - label: "Foco"
+    value: "Catalogo de servicios"
+problem: "La documentacion tecnica y los recursos de arquitectura estaban dispersos en multiples plataformas, generando baja productividad, retrasos, dependencia de personal clave, falta de estandarizacion y errores operativos."
+problemImpact: "Impacto: baja productividad y retrasos por dispersion de informacion"
+solution: "Se adopto Backstage como plataforma interna de gestion de TI, centralizando documentacion, ownership y catalogo de servicios con integraciones clave, manteniendo solo informacion no sensible en el portafolio."
+solutionImpact: "Resultado: portal unico, mayor trazabilidad y estandarizacion"
+solutionPoints:
+  - "Lidere la adopcion e implementacion de Backstage alineado a las necesidades del equipo."
+  - "Integre Backstage con Azure DevOps para trazabilidad de repositorios y flujos de desarrollo."
+  - "Estandarice documentacion tecnica y flujos de trabajo asociados."
+  - "Capacite al equipo en el uso de Backstage y buenas practicas."
+  - "Colabore en entornos agiles coordinando tareas y mejora continua."
+documentation:
+  - title: "Plataforma"
+    text: "Backstage como portal unico con entidades, ownership y rutas claras de documentacion tecnica."
+  - title: "Infraestructura"
+    text: "Despliegue con Docker sobre Azure Container Apps, dominio personalizado y seguridad con Entra ID."
+  - title: "Integraciones"
+    text: "Cloudflare para DNS, almacenamiento tecnico en GCP Cloud Storage y permisos via Cloud IAM."
+  - title: "Uso"
+    text: "Catalogo de servicios, documentacion y ownership para equipos, con procesos estandarizados y trazabilidad."
+codeFile: "catalog-info.yaml"
+architecture:
+  client: "Backstage UI"
+  gateway: "Cloudflare DNS"
+  services:
+    - "Backstage (Node.js)"
+    - "Azure Container Apps"
+    - "Azure Container Registry"
+    - "Entra ID"
+  persistence:
+    - "Azure PostgreSQL Flexible Server"
+    - "GCP Cloud Storage"
+---
+```ts
+// Ejemplo de registro de una entidad en Backstage
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: service-catalog
+  description: Catalogo centralizado de servicios
+spec:
+  type: service
+  owner: architecture
+  lifecycle: production
+```

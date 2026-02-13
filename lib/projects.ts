@@ -33,6 +33,11 @@ const parseFrontmatter = (data: Record<string, unknown>): ProjectFrontmatter => 
     role: String(data.role ?? ""),
     category: String(data.category ?? ""),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
+    image: data.image ? String(data.image) : undefined,
+    architectureDiagram: data.architectureDiagram
+      ? String(data.architectureDiagram)
+      : undefined,
+    usageDiagram: data.usageDiagram ? String(data.usageDiagram) : undefined,
     repoUrl: data.repoUrl ? String(data.repoUrl) : undefined,
     featured: Boolean(data.featured),
     metrics,
@@ -54,7 +59,9 @@ const parseFrontmatter = (data: Record<string, unknown>): ProjectFrontmatter => 
       : undefined
     ,
     problem: data.problem ? String(data.problem) : undefined,
+    problemImpact: data.problemImpact ? String(data.problemImpact) : undefined,
     solution: data.solution ? String(data.solution) : undefined,
+    solutionImpact: data.solutionImpact ? String(data.solutionImpact) : undefined,
     solutionPoints: Array.isArray(data.solutionPoints)
       ? data.solutionPoints.map(String)
       : undefined,
@@ -107,10 +114,11 @@ export const getAllProjects = (): ProjectSummary[] => {
 };
 
 export const getFeaturedProjects = (limit = 3): ProjectSummary[] => {
-  return getAllProjects()
-    .filter((project) => project.featured)
-    .sort(byDateDesc)
-    .slice(0, limit);
+  const allProjects = getAllProjects().sort(byDateDesc);
+  const featuredProjects = allProjects.filter((project) => project.featured);
+  const selection = featuredProjects.length > 0 ? featuredProjects : allProjects;
+
+  return selection.slice(0, limit);
 };
 
 export const getProjectBySlug = (slug: string): Project | null => {
