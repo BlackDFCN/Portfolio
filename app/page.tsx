@@ -95,9 +95,9 @@ export default function HomePage() {
             <div className="relative h-56 w-56 sm:h-64 sm:w-64 lg:h-[360px] lg:w-[360px]">
               <div className="relative h-full w-full overflow-hidden rounded-[36px] border border-white/80 bg-white shadow-[0_28px_60px_-22px_rgba(0,0,0,0.18)] ring-1 ring-gray-200/60 dark:border-white/10 dark:bg-[#111111] dark:ring-white/10">
                 <img
-                  alt="Bastian Tapia"
+                  alt="Foto de perfil"
                   className="h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKUDSTmqihVJ0XZkbWAZ8sKHzYLEuw-vgcGjtUdDA6j3vdMfh7mkjJCZru17AnptlmaXukCtVONr3XtPJ2Bpg0WTigZ9AH8klNG6ptISKeCKkBSDpouvBSHdYGIkGSmgH6CIPcN6BeX9jJv6whhgGjubOACLpF6fYOaULEUGkfk3D6A0evZgqIVYfDFLxv8Nl0py-4YSGth8NBmf8UdNVO9uXjU1Uh3crUrtpj54RYM16a0tUyeThWdA_KBrxN5zS2x8rg1vUInAo"
+                  src="/avatar.png"
                 />
               </div>
               <div className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 justify-center sm:-bottom-8">
