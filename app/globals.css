@@ -87,6 +87,21 @@ body {
   box-shadow: 0 18px 30px -18px rgba(0, 0, 0, 0.45);
 }
 
+.stack-lift {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
+}
+
+.stack-lift:hover {
+  transform: translateY(-6px) scale(1.03) !important;
+  box-shadow: 0 28px 48px -24px rgba(0, 0, 0, 0.35) !important;
+}
+
+.dark .stack-lift:hover {
+  box-shadow: 0 26px 42px -22px rgba(0, 0, 0, 0.9) !important;
+}
+
 .btn-primary {
   @apply flex items-center gap-3 bg-black px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-gray-800;
 }

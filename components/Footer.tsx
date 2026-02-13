@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -5,8 +6,24 @@ export default function Footer() {
     <footer className="border-t border-gray-100 bg-white">
       <div className="section-container py-6">
         <div className="flex flex-wrap items-center justify-between gap-4 text-[11px] font-medium uppercase tracking-[0.2em] text-gray-400">
-          <Link className="flex items-center gap-1 text-black" href="/">
-            BASTIANDEV <span className="text-gray-300">&lt;/&gt;</span>
+          <Link className="flex items-center gap-2" href="/">
+            <span className="relative h-5 w-5">
+              <Image
+                src="/icon-negro.svg"
+                alt="BastianDev"
+                width={20}
+                height={20}
+                className="block dark:hidden"
+              />
+              <Image
+                src="/icon-blanco.svg"
+                alt="BastianDev"
+                width={20}
+                height={20}
+                className="hidden dark:block"
+              />
+            </span>
+            <span className="text-black dark:text-white">BASTIANDEV</span>
           </Link>
           <div className="flex flex-wrap items-center gap-3">
             <Link className="footer-social-link" href="https://wa.me/56959800748" target="_blank">

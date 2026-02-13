@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getFeaturedProjects } from "@/lib/projects";
+import { getStackContent } from "@/lib/stack";
 import ProjectCard from "@/components/ProjectCard";
 import DownloadCVButton from "@/components/DownloadCVButton";
 import type { Metadata } from "next";
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const featuredProjects = getFeaturedProjects(3);
+  const stackContent = getStackContent();
   const iconColors: Record<string, string> = {
     typescript: "3178C6",
     javascript: "F7DF1E",
@@ -55,7 +57,7 @@ export default function HomePage() {
             <div className="space-y-5">
               <h1 className="text-5xl font-extrabold leading-[0.98] tracking-tight text-black lg:text-[5.5rem]">
                 <span className="block">Desarrollador</span>
-                <span className="block text-gray-500">Full Stack</span>
+                <span className="block text-gray-500 dark:text-gray-400">Full Stack</span>
               </h1>
               <p className="text-xl font-semibold leading-tight text-gray-400 lg:text-2xl -mt-1">
                 <span className="whitespace-nowrap">Backend · Automatización · Arquitectura Escalable</span>
@@ -154,8 +156,8 @@ export default function HomePage() {
                 text: "Trabajo con Docker, integración continua y despliegues reproducibles en entornos cloud."
               }
             ].map((item, index) => (
-              <article
-                className={`pillar-card reveal ${
+                <article
+                  className={`pillar-card stack-lift reveal ${
                   index === 0 ? "" : `reveal-delay-${Math.min(index, 4)}`
                 }`}
                 data-reveal
@@ -196,102 +198,53 @@ export default function HomePage() {
 
       <section className="section-snap topo-section min-h-screen bg-white py-8 lg:py-16" data-section="stack" id="stack">
         <div className="section-container max-w-6xl">
-          <div className="reveal mb-6 flex flex-col" data-reveal>
-            <div className="max-w-3xl">
-              <span className="eyebrow">STACK TECNOLÓGICO</span>
-              <h3 className="mb-6 text-4xl font-extrabold tracking-tight text-black lg:text-5xl">
-                Ecosistema Técnico
-              </h3>
-              <p className="mb-8 text-lg leading-relaxed text-gray-500">
-                Herramientas seleccionadas para construir sistemas escalables,
-                priorizando el rendimiento y la mantenibilidad en cada capa del
-                desarrollo.
-              </p>
-            </div>
+          <div className="reveal mb-8 max-w-3xl" data-reveal>
+            <span className="eyebrow">{stackContent.eyebrow}</span>
+            <h3 className="mb-6 text-5xl font-extrabold tracking-tight text-black lg:text-6xl">
+              {stackContent.title}
+            </h3>
+            <p className="text-[17px] leading-relaxed text-gray-500">
+              {stackContent.description}
+            </p>
           </div>
-          <div className="grid grid-cols-1 gap-[1px] overflow-hidden rounded-sm border border-[#F3F4F6] bg-[#F3F4F6] md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Lenguajes",
-                items: [
-                  { slug: "typescript", label: "TypeScript" },
-                  { slug: "javascript", label: "JavaScript" },
-                  { slug: "python", label: "Python" },
-                  { slug: "kotlin", label: "Kotlin" }
-                ]
-              },
-              {
-                title: "Frontend",
-                items: [
-                  { slug: "react", label: "React" },
-                  { slug: "nextdotjs", label: "Next.js" },
-                  { slug: "angular", label: "Angular" },
-                  { slug: "tailwindcss", label: "Tailwind" }
-                ]
-              },
-              {
-                title: "Backend",
-                items: [
-                  { slug: "nodedotjs", label: "Node.js" },
-                  { slug: "nestjs", label: "NestJS" },
-                  { slug: "express", label: "Express" },
-                  { slug: "fastapi", label: "FastAPI" }
-                ]
-              },
-              {
-                title: "Bases de Datos",
-                items: [
-                  { slug: "postgresql", label: "PostgreSQL" },
-                  { slug: "mongodb", label: "MongoDB" },
-                  { slug: "redis", label: "Redis" },
-                  { slug: "mysql", label: "MySQL" }
-                ]
-              },
-              {
-                title: "Cloud & DevOps",
-                items: [
-                  { slug: "amazonwebservices", label: "AWS" },
-                  { slug: "docker", label: "Docker" },
-                  { slug: "kubernetes", label: "K8s" },
-                  { slug: "githubactions", label: "CI/CD" },
-                  { slug: "azuredevops", label: "Azure DevOps" }
-                ]
-              },
-              {
-                title: "Herramientas",
-                items: [
-                  { slug: "git", label: "Git" },
-                  { slug: "vercel", label: "Vercel" },
-                  { slug: "postman", label: "Postman" },
-                  { slug: "linux", label: "Linux" }
-                ]
-              }
-            ].map((group, index) => (
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {stackContent.groups.map((group, index) => (
               <article
-                className={`stack-category-card reveal ${
+                className={`pillar-card stack-lift reveal ${
                   index === 0 ? "" : `reveal-delay-${Math.min(index, 4)}`
                 }`}
                 data-reveal
                 key={group.title}
               >
-                <h4 className="text-lg font-bold uppercase tracking-tight text-black">
-                  {group.title}
-                </h4>
+                <div className="flex items-center gap-3">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-gray-200/80 bg-gray-50">
+                    <span
+                      className={`material-symbols-outlined text-xl ${
+                        group.title === "Lenguajes"
+                          ? "text-indigo-500"
+                          : group.title === "Frontend"
+                            ? "text-sky-500"
+                            : group.title === "Backend"
+                              ? "text-emerald-500"
+                              : group.title === "Bases de Datos"
+                                ? "text-amber-500"
+                                : group.title === "Cloud & DevOps"
+                                  ? "text-violet-500"
+                                  : "text-slate-500"
+                      }`}
+                    >
+                      {group.icon}
+                    </span>
+                  </span>
+                  <h4 className="text-[15px] font-bold uppercase tracking-[0.14em] text-black">
+                    {group.title}
+                  </h4>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((item) => (
-                    <div className="tech-badge" key={item.label}>
-                      <img
-                        alt={item.label}
-                        className="h-4 w-4"
-                        loading="lazy"
-                        src={`https://cdn.simpleicons.org/${item.slug}/${
-                          iconColors[item.slug] ?? "111111"
-                        }`}
-                      />
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-black">
-                        {item.label}
-                      </span>
-                    </div>
+                    <span className="tech-pill" key={item}>
+                      {item}
+                    </span>
                   ))}
                 </div>
               </article>

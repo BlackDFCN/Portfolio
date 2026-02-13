@@ -47,12 +47,9 @@ export default function RootLayout({
                     document.body.classList.toggle('dark', isDark);
                     document.documentElement.style.colorScheme = stored;
                   } else {
-                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    if (prefersDark) {
-                      document.documentElement.classList.add('dark');
-                      document.body.classList.add('dark');
-                      document.documentElement.style.colorScheme = 'dark';
-                    }
+                    document.documentElement.classList.remove('dark');
+                    document.body.classList.remove('dark');
+                    document.documentElement.style.colorScheme = 'light';
                   }
                 } catch (e) {}
               })()

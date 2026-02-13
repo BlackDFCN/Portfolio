@@ -12,7 +12,7 @@ export default function ThemeToggle() {
     if (stored === "light" || stored === "dark") {
       setResolvedTheme(stored);
     } else {
-      const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const isDark = document.documentElement.classList.contains("dark");
       setResolvedTheme(isDark ? "dark" : "light");
     }
   }, []);

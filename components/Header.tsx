@@ -83,19 +83,29 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <Link className="group flex items-center gap-2.5" href="/">
             {/* Icon */}
-            <Image
-              src="/icon.svg"
-              alt="BastianDev"
-              width={40}
-              height={40}
-              className="rounded-lg"
-              priority
-            />
+            <span className="relative h-10 w-10">
+              <Image
+                src="/icon-negro.svg"
+                alt="BastianDev"
+                width={40}
+                height={40}
+                className="block rounded-lg dark:hidden"
+                priority
+              />
+              <Image
+                src="/icon-blanco.svg"
+                alt="BastianDev"
+                width={40}
+                height={40}
+                className="hidden rounded-lg dark:block"
+                priority
+              />
+            </span>
             {/* Logo Text */}
             <span className="text-xl font-extrabold tracking-tight">
-              <span className="text-[#395a8b]">Bastian</span>
-              <span className="text-gray-400">Dev</span>
-              <span className="font-light text-black">.</span>
+              <span className="text-black dark:text-white">Bastian</span>
+              <span className="text-gray-500 dark:text-gray-400">Dev</span>
+              <span className="font-light text-black dark:text-white">.</span>
             </span>
           </Link>
         </div>
