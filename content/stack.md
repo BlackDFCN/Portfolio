@@ -11,6 +11,7 @@ groups:
       - "JavaScript"
       - "Python"
       - "Kotlin"
+      - "test"
   - icon: "palette"
     title: "Frontend"
     text: "Interfaces rapidas y consistentes, enfocadas en experiencia de usuario."
