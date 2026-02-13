@@ -15,17 +15,19 @@ export default function ProjectCard({ project }: { project: ProjectSummary }) {
   const icon = iconByCategory[project.category] ?? "analytics";
 
   return (
-    <article className="project-card bg-white reveal" data-reveal>
-      <div className="aspect-[16/7] border-b border-gray-100 bg-gray-50 p-6">
-        <div className="flex h-full w-full items-center justify-center rounded bg-gray-100 grayscale opacity-60">
-          <span className="material-symbols-outlined text-5xl text-gray-400">
+    <article className="project-card reveal" data-reveal>
+      <div className="aspect-[16/7] border-b border-gray-100 bg-gray-50 p-6 dark:border-white/10 dark:bg-white/5">
+        <div className="flex h-full w-full items-center justify-center rounded bg-gray-100 grayscale opacity-60 dark:bg-white/10">
+          <span className="material-symbols-outlined text-5xl text-gray-400 dark:text-gray-500">
             {icon}
           </span>
         </div>
       </div>
       <div className="flex h-full flex-col p-8">
-        <h3 className="mb-2 text-lg font-bold text-black">{project.title}</h3>
-        <p className="mb-4 flex-grow text-[13px] leading-relaxed text-gray-600">
+        <h3 className="mb-2 text-lg font-bold text-black dark:text-white">
+          {project.title}
+        </h3>
+        <p className="mb-4 flex-grow text-[13px] leading-relaxed text-gray-600 dark:text-gray-300">
           {project.description}
         </p>
         <div className="mb-4 flex flex-wrap gap-2">
@@ -39,7 +41,7 @@ export default function ProjectCard({ project }: { project: ProjectSummary }) {
           ) : null}
         </div>
         <Link
-          className="group inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-black transition-all"
+          className="group inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-black transition-all dark:text-white"
           href={`/proyectos/${project.slug}`}
         >
           Ver detalle

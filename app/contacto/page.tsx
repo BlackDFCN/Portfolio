@@ -12,20 +12,20 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="section-snap bg-white py-8 lg:py-16">
+      <section className="section-snap bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-8 max-w-3xl" data-reveal>
             <span className="eyebrow">CONTACTO</span>
-            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-black lg:text-5xl">
+            <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-black sm:text-4xl lg:text-5xl dark:text-white">
               Iniciemos tu próximo proyecto.
             </h1>
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Lado Izquierdo - Bloque de Contacto */}
-            <div className="reveal contact-card rounded-2xl bg-gray-50 p-5 space-y-5" data-reveal>
+            <div className="reveal contact-card space-y-5 rounded-2xl bg-gray-50 p-5 dark:bg-white/5" data-reveal>
               {/* Descripción */}
-              <p className="text-base leading-relaxed text-gray-600">
+              <p className="text-base leading-relaxed text-gray-600 dark:text-gray-300">
                 Disponible para proyectos freelance o integraciones en equipos. Te responderé a la brevedad posible.
               </p>
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
               <div>
                 <span className="eyebrow mb-4 block text-xs uppercase">Contáctame directamente</span>
                 <a
-                  className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-4 font-semibold text-black transition-all hover:border-gray-400 hover:bg-gray-50"
+                  className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-4 font-semibold text-black transition-all hover:border-gray-400 hover:bg-gray-50 dark:border-white/10 dark:bg-[#0f0f0f] dark:text-white dark:hover:border-white/30 dark:hover:bg-white/10"
                   href="mailto:bastiantapia.dev@gmail.com"
                 >
                   <span className="material-symbols-outlined text-xl">mail</span>
@@ -85,7 +85,7 @@ export default function ContactPage() {
             </div>
 
             {/* Lado Derecho */}
-            <div className="reveal rounded-2xl border border-gray-100 bg-white p-5" data-reveal>
+            <div className="reveal rounded-2xl border border-gray-100 bg-white p-5 dark:border-white/10 dark:bg-[#0f0f0f]" data-reveal>
               <ContactForm />
             </div>
           </div>

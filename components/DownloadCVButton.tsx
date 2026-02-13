@@ -14,8 +14,8 @@ export default function DownloadCVButton({
 
   const variantClassName =
     variant === "default"
-      ? "bg-black text-white shadow-lg shadow-black/10"
-      : "border border-gray-200 bg-white text-gray-900";
+      ? "bg-black text-white shadow-lg shadow-black/10 dark:bg-white dark:text-black"
+      : "border border-gray-200 bg-white text-gray-900 dark:border-white/10 dark:bg-[#0f0f0f] dark:text-white";
 
   const handleDownload = async () => {
     try {

@@ -8,21 +8,21 @@ const formatProjectLabel = (date: string) => {
 
 export default function ProjectHero({ project }: { project: ProjectSummary }) {
   return (
-    <section className="border-b border-gray-100 pb-16 pt-24 lg:pb-24 lg:pt-32">
+    <section className="border-b border-gray-100 pb-12 pt-20 lg:pb-24 lg:pt-32 dark:border-white/10">
       <div className="section-container">
-        <div className="flex flex-col items-start justify-between gap-12 lg:flex-row">
+        <div className="flex flex-col items-start justify-between gap-10 lg:flex-row">
           <div className="max-w-4xl">
-            <div className="mb-6 flex items-center gap-4">
+            <div className="mb-6 flex flex-wrap items-center gap-4">
               <span className="eyebrow mb-0">{formatProjectLabel(project.date)}</span>
-              <span className="h-[1px] w-8 bg-gray-200" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
+              <span className="h-[1px] w-8 bg-gray-200 dark:bg-white/10" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
                 {project.role}
               </span>
             </div>
-            <h1 className="mb-8 text-5xl font-extrabold leading-[1] tracking-tight text-black lg:text-8xl">
+            <h1 className="mb-6 text-3xl font-extrabold leading-[1.05] tracking-tight text-black sm:text-4xl lg:text-7xl dark:text-white">
               {project.title}
             </h1>
-            <div className="mt-12 flex items-center gap-4">
+            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               {project.repoUrl ? (
                 <Link className="btn-secondary" href={project.repoUrl} target="_blank">
                   <span className="material-symbols-outlined text-base">code</span>

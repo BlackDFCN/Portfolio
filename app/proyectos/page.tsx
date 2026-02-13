@@ -13,14 +13,14 @@ export default function ProjectsPage() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <section className="bg-white py-8 lg:py-16">
+      <section className="bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-6 max-w-3xl" data-reveal>
             <span className="eyebrow">PROYECTOS</span>
-            <h1 className="mb-8 text-5xl font-extrabold leading-[1.1] tracking-tight text-black lg:text-7xl">
+            <h1 className="mb-6 text-3xl font-extrabold leading-[1.1] tracking-tight text-black sm:text-4xl lg:text-7xl dark:text-white">
               Catálogo Completo
             </h1>
-            <p className="max-w-2xl text-xl leading-relaxed text-gray-500 lg:text-2xl">
+            <p className="max-w-2xl text-lg leading-relaxed text-gray-500 sm:text-xl lg:text-2xl dark:text-gray-300">
               Una exploración detallada de soluciones end-to-end, desde sistemas
               empresariales hasta proyectos personales de alto impacto.
             </p>

@@ -55,10 +55,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <>
       <ProjectHero project={project} />
-      <section className="bg-gray-50/30 py-8">
+      <section className="bg-gray-50/30 py-8 dark:bg-white/5">
         <div className="section-container">
           <div className="flex flex-wrap items-center gap-6 lg:gap-12">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
               Tecnologías Nucleares:
             </span>
             <div className="flex flex-wrap gap-3">
@@ -75,28 +75,28 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="py-24 lg:py-32">
+      <section className="py-20 lg:py-32">
         <div className="section-container">
           <div className="grid grid-cols-1 gap-24 lg:grid-cols-2">
             <div>
-              <h2 className="mb-10 text-[11px] font-bold uppercase tracking-[0.4em] text-black">
+              <h2 className="mb-8 text-[11px] font-bold uppercase tracking-[0.4em] text-black dark:text-white">
                 01 / El Problema
               </h2>
-              <p className="text-2xl font-light leading-relaxed text-gray-600">
+              <p className="text-xl font-light leading-relaxed text-gray-600 sm:text-2xl dark:text-gray-300">
                 {project.problem ?? project.description}
               </p>
             </div>
             <div>
-              <h2 className="mb-10 text-[11px] font-bold uppercase tracking-[0.4em] text-black">
+              <h2 className="mb-8 text-[11px] font-bold uppercase tracking-[0.4em] text-black dark:text-white">
                 02 / Solución Técnica
               </h2>
-              <p className="mb-6 text-lg leading-relaxed text-gray-600">
+              <p className="mb-6 text-base leading-relaxed text-gray-600 sm:text-lg dark:text-gray-300">
                 {project.solution ?? project.description}
               </p>
               <ul className="space-y-4">
                 {(project.solutionPoints ?? []).map((point) => (
-                  <li className="flex items-start gap-3 text-sm text-gray-500" key={point}>
-                    <span className="material-symbols-outlined text-black">
+                  <li className="flex items-start gap-3 text-sm text-gray-500 dark:text-gray-300" key={point}>
+                    <span className="material-symbols-outlined text-black dark:text-white">
                       check_circle
                     </span>
                     <span>{point}</span>
@@ -112,24 +112,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <ProjectArchitecture architecture={project.architecture} />
       ) : null}
 
-      <section className="py-24 lg:py-32">
+      <section className="py-20 lg:py-32">
         <div className="section-container">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-3">
             <div className="lg:col-span-1">
-              <h2 className="mb-10 text-[11px] font-bold uppercase tracking-[0.4em] text-black">
+              <h2 className="mb-8 text-[11px] font-bold uppercase tracking-[0.4em] text-black dark:text-white">
                 04 / Documentación Técnica
               </h2>
-              <p className="mb-8 text-sm leading-relaxed text-gray-500">
+              <p className="mb-8 text-sm leading-relaxed text-gray-500 dark:text-gray-300">
                 Detalles específicos sobre la implementación de las capas más
                 críticas del sistema.
               </p>
               <div className="space-y-12">
                 {(project.documentation ?? []).map((item) => (
                   <div key={item.title}>
-                    <h4 className="mb-4 text-[11px] font-bold uppercase tracking-widest text-black">
+                    <h4 className="mb-4 text-[11px] font-bold uppercase tracking-widest text-black dark:text-white">
                       {item.title}
                     </h4>
-                    <p className="text-[13px] text-gray-500">{item.text}</p>
+                    <p className="text-[13px] text-gray-500 dark:text-gray-300">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -151,9 +151,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="bg-gray-50/50 py-24 lg:py-32">
+      <section className="bg-gray-50/50 py-20 lg:py-32 dark:bg-white/5">
         <div className="section-container text-center">
-          <h2 className="mb-16 text-[11px] font-bold uppercase tracking-[0.4em] text-black">
+          <h2 className="mb-12 text-[11px] font-bold uppercase tracking-[0.4em] text-black dark:text-white">
             05 / Flujo de Uso
           </h2>
           <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-4 md:flex-row lg:gap-12">
@@ -167,11 +167,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <div
                   className={`flex h-16 w-16 items-center justify-center rounded-full border bg-white ${
                     step.active ? "border-2 border-black" : "border-gray-200"
+                  } dark:border-white/20 dark:bg-[#0f0f0f] ${
+                    step.active ? "dark:border-white" : ""
                   }`}
                 >
                   <span
                     className={`material-symbols-outlined ${
-                      step.active ? "text-black" : "text-gray-400"
+                      step.active ? "text-black dark:text-white" : "text-gray-400 dark:text-gray-500"
                     }`}
                   >
                     {step.icon}
@@ -179,7 +181,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
                 <span
                   className={`text-[10px] font-bold uppercase tracking-widest ${
-                    step.active ? "text-black" : "text-gray-500"
+                    step.active ? "text-black dark:text-white" : "text-gray-500 dark:text-gray-400"
                   }`}
                 >
                   {step.label}

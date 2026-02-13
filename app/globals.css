@@ -7,6 +7,22 @@ html {
   scroll-snap-type: y proximity;
 }
 
+@media (max-width: 1024px) {
+  html {
+    scroll-snap-type: none;
+  }
+
+  .section-snap {
+    scroll-snap-align: none;
+    scroll-margin-top: 0;
+  }
+
+  .section-snap,
+  .topo-section {
+    min-height: auto !important;
+  }
+}
+
 body {
   @apply bg-white text-gray-900 scroll-smooth antialiased;
   font-family: "Inter", sans-serif;
@@ -36,6 +52,13 @@ body {
   @apply mx-auto max-w-7xl px-6 lg:px-12;
 }
 
+@media (max-width: 640px) {
+  .section-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 .nav-link {
   @apply relative text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 transition-all duration-300 hover:text-black;
 }
@@ -59,6 +82,10 @@ body {
 
 .eyebrow {
   @apply mb-6 block text-[11px] font-bold uppercase tracking-[0.4em] text-gray-400;
+}
+
+.dark .eyebrow {
+  @apply text-gray-500;
 }
 
 .pillar-card {
@@ -297,6 +324,11 @@ body {
   @apply mb-4 text-[11px] font-bold uppercase tracking-widest text-black;
 }
 
+.dark .mdx-content h2,
+.dark .mdx-content h3 {
+  @apply text-white;
+}
+
 .mdx-content p {
   @apply text-gray-600;
 }
@@ -335,6 +367,10 @@ body {
 
 .dark .code-block {
   @apply border-white/10 bg-white/5 text-gray-300;
+}
+
+.dark .arch-node {
+  @apply border-white/10 bg-[#0f0f0f] text-gray-200;
 }
 
 .dark .nav-link {

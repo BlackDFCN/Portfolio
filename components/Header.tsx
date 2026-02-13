@@ -17,6 +17,7 @@ const navItems = [
 export default function Header() {
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState<string | null>("inicio");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (pathname !== "/") {
@@ -77,8 +78,12 @@ export default function Header() {
     };
   }, [pathname]);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-xl dark:border-white/10 dark:bg-[#0c0c0c]/80">
       <nav className="section-container flex h-20 items-center justify-between">
         <div className="flex items-center gap-4">
           <Link className="group flex items-center gap-2.5" href="/">
@@ -137,11 +142,47 @@ export default function Header() {
           <Link className="btn-talk hidden sm:block" href="/contacto">
             Hablemos
           </Link>
-          <button className="text-black md:hidden" type="button">
-            <span className="material-symbols-outlined text-3xl">menu</span>
+          <button
+            className="text-black dark:text-white md:hidden"
+            type="button"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-nav"
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            <span className="material-symbols-outlined text-3xl">
+              {isMenuOpen ? "close" : "menu"}
+            </span>
           </button>
         </div>
       </nav>
+      <div
+        className={`md:hidden ${
+          isMenuOpen ? "max-h-[360px] opacity-100" : "max-h-0 opacity-0"
+        } overflow-hidden border-t border-gray-100 bg-white/95 transition-all duration-300 dark:border-white/10 dark:bg-[#0c0c0c]`}
+        id="mobile-nav"
+      >
+        <div className="section-container flex flex-col gap-4 py-5">
+          {navItems.map((item) => (
+            <Link
+              className={`text-sm font-semibold uppercase tracking-[0.2em] transition-colors ${
+                activeSection && item.sectionId === activeSection
+                  ? "text-black dark:text-white"
+                  : "text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white"
+              }`}
+              key={item.label}
+              href={item.href}
+              onClick={() => {
+                if (item.sectionId) {
+                  setActiveSection(item.sectionId);
+                }
+                setIsMenuOpen(false);
+              }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
     </header>
   );
 }
