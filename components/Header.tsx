@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const navItems = [
@@ -80,12 +81,21 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-xl">
       <nav className="section-container flex h-20 items-center justify-between">
         <div className="flex items-center gap-4">
-          <Link className="group flex items-center gap-1" href="/">
-            <span className="text-xl font-extrabold uppercase tracking-tighter text-black">
-              BastianDev
-              <span className="text-gray-300 transition-colors group-hover:text-black">
-                .&lt;/&gt;
-              </span>
+          <Link className="group flex items-center gap-2.5" href="/">
+            {/* Icon */}
+            <Image
+              src="/icon.svg"
+              alt="BastianDev"
+              width={40}
+              height={40}
+              className="rounded-lg"
+              priority
+            />
+            {/* Logo Text */}
+            <span className="text-xl font-extrabold tracking-tight">
+              <span className="text-[#395a8b]">Bastian</span>
+              <span className="text-gray-400">Dev</span>
+              <span className="font-light text-black">.</span>
             </span>
           </Link>
         </div>

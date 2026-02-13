@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="section-snap border-t border-gray-50 dark:border-white/8 bg-white py-8 lg:py-16">
+      <section className="section-snap bg-white py-8 lg:py-16">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-8 max-w-3xl" data-reveal>
             <span className="eyebrow">CONTACTO</span>

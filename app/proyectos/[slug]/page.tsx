@@ -55,7 +55,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <>
       <ProjectHero project={project} />
-      <section className="border-b border-gray-100 bg-gray-50/30 py-8">
+      <section className="bg-gray-50/30 py-8">
         <div className="section-container">
           <div className="flex flex-wrap items-center gap-6 lg:gap-12">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
@@ -151,7 +151,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="border-t border-gray-100 bg-gray-50/50 py-24 lg:py-32">
+      <section className="bg-gray-50/50 py-24 lg:py-32">
         <div className="section-container text-center">
           <h2 className="mb-16 text-[11px] font-bold uppercase tracking-[0.4em] text-black">
             05 / Flujo de Uso
