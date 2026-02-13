@@ -10,9 +10,6 @@ export type StackGroup = {
 };
 
 export type StackContent = {
-  eyebrow: string;
-  title: string;
-  description: string;
   groups: StackGroup[];
 };
 
@@ -41,10 +38,6 @@ const parseGroups = (data: Record<string, unknown>): StackGroup[] => {
 };
 
 const getDefaultStack = (): StackContent => ({
-  eyebrow: "STACK TECNOLOGICO",
-  title: "Ecosistema Tecnico",
-  description:
-    "Tecnologias y herramientas con las que trabajo y tengo experiencia real en proyectos, enfocadas en producto, rendimiento y despliegue.",
   groups: []
 });
 
@@ -58,9 +51,6 @@ export const getStackContent = (): StackContent => {
   const stackData = data as Record<string, unknown>;
 
   return {
-    eyebrow: String(stackData.eyebrow ?? ""),
-    title: String(stackData.title ?? ""),
-    description: String(stackData.description ?? ""),
     groups: parseGroups(stackData)
   };
 };

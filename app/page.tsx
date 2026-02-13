@@ -199,12 +199,13 @@ export default function HomePage() {
       <section className="section-snap topo-section min-h-screen bg-white py-8 lg:py-16" data-section="stack" id="stack">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-8 max-w-3xl" data-reveal>
-            <span className="eyebrow">{stackContent.eyebrow}</span>
+            <span className="eyebrow">STACK TECNOLÓGICO</span>
             <h3 className="mb-6 text-5xl font-extrabold tracking-tight text-black lg:text-6xl">
-              {stackContent.title}
+              Ecosistema Técnico
             </h3>
             <p className="text-[17px] leading-relaxed text-gray-500">
-              {stackContent.description}
+              Tecnologias y herramientas con las que trabajo y tengo experiencia real en
+              proyectos, enfocadas en producto, rendimiento y despliegue.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">

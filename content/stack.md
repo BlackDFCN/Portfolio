@@ -1,7 +1,4 @@
 ---
-eyebrow: "STACK TECNOLOGICO"
-title: "Ecosistema Tecnico"
-description: "Tecnologias y herramientas con las que trabajo y tengo experiencia real en proyectos, enfocadas en producto, rendimiento y despliegue."
 groups:
   - icon: "code"
     title: "Lenguajes"
