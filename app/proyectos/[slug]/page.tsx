@@ -34,10 +34,10 @@ export async function generateMetadata({
   }
 
   return {
-    title: project.title,
+    title: { absolute: `BastianDev - ${project.title}` },
     description: project.description,
     openGraph: {
-      title: project.title,
+      title: `BastianDev - ${project.title}`,
       description: project.description,
       type: "article"
     }

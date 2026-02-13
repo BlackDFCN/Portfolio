@@ -4,7 +4,7 @@ import CopyEmailButton from "@/components/CopyEmailButton";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Contacto",
+  title: { absolute: "BastianDev - Contacto" },
   description:
     "Formulario de contacto para proyectos Full Stack, arquitectura y consultoria tecnica."
 };

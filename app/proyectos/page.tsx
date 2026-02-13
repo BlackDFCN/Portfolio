@@ -3,7 +3,7 @@ import { getAllProjects } from "@/lib/projects";
 import ProjectFilters from "@/components/ProjectFilters";
 
 export const metadata: Metadata = {
-  title: "Proyectos",
+  title: { absolute: "BastianDev - Proyectos" },
   description:
     "Catalogo completo de proyectos Full Stack, DevOps y arquitectura de software."
 };

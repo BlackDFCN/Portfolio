@@ -13,14 +13,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "BastianDev | Portfolio Profesional",
-    template: "%s | BastianDev"
+    default: "BastianDev - Home",
+    template: "BastianDev - %s"
   },
   description:
     "Portfolio profesional con proyectos Full Stack, arquitectura y soluciones de alto rendimiento.",
   metadataBase: new URL("https://bastiandev.com"),
   openGraph: {
-    title: "BastianDev | Portfolio Profesional",
+    title: "BastianDev - Home",
     description:
       "Portfolio profesional con proyectos Full Stack, arquitectura y soluciones de alto rendimiento.",
     type: "website"

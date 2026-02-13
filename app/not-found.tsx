@@ -1,4 +1,10 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: { absolute: "BastianDev - No encontrado" },
+  description: "La pagina solicitada no existe o fue movida."
+};
 
 export default function NotFound() {
   return (

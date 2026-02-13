@@ -5,7 +5,7 @@ import DownloadCVButton from "@/components/DownloadCVButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Inicio",
+  title: { absolute: "BastianDev - Home" },
   description:
     "Portafolio profesional con proyectos Full Stack, arquitectura y experiencias digitales de alto impacto."
 };
