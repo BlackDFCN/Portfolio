@@ -38,7 +38,7 @@ export default function ProjectFilters({ projects }: { projects: ProjectSummary[
           </button>
         ))}
       </div>
-      <div className="flex-1 grid grid-cols-1 gap-[1px] overflow-hidden border border-gray-100 bg-gray-100 md:grid-cols-2 lg:grid-cols-3 dark:border-white/10 dark:bg-white/5">
+      <div className="flex-1 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {filtered.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}

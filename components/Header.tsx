@@ -157,8 +157,8 @@ export default function Header() {
       </nav>
       <div
         className={`md:hidden ${
-          isMenuOpen ? "max-h-[360px] opacity-100" : "max-h-0 opacity-0"
-        } overflow-hidden border-t border-gray-100 bg-white/95 transition-all duration-300 dark:border-white/10 dark:bg-[#0c0c0c]`}
+          isMenuOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
+        } origin-top overflow-hidden border-t border-gray-100 bg-white/95 transition-[transform,opacity] duration-300 dark:border-white/10 dark:bg-[#0c0c0c]`}
         id="mobile-nav"
       >
         <div className="section-container flex flex-col gap-4 py-5">

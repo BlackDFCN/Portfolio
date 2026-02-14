@@ -101,14 +101,14 @@ export default function ContactForm() {
       </div>
       <div className="flex flex-col items-center gap-3 sm:flex-row">
           <button
-            className="contact-cta group flex h-[52px] w-full flex-1 items-center justify-center gap-2.5 bg-black text-[10px] font-bold uppercase tracking-[0.22em] text-white transition-all active:scale-[0.98] dark:bg-white dark:text-black"
+            className="contact-cta group flex h-[52px] w-full flex-1 items-center justify-center gap-2.5 bg-black text-[10px] font-bold uppercase tracking-[0.22em] text-white active:scale-95 dark:bg-white dark:text-black"
           disabled={status === "loading"}
           type="submit"
         >
           {status === "loading" ? "Enviando..." : "Enviar mensaje"}
         </button>
         <a
-          className="contact-cta group flex h-[52px] w-full flex-1 items-center justify-center gap-2.5 border border-black bg-white text-[10px] font-bold uppercase tracking-[0.22em] text-black transition-all hover:bg-black hover:text-white active:scale-[0.98] dark:border-white dark:bg-[#0f0f0f] dark:text-white dark:hover:bg-white dark:hover:text-black"
+          className="contact-cta group flex h-[52px] w-full flex-1 items-center justify-center gap-2.5 border border-black bg-white text-[10px] font-bold uppercase tracking-[0.22em] text-black hover:bg-black hover:text-white active:scale-95 dark:border-white dark:bg-[#0f0f0f] dark:text-white dark:hover:bg-white dark:hover:text-black"
           href="https://wa.me/56900000000"
           rel="noreferrer"
           target="_blank"

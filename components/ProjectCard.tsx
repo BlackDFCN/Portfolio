@@ -4,62 +4,75 @@ import Link from "next/link";
 import type { ProjectSummary } from "@/types/project";
 
 const iconByCategory: Record<string, string> = {
-  "Full Stack": "payments",
-  Backend: "admin_panel_settings",
-  Frontend: "monitoring",
-  DevOps: "cloud_done",
-  Mobile: "devices"
+  "Full Stack": "architecture",
+  Backend: "dns",
+  Frontend: "palette",
+  DevOps: "cloud_sync",
+  Mobile: "smartphone"
 };
 
 export default function ProjectCard({ project }: { project: ProjectSummary }) {
-  const icon = iconByCategory[project.category] ?? "analytics";
+  const icon = iconByCategory[project.category] ?? "work";
   const hasImage = Boolean(project.image);
 
   return (
-    <article className="project-card reveal" data-reveal>
-      <div className="aspect-[16/7] border-b border-gray-100 bg-gray-50 p-6 dark:border-white/10 dark:bg-white/5">
+    <article className="project-card reveal border-t-4 border-t-gray-400" data-reveal>
+      {/* Image Section */}
+      <div className="aspect-[2/1] overflow-hidden border-b border-gray-100 bg-gray-50 p-3 dark:border-white/10 dark:bg-white/5">
         {hasImage ? (
-          <div className="h-full w-full overflow-hidden rounded bg-gray-100 dark:bg-white/10">
-            <img
-              alt={`Imagen de ${project.title}`}
-              className="h-full w-full object-cover"
-              loading="lazy"
-              src={project.image}
-            />
-          </div>
+          <img
+            alt={`${project.title}`}
+            className="h-full w-full object-contain transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+            src={project.image}
+          />
         ) : (
-          <div className="flex h-full w-full items-center justify-center rounded bg-gray-100 grayscale opacity-60 dark:bg-white/10">
-            <span className="material-symbols-outlined text-5xl text-gray-400 dark:text-gray-500">
+          <div className="flex h-full w-full items-center justify-center bg-gray-100/60 dark:bg-white/10">
+            <span className="material-symbols-outlined text-3xl text-gray-400 dark:text-gray-500">
               {icon}
             </span>
           </div>
         )}
       </div>
-      <div className="flex h-full flex-col p-8">
-        <h3 className="mb-2 text-lg font-bold text-black dark:text-white">
+
+      {/* Content Section */}
+      <div className="project-card-content">
+        {/* Category Badge */}
+        <span className="project-card-category">
+          {project.category}
+        </span>
+
+        {/* Title */}
+        <h3 className="project-card-title dark:text-white">
           {project.title}
         </h3>
-        <p className="mb-4 flex-grow text-[13px] leading-relaxed text-gray-600 dark:text-gray-300">
+
+        {/* Description */}
+        <p className="project-card-description dark:text-gray-300">
           {project.description}
         </p>
-        <div className="mb-4 flex flex-wrap gap-2">
+
+        {/* Tags */}
+        <div className="mb-3 flex flex-wrap gap-2">
           {project.tags.slice(0, 3).map((tag) => (
-            <span className="project-tag" key={tag}>
+            <span className="project-tag dark:border-white/10 dark:bg-white/5 dark:text-gray-400" key={tag}>
               {tag}
             </span>
           ))}
-          {project.tags.length > 3 ? (
-            <span className="project-tag">+{project.tags.length - 3}</span>
-          ) : null}
+          {project.tags.length > 3 && (
+            <span className="project-tag dark:border-white/10 dark:bg-white/5 dark:text-gray-400">
+              +{project.tags.length - 3}
+            </span>
+          )}
         </div>
+
+        {/* CTA Link */}
         <Link
-          className="group inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-black transition-all dark:text-white"
+          className="project-card-link dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
           href={`/proyectos/${project.slug}`}
         >
-          Ver detalle
-          <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">
-            arrow_forward
-          </span>
+          <span>VER PROYECTO</span>
+          <span className="material-symbols-outlined text-sm">arrow_forward</span>
         </Link>
       </div>
     </article>

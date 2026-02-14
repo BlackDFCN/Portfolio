@@ -12,6 +12,18 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["Inter", "sans-serif"]
+      },
+      transitionDuration: {
+        "150": "150ms",
+        "200": "200ms",
+        "300": "300ms",
+        "400": "400ms",
+        "600": "600ms"
+      },
+      transitionTimingFunction: {
+        "standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "accelerate": "cubic-bezier(0.4, 0, 1, 1)",
+        "decelerate": "cubic-bezier(0, 0, 0.2, 1)"
       }
     }
   },

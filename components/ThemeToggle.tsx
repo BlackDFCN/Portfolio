@@ -32,7 +32,7 @@ export default function ThemeToggle() {
   return (
     <button
       aria-label={`Tema: ${label}`}
-      className="text-gray-400 transition-colors hover:text-black dark:text-gray-400 dark:hover:text-white"
+      className="text-gray-400 transition-colors duration-200 hover:text-black dark:text-gray-400 dark:hover:text-white"
       onClick={toggleTheme}
       title={`Tema: ${label}`}
       type="button"

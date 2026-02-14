@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getFeaturedProjects } from "@/lib/projects";
 import { getStackContent } from "@/lib/stack";
 import ProjectCard from "@/components/ProjectCard";
@@ -12,8 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const featuredProjects = getFeaturedProjects(3);
-  const featuredSlots = Array.from({ length: 3 }, (_, index) => featuredProjects[index] ?? null);
+  const featuredProjects = getFeaturedProjects(2);
+  const featuredSlots = Array.from({ length: 2 }, (_, index) => featuredProjects[index] ?? null);
   const stackContent = getStackContent();
   const iconColors: Record<string, string> = {
     typescript: "3178C6",
@@ -97,7 +98,7 @@ export default function HomePage() {
               <div className="relative h-full w-full overflow-hidden rounded-[36px] border border-white/80 bg-white shadow-[0_28px_60px_-22px_rgba(0,0,0,0.18)] ring-1 ring-gray-200/60 dark:border-white/10 dark:bg-[#111111] dark:ring-white/10">
                 <img
                   alt="Foto de perfil"
-                  className="h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
+                  className="h-full w-full object-cover grayscale transition-[filter] duration-400 hover:grayscale-0"
                   src="/avatar.png"
                 />
               </div>
@@ -261,55 +262,91 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-snap topo-section bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]" data-section="proyectos" id="proyectos">
+      <section className="section-snap topo-section bg-white py-6 lg:py-12 dark:bg-[#0c0c0c]" data-section="proyectos" id="proyectos">
         <div className="section-container max-w-6xl">
-          <div className="reveal mb-6 max-w-3xl" data-reveal>
+          <div className="reveal mb-4 max-w-3xl" data-reveal>
             <span className="eyebrow">TRABAJOS DESTACADOS</span>
-            <h3 className="mb-6 text-3xl font-extrabold tracking-tight text-black sm:text-4xl lg:text-6xl dark:text-white">
-              Proyectos destacados
+            <h3 className="mb-4 text-3xl font-extrabold tracking-tight text-black sm:text-4xl lg:text-5xl dark:text-white">
+              Proyectos Destacados
             </h3>
-            <p className="text-lg leading-relaxed text-gray-500 sm:text-xl dark:text-gray-300">
+            <p className="text-base leading-relaxed text-gray-500 sm:text-lg dark:text-gray-300">
               Algunos proyectos desarrollados para empresas y proyectos personales.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-[1px] overflow-hidden rounded-sm border border-[#F3F4F6] bg-[#F3F4F6] md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {featuredSlots.map((project, index) =>
               project ? (
                 <ProjectCard key={project.slug} project={project} />
               ) : (
                 <article
-                  className="project-card reveal"
+                  className="project-card reveal overflow-hidden border-t-4 border-t-gray-400"
                   data-reveal
                   key={`empty-${index}`}
                 >
-                  <div className="aspect-[16/7] border-b border-gray-100 bg-gray-50 p-6 dark:border-white/10 dark:bg-white/5">
-                    <div className="flex h-full w-full items-center justify-center rounded bg-gray-100/60 dark:bg-white/10" />
-                  </div>
-                  <div className="flex h-full flex-col p-8">
-                    <div className="mb-3 h-5 w-2/3 rounded bg-gray-100/80 dark:bg-white/10" />
-                    <div className="mb-4 h-14 rounded bg-gray-100/80 dark:bg-white/10" />
-                    <div className="mb-4 flex gap-2">
-                      <span className="h-5 w-14 rounded-full bg-gray-100/80 dark:bg-white/10" />
-                      <span className="h-5 w-16 rounded-full bg-gray-100/80 dark:bg-white/10" />
-                      <span className="h-5 w-10 rounded-full bg-gray-100/80 dark:bg-white/10" />
+                  <div className="aspect-[2/1] overflow-hidden border-b border-gray-100 bg-gray-50 p-3 animate-pulse dark:border-white/10 dark:bg-white/5">
+                    <div className="flex h-full w-full items-center justify-center bg-gray-100/60 dark:bg-white/10">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100/80 dark:bg-white/5" />
                     </div>
-                    <div className="h-4 w-24 rounded bg-gray-100/80 dark:bg-white/10" />
+                  </div>
+                  <div className="project-card-content animate-pulse">
+                    <div className="mb-2 h-2 w-16 rounded-full bg-gray-100/80 dark:bg-white/5" />
+                    <div className="mb-2 h-5 w-3/4 rounded bg-gray-100/80 dark:bg-white/5" />
+                    <div className="mb-3 space-y-1.5">
+                      <div className="h-3 w-full rounded bg-gray-100/80 dark:bg-white/5" />
+                      <div className="h-3 w-5/6 rounded bg-gray-100/80 dark:bg-white/5" />
+                    </div>
+                    <div className="mb-3 flex gap-2">
+                      <span className="h-6 w-14 rounded-full bg-gray-100/80 dark:bg-white/5" />
+                      <span className="h-6 w-16 rounded-full bg-gray-100/80 dark:bg-white/5" />
+                      <span className="h-6 w-12 rounded-full bg-gray-100/80 dark:bg-white/5" />
+                    </div>
+                    <div className="h-11 w-full rounded-md bg-gray-100/80 dark:bg-white/5" />
                   </div>
                 </article>
               )
             )}
-          </div>
-          <div className="reveal reveal-delay-2 mt-8 flex flex-col items-center gap-6" data-reveal>
-            <p className="font-medium italic text-gray-500 dark:text-gray-300">
-              Explora más proyectos y experimentos técnicos
-            </p>
-            <Link
-              className="inline-flex items-center gap-3 rounded-full border border-gray-200 px-10 py-4 text-xs font-bold uppercase tracking-widest text-gray-900 shadow-sm transition-all hover:border-black hover:bg-gray-50 dark:border-white/10 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/10"
-              href="/proyectos"
-            >
-              Ver catálogo completo
-              <span className="material-symbols-outlined text-base">arrow_forward</span>
-            </Link>
+            
+            {/* CTA Card */}
+            <article className="project-card reveal group border-t-4 border-t-gray-400" data-reveal>
+              <div className="aspect-[2/1] overflow-hidden border-b border-gray-100 bg-gray-50 p-6 dark:border-white/10 dark:bg-white/5">
+                <div className="relative flex h-full w-full items-center justify-center">
+                  {/* Logo */}
+                  <Image
+                    src="/icon-negro.svg"
+                    alt="Logo"
+                    width={100}
+                    height={100}
+                    className="block transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 dark:hidden"
+                  />
+                  <Image
+                    src="/icon-blanco.svg"
+                    alt="Logo"
+                    width={100}
+                    height={100}
+                    className="hidden transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 dark:block"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col p-5">
+                <span className="mb-2 inline-flex text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
+                  CATÁLOGO COMPLETO
+                </span>
+                <h3 className="mb-2 text-lg font-extrabold leading-tight tracking-tight text-black dark:text-white">
+                  Más Proyectos
+                </h3>
+                <p className="mb-3 flex-grow text-[14px] leading-relaxed text-gray-500 dark:text-gray-300">
+                  Explora el catálogo completo con más soluciones empresariales, arquitecturas de sistemas, prototipos y experimentos técnicos desarrollados a lo largo de mi carrera profesional.
+                </p>
+                
+                <Link
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border-2 border-gray-900 bg-white py-3 text-[11px] font-bold uppercase tracking-wide text-gray-900 transition-all duration-300 hover:scale-[1.02] hover:bg-gray-50 hover:shadow-lg dark:border-white dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800"
+                  href="/proyectos"
+                >
+                  <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:scale-110">visibility</span>
+                  <span>VER TODO</span>
+                </Link>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -387,11 +424,11 @@ export default function HomePage() {
               </p>
             </div>
             <Link
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-black px-8 py-3 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-xl shadow-black/10 transition-all dark:bg-white dark:text-black"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-black px-8 py-3 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-xl shadow-black/10 transition-all duration-200 hover:shadow-2xl active:scale-95 dark:bg-white dark:text-black"
               href="/contacto"
             >
               Contactar para un servicio
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              <span className="material-symbols-outlined text-sm transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>
             </Link>
           </div>
         </div>
