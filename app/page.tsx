@@ -88,6 +88,7 @@ export default function HomePage() {
                 className="btn-lift flex items-center justify-center gap-3 rounded-full bg-black px-10 py-5 text-xs font-bold uppercase tracking-widest text-white shadow-lg shadow-black/10"
                 href="/contacto"
               >
+                <span className="material-symbols-outlined text-sm">mail</span>
                 Contactar ahora
               </Link>
               <DownloadCVButton />

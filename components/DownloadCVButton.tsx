@@ -41,8 +41,8 @@ export default function DownloadCVButton({
       type="button"
       aria-label="Descargar curriculum vitae en formato PDF"
     >
-      Descargar CV
       <span className="material-symbols-outlined text-[18px]" aria-hidden="true">download</span>
+      <span>Descargar CV</span>
     </button>
   );
 }
