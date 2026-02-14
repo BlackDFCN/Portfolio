@@ -114,7 +114,7 @@ export default function Header() {
             </span>
           </Link>
         </div>
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
             <Link
               className={`nav-link ${
@@ -139,11 +139,11 @@ export default function Header() {
         </div>
         <div className="flex items-center gap-6">
           <ThemeToggle />
-          <Link className="btn-talk hidden sm:block" href="/contacto">
+          <Link className="btn-talk hidden lg:block" href="/contacto">
             Hablemos
           </Link>
           <button
-            className="text-black dark:text-white md:hidden"
+            className="text-black dark:text-white lg:hidden"
             type="button"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-nav"
@@ -157,7 +157,7 @@ export default function Header() {
         </div>
       </nav>
       <div
-        className={`md:hidden overflow-hidden border-t border-gray-100 bg-white/95 transition-[max-height,opacity] duration-300 dark:border-white/10 dark:bg-[#0c0c0c] ${
+        className={`lg:hidden overflow-hidden border-t border-gray-100 bg-white/95 transition-[max-height,opacity] duration-300 dark:border-white/10 dark:bg-[#0c0c0c] ${
           isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
         id="mobile-nav"
@@ -182,6 +182,9 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
+          <Link className="btn-talk w-full text-center" href="/contacto">
+            Hablemos
+          </Link>
         </div>
       </div>
     </header>
