@@ -9,27 +9,6 @@ import MermaidDiagram from "@/components/MermaidDiagram";
 
 export const dynamicParams = false;
 
-const tagIcons: Record<string, string> = {
-  "Node.js": "terminal",
-  PostgreSQL: "database",
-  Redis: "bolt",
-  AWS: "cloud",
-  Auth0: "security",
-  Docker: "layers"
-};
-
-const formatProjectDate = (date: string) => {
-  const parsed = new Date(date);
-  if (Number.isNaN(parsed.getTime())) {
-    return date;
-  }
-
-  return new Intl.DateTimeFormat("es-CL", {
-    month: "short",
-    year: "numeric"
-  }).format(parsed);
-};
-
 type ProjectPageProps = {
   params: { slug: string };
 };
@@ -69,8 +48,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <>
       <ProjectHero project={project} />
 
-      <section className="bg-gray-50/30 py-4 dark:bg-white/5">
-          <div className="section-container topo-section">
+      <section className="topo-section bg-gray-50/30 py-4 dark:bg-white/5">
+        <div className="section-container max-w-6xl">
           <div className="flex flex-wrap items-center gap-6 lg:gap-12">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
               Tecnologias utilizadas
@@ -86,8 +65,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="py-10 lg:py-12">
-          <div className="section-container topo-section">
+      <section className="topo-section py-10 lg:py-12">
+        <div className="section-container max-w-6xl">
           <div className="mb-8">
             <span className="eyebrow">Diagnostico</span>
             <h2 className="text-2xl font-extrabold tracking-tight text-black sm:text-3xl lg:text-4xl dark:text-white">
@@ -131,8 +110,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="py-8 lg:py-10">
-          <div className="section-container topo-section">
+      <section className="topo-section py-8 lg:py-10">
+        <div className="section-container max-w-6xl">
           <span className="eyebrow">Resumen</span>
           <h2 className="mb-6 text-2xl font-extrabold tracking-tight text-black sm:text-3xl lg:text-4xl dark:text-white">
             Contexto y alcance
@@ -143,8 +122,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="py-12 lg:py-16">
-          <div className="section-container topo-section">
+      <section className="topo-section py-12 lg:py-16">
+        <div className="section-container max-w-6xl">
           <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_16px_40px_-28px_rgba(0,0,0,0.35)] dark:border-white/10 dark:bg-[#101010]">
             <h3 className="mb-6 text-[11px] font-bold uppercase tracking-[0.4em] text-black dark:text-white">
               01 / Contribuciones clave
@@ -176,8 +155,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         />
       ) : null}
 
-      <section className="bg-gray-50/50 py-20 lg:py-32 dark:bg-white/5">
-          <div className="section-container text-center topo-section">
+      <section className="topo-section bg-gray-50/50 py-20 lg:py-32 dark:bg-white/5">
+        <div className="section-container max-w-6xl text-center">
           <h2 className="mb-12 text-[11px] font-bold uppercase tracking-[0.4em] text-black dark:text-white">
             05 / Flujo de uso
           </h2>
@@ -193,8 +172,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32">
-          <div className="section-container topo-section">
+      <section className="topo-section py-20 lg:py-32">
+        <div className="section-container max-w-6xl">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-3">
             <div className="lg:col-span-1">
               <h2 className="mb-8 text-[11px] font-bold uppercase tracking-[0.4em] text-black dark:text-white">
