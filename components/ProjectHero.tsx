@@ -13,11 +13,11 @@ export default function ProjectHero({ project }: { project: ProjectSummary }) {
         <div className="flex flex-col items-start justify-between gap-10 lg:flex-row">
           <div className="max-w-4xl">
             <div className="mb-6">
-              <span className="eyebrow mb-0 whitespace-nowrap">
+              <span className="eyebrow mb-0 whitespace-normal sm:whitespace-nowrap">
                 {formatProjectLabel(project.date)} · {project.role}
               </span>
             </div>
-            <h1 className="mb-6 text-3xl font-extrabold leading-[1.05] tracking-tight text-black sm:text-4xl lg:text-6xl dark:text-white">
+            <h1 className="mb-6 break-words text-3xl font-extrabold leading-[1.05] tracking-tight text-black sm:text-4xl lg:text-6xl dark:text-white">
               {project.title}
             </h1>
             <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
