@@ -46,7 +46,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="section-snap topo-section min-h-screen bg-white/90 py-12 lg:py-20 dark:bg-[#0c0c0c]" data-section="inicio" id="inicio">
+      <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white/90 py-12 lg:py-20 dark:bg-[#0c0c0c]" data-section="inicio" id="inicio">
         <div className="section-container max-w-6xl grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
           <div className="reveal space-y-10 lg:col-span-8" data-reveal>
             <div className="group inline-flex items-center gap-2.5 rounded-full border border-emerald-100 bg-emerald-50/70 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-700 shadow-[0_10px_26px_-18px_rgba(16,185,129,0.35)] backdrop-blur">
@@ -96,10 +96,13 @@ export default function HomePage() {
           <div className="reveal reveal-delay-2 flex justify-center lg:col-span-4 lg:justify-end" data-reveal>
             <div className="relative h-56 w-56 sm:h-64 sm:w-64 lg:h-[360px] lg:w-[360px]">
               <div className="relative h-full w-full overflow-hidden rounded-[36px] border border-white/80 bg-white shadow-[0_28px_60px_-22px_rgba(0,0,0,0.18)] ring-1 ring-gray-200/60 dark:border-white/10 dark:bg-[#111111] dark:ring-white/10">
-                <img
-                  alt="Foto de perfil"
+                <Image
+                  alt="Foto de perfil - Bastian Tapia"
                   className="h-full w-full object-cover grayscale transition-[filter] duration-400 hover:grayscale-0"
                   src="/avatar.png"
+                  width={360}
+                  height={360}
+                  priority
                 />
               </div>
               <div className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 justify-center sm:-bottom-8">
@@ -109,7 +112,7 @@ export default function HomePage() {
                     <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-gray-600 dark:text-gray-200">
                       Bastian Tapia
                     </p>
-                    <p className="whitespace-nowrap text-[9px] uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500">
+                    <p className="whitespace-nowrap text-[12px] uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500">
                       Ing. Ejec. Computacion e Informatica
                     </p>
                   </div>
@@ -120,7 +123,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-snap topo-section min-h-screen bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]" data-section="metodologia" id="metodologia">
+      <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]" data-section="metodologia" id="metodologia">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-8 max-w-3xl" data-reveal>
             <span className="eyebrow">Metodología</span>
@@ -204,7 +207,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-snap topo-section min-h-screen bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]" data-section="stack" id="stack">
+      <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]" data-section="stack" id="stack">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-8 max-w-3xl" data-reveal>
             <span className="eyebrow">STACK TECNOLÓGICO</span>
@@ -328,7 +331,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex flex-col p-5">
-                <span className="mb-2 inline-flex text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
+                <span className="mb-2 inline-flex text-[12px] font-bold uppercase tracking-[0.3em] text-gray-400">
                   CATÁLOGO COMPLETO
                 </span>
                 <h3 className="mb-2 text-lg font-extrabold leading-tight tracking-tight text-black dark:text-white">

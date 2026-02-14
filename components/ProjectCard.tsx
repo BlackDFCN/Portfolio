@@ -21,10 +21,12 @@ export default function ProjectCard({ project }: { project: ProjectSummary }) {
       <div className="aspect-[2/1] overflow-hidden border-b border-gray-100 bg-gray-50 p-3 dark:border-white/10 dark:bg-white/5">
         {hasImage ? (
           <img
-            alt={`${project.title}`}
+            alt={`Imagen del proyecto ${project.title}`}
             className="h-full w-full object-contain transition-transform duration-300 hover:scale-105"
             loading="lazy"
             src={project.image}
+            width={600}
+            height={300}
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gray-100/60 dark:bg-white/10">

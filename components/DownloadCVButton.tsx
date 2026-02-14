@@ -39,9 +39,10 @@ export default function DownloadCVButton({
       className={`${baseClassName} ${variantClassName} ${className}`}
       onClick={handleDownload}
       type="button"
+      aria-label="Descargar curriculum vitae en formato PDF"
     >
       Descargar CV
-      <span className="material-symbols-outlined text-[18px]">download</span>
+      <span className="material-symbols-outlined text-[18px]" aria-hidden="true">download</span>
     </button>
   );
 }

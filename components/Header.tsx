@@ -83,7 +83,7 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-xl dark:border-white/10 dark:bg-[#0c0c0c]/80">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-xl [-webkit-backdrop-filter:blur(24px)] dark:border-white/10 dark:bg-[#0c0c0c]/80">
       <nav className="section-container flex h-20 items-center justify-between">
         <div className="flex items-center gap-4">
           <Link className="group flex items-center gap-2.5" href="/">
@@ -147,9 +147,10 @@ export default function Header() {
             type="button"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-nav"
+            aria-label={isMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
             onClick={() => setIsMenuOpen((open) => !open)}
           >
-            <span className="material-symbols-outlined text-3xl">
+            <span className="material-symbols-outlined text-3xl" aria-hidden="true">
               {isMenuOpen ? "close" : "menu"}
             </span>
           </button>

@@ -51,36 +51,41 @@ export default function ContactForm() {
     <form className="space-y-5" onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-2">
-          <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+          <label htmlFor="name" className="text-[12px] font-bold uppercase tracking-widest text-gray-400">
             Nombre
           </label>
           <input
             className="form-input py-3 text-[14px]"
+            id="name"
             name="name"
             placeholder="Tu nombre"
             required
             type="text"
+            autoComplete="name"
           />
         </div>
         <div className="space-y-2">
-          <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+          <label htmlFor="email" className="text-[12px] font-bold uppercase tracking-widest text-gray-400">
             Email
           </label>
           <input
             className="form-input py-3 text-[14px]"
+            id="email"
             name="email"
             placeholder="tu@email.com"
             required
             type="email"
+            autoComplete="email"
           />
         </div>
       </div>
       <div className="space-y-2">
-        <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+        <label htmlFor="subject" className="text-[12px] font-bold uppercase tracking-widest text-gray-400">
           Asunto
         </label>
         <input
           className="form-input py-3 text-[14px]"
+          id="subject"
           name="subject"
           placeholder="¿En qué puedo ayudarte?"
           required
@@ -88,11 +93,12 @@ export default function ContactForm() {
         />
       </div>
       <div className="space-y-2">
-        <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+        <label htmlFor="message" className="text-[12px] font-bold uppercase tracking-widest text-gray-400">
           Mensaje
         </label>
         <textarea
           className="form-input resize-none py-3 text-[14px]"
+          id="message"
           name="message"
           placeholder="Cuéntame sobre tu proyecto o propuesta técnica..."
           required
