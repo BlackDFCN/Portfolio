@@ -276,13 +276,13 @@ export default function HomePage() {
               Algunos proyectos desarrollados para empresas y proyectos personales.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {featuredSlots.map((project, index) =>
               project ? (
                 <ProjectCard key={project.slug} project={project} />
               ) : (
                 <article
-                  className="project-card reveal overflow-hidden border-t-4 border-t-gray-400"
+                  className="project-card reveal overflow-hidden border-t-4 border-t-gray-400 h-full"
                   data-reveal
                   key={`empty-${index}`}
                 >
@@ -330,22 +330,25 @@ export default function HomePage() {
                   />
                 </div>
               </div>
-              <div className="flex flex-col p-5">
+              <div className="flex flex-col flex-grow p-5">
                 <span className="mb-2 inline-flex text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.3em] text-gray-400">
                   CATÁLOGO COMPLETO
                 </span>
                 <h3 className="mb-2 text-[clamp(16px,1.3vw,20px)] font-extrabold leading-tight tracking-tight text-black dark:text-white">
                   Más Proyectos
                 </h3>
-                <p className="mb-3 flex-grow text-[clamp(14px,1.05vw,16px)] leading-relaxed text-gray-500 dark:text-gray-300">
+                <p className="mb-3 text-[clamp(14px,1.05vw,16px)] leading-relaxed text-gray-500 dark:text-gray-300">
                   Explora el catálogo completo con más soluciones empresariales, arquitecturas de sistemas, prototipos y experimentos técnicos desarrollados a lo largo de mi carrera profesional.
                 </p>
                 
+                {/* Spacer para alinear con las otras cards que tienen tags */}
+                <div className="mb-6 flex-grow"></div>
+                
                 <Link
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border-2 border-gray-900 bg-white py-3 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-wide text-gray-900 transition-all duration-300 hover:scale-[1.02] hover:bg-gray-50 hover:shadow-lg dark:border-white dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800"
+                  className="project-card-link dark:border-white dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800 mt-auto"
                   href="/proyectos"
                 >
-                  <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:scale-110">visibility</span>
+                  <span className="material-symbols-outlined text-sm">visibility</span>
                   <span>VER TODO</span>
                 </Link>
               </div>

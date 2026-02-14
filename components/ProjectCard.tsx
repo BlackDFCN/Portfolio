@@ -16,7 +16,7 @@ export default function ProjectCard({ project }: { project: ProjectSummary }) {
   const hasImage = Boolean(project.image);
 
   return (
-    <article className="project-card reveal border-t-4 border-t-gray-400" data-reveal>
+    <article className="project-card reveal border-t-4 border-t-gray-400 h-full" data-reveal>
       {/* Image Section */}
       <div className="aspect-[2/1] overflow-hidden border-b border-gray-100 bg-gray-50 p-3 dark:border-white/10 dark:bg-white/5">
         {hasImage ? (
@@ -38,7 +38,7 @@ export default function ProjectCard({ project }: { project: ProjectSummary }) {
       </div>
 
       {/* Content Section */}
-      <div className="project-card-content">
+      <div className="project-card-content flex-grow">
         {/* Category Badge */}
         <span className="project-card-category">
           {project.category}
@@ -55,7 +55,7 @@ export default function ProjectCard({ project }: { project: ProjectSummary }) {
         </p>
 
         {/* Tags */}
-        <div className="mb-3 flex flex-wrap gap-2">
+        <div className="mb-6 flex flex-grow flex-wrap gap-2">
           {project.tags.slice(0, 3).map((tag) => (
             <span className="project-tag dark:border-white/10 dark:bg-white/5 dark:text-gray-400" key={tag}>
               {tag}
@@ -70,11 +70,11 @@ export default function ProjectCard({ project }: { project: ProjectSummary }) {
 
         {/* CTA Link */}
         <Link
-          className="project-card-link dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+          className="project-card-link mt-auto"
           href={`/proyectos/${project.slug}`}
         >
+          <span className="material-symbols-outlined text-base">search</span>
           <span>VER PROYECTO</span>
-          <span className="material-symbols-outlined text-sm">arrow_forward</span>
         </Link>
       </div>
     </article>

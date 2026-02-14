@@ -330,14 +330,28 @@ body {
 }
 
 .project-card-link {
-  @apply inline-flex w-full items-center justify-center gap-2 rounded-md border border-gray-200 bg-gray-50 py-3 font-bold uppercase tracking-wide text-gray-900;
+  @apply inline-flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white font-bold uppercase tracking-wide text-gray-700;
   font-size: clamp(11px, 0.9vw, 12px);
-  transition: border-color var(--transition-base), background-color var(--transition-base), color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-fast);
+  padding: clamp(0.65rem, 1.2vw, 0.8rem) clamp(1rem, 1.8vw, 1.25rem);
+  transition: all var(--transition-base);
 }
 
 .project-card-link:hover {
-  @apply border-gray-900 bg-white shadow-md;
-  transform: translateY(-1px);
+  @apply border-gray-800 bg-gray-50 text-gray-900 shadow-xl;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.2);
+}
+
+.project-card-link:active {
+  transform: scale(0.98);
+}
+
+.dark .project-card-link {
+  @apply border-white/20 bg-white/5 text-gray-300;
+}
+
+.dark .project-card-link:hover {
+  @apply bg-white border-white text-black;
 }
 
 .service-card {
