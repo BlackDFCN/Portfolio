@@ -357,85 +357,93 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-snap topo-section bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]" data-section="servicios" id="servicios">
+      <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]" data-section="servicios" id="servicios">
         <div className="section-container max-w-6xl">
-          <div className="reveal mb-6 max-w-3xl" data-reveal>
+          <div className="reveal mb-8 max-w-3xl" data-reveal>
             <span className="eyebrow">SERVICIOS PROFESIONALES</span>
-            <h3 className="mb-6 text-[clamp(26px,3.2vw,48px)] font-extrabold tracking-tight text-black dark:text-white">
+            <h3 className="mb-4 text-[clamp(26px,3vw,48px)] font-extrabold tracking-tight text-black dark:text-white">
               Soluciones a medida
             </h3>
-            <p className="text-lg leading-relaxed text-gray-500 sm:text-xl dark:text-gray-300">
-              Servicios enfocados en resultados: producto, arquitectura y
-              entrega continua.
+            <p className="text-[clamp(15px,1vw,17px)] leading-relaxed text-gray-500 dark:text-gray-300">
+              Arquitectura, desarrollo y entrega continua para tu producto digital.
             </p>
           </div>
-          <div className="mb-8 grid grid-cols-1 gap-[1px] overflow-hidden rounded-sm border border-[#F3F4F6] bg-[#F3F4F6] md:grid-cols-2 lg:grid-cols-3">
+          <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 icon: "web",
                 title: "Desarrollo Full Stack",
-                text: "Aplicaciones web completas desde la idea hasta el despliegue."
+                text: "Aplicaciones web completas con frontend moderno, backend robusto e integración con bases de datos. Desde la idea hasta el despliegue.",
+                color: "emerald"
               },
               {
                 icon: "settings_input_component",
                 title: "Arquitectura Backend",
-                text: "APIs escalables, diseño de sistemas y optimización de datos."
+                text: "Diseño e implementación de APIs escalables, microservicios, modelado de datos y optimización de sistemas distribuidos.",
+                color: "indigo"
               },
               {
                 icon: "precision_manufacturing",
                 title: "Automatización y DevOps",
-                text: "CI/CD, observabilidad e infraestructura cloud confiable."
+                text: "Pipelines CI/CD, containerización con Docker, infraestructura cloud, monitoreo y observabilidad en producción.",
+                color: "amber"
               }
             ].map((service, index) => (
               <article
-                className={`service-card reveal ${
+                className={`pillar-card stack-lift reveal ${
                   index === 0 ? "" : `reveal-delay-${Math.min(index, 4)}`
                 }`}
                 data-reveal
                 key={service.title}
               >
                 <div className="flex items-center gap-3">
-                  <span
-                    className={`material-symbols-outlined text-2xl ${
-                      service.title === "Desarrollo Full Stack"
-                        ? "text-emerald-500"
-                        : service.title === "Arquitectura Backend"
-                          ? "text-indigo-500"
-                          : "text-amber-500"
-                    }`}
-                  >
-                    {service.icon}
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-gray-200/80 bg-gray-50 dark:border-white/10 dark:bg-white/5">
+                    <span
+                      className={`material-symbols-outlined text-xl ${
+                        service.color === "emerald"
+                          ? "text-emerald-500"
+                          : service.color === "indigo"
+                            ? "text-indigo-500"
+                            : "text-amber-500"
+                      }`}
+                    >
+                      {service.icon}
+                    </span>
                   </span>
-                  <h4 className="text-base font-bold uppercase tracking-tight text-black dark:text-white">
+                  <h4 className="text-[clamp(14px,1vw,16px)] font-bold uppercase tracking-[0.14em] text-black dark:text-white">
                     {service.title}
                   </h4>
                 </div>
-                <p className="text-[clamp(13px,1vw,15px)] leading-relaxed text-gray-600 dark:text-gray-300">
+                <p className="text-[clamp(13px,0.95vw,15px)] leading-relaxed text-gray-500 dark:text-gray-300">
                   {service.text}
                 </p>
               </article>
             ))}
           </div>
-          <div className="reveal reveal-delay-2 rounded-2xl border border-gray-100 bg-gray-50 p-8 text-center lg:p-10 dark:border-white/10 dark:bg-white/5" data-reveal>
-            <div className="space-y-3">
-              <p className="text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500">
-                Agenda abierta
-              </p>
-              <h3 className="text-[clamp(20px,2.2vw,30px)] font-extrabold text-black dark:text-white">
-                ¿Tienes un proyecto en mente?
-              </h3>
-              <p className="mx-auto max-w-xl text-base text-gray-500 dark:text-gray-300">
-                Definamos alcance, tiempos y un plan técnico claro para tu
-                producto.
-              </p>
+          <div className="reveal reveal-delay-2 rounded-2xl border border-gray-100 bg-gray-50 p-6 text-center lg:p-8 dark:border-white/10 dark:bg-white/5" data-reveal>
+            <p className="mb-2 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500">
+              AGENDA ABIERTA
+            </p>
+            <h3 className="mb-3 text-[clamp(22px,2vw,32px)] font-extrabold text-black dark:text-white">
+              ¿Tienes un proyecto en mente?
+            </h3>
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
+              <Link
+                className="btn-talk btn-lift flex items-center justify-center gap-2 rounded-full px-8 py-4 text-xs font-bold uppercase tracking-widest min-w-[180px]"
+                href="/contacto"
+              >
+                <span className="material-symbols-outlined text-sm">mail</span>
+                <span>CONTACTAR AHORA</span>
+              </Link>
+              <Link
+                className="btn-lift flex items-center justify-center gap-2 rounded-full min-w-[180px] border border-gray-300 bg-white text-gray-700 transition-all duration-200 hover:border-gray-900 hover:bg-gray-50 hover:shadow-lg active:scale-95 dark:border-white/20 dark:bg-white/5 dark:text-gray-300 dark:hover:bg-white/10"
+                href="/servicios"
+                style={{ fontSize: 'clamp(11px,0.9vw,12px)', padding: 'clamp(0.45rem,1vw,0.65rem) clamp(1.25rem,2vw,1.5rem)', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.2em' }}
+              >
+                <span className="material-symbols-outlined text-sm">info</span>
+                <span>VER DETALLES</span>
+              </Link>
             </div>
-            <Link
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-black px-8 py-3 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.2em] text-white shadow-xl shadow-black/10 transition-all duration-200 hover:shadow-2xl active:scale-95 dark:bg-white dark:text-black"
-              href="/contacto"
-            >
-              Contactar para un servicio
-              <span className="material-symbols-outlined text-sm transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>
-            </Link>
           </div>
         </div>
       </section>
