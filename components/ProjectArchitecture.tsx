@@ -11,7 +11,7 @@ export default function ProjectArchitecture({
   return (
     <section className="border-y border-gray-100 bg-gray-50/50 py-20 lg:py-32 dark:border-white/10 dark:bg-white/5">
       <div className="section-container text-center">
-        <h2 className="mb-12 text-[11px] font-bold uppercase tracking-[0.4em] text-black dark:text-white">
+        <h2 className="mb-12 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.4em] text-black dark:text-white">
           03 / Arquitectura del Sistema
         </h2>
         <div className="mx-auto max-w-5xl px-0 py-8 sm:px-6 sm:py-12">
@@ -46,7 +46,7 @@ export default function ProjectArchitecture({
                 {architecture.persistence.map((item) => (
                   <div className="flex flex-col items-center" key={item}>
                     <div className="arch-node px-8">{item}</div>
-                    <span className="mt-2 text-[9px] uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                    <span className="mt-2 text-[clamp(11px,0.9vw,12px)] uppercase tracking-widest text-gray-400 dark:text-gray-500">
                       {item === "Redis" ? "Cache / Streams" : "Persistence"}
                     </span>
                   </div>

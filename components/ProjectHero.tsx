@@ -17,22 +17,23 @@ export default function ProjectHero({ project }: { project: ProjectSummary }) {
                 {formatProjectLabel(project.date)} · {project.role}
               </span>
             </div>
-            <h1 className="mb-6 break-words text-3xl font-extrabold leading-[1.05] tracking-tight text-black sm:text-4xl lg:text-6xl dark:text-white">
+            <h1 className="mb-6 break-words text-[clamp(28px,4.5vw,60px)] font-extrabold leading-[1.05] tracking-tight text-black dark:text-white">
               {project.title}
             </h1>
             <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               {project.repoUrl ? (
                 <Link
-                  className="btn-lift flex items-center gap-2.5 rounded-sm border border-black px-6 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-black shadow-lg shadow-black/10"
+                  className="btn-lift flex items-center gap-2.5 rounded-sm border border-black px-6 py-2 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.2em] text-black shadow-lg shadow-black/10"
                   href={project.repoUrl}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <span className="material-symbols-outlined text-base">code</span>
                   Código Fuente
                 </Link>
               ) : (
                 <button
-                  className="flex items-center gap-2.5 rounded-sm border border-black px-6 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-black opacity-50"
+                  className="flex items-center gap-2.5 rounded-sm border border-black px-6 py-2 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.2em] text-black opacity-50"
                   disabled
                   type="button"
                 >

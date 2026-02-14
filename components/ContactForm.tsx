@@ -51,11 +51,11 @@ export default function ContactForm() {
     <form className="space-y-5" onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-2">
-          <label htmlFor="name" className="text-[12px] font-bold uppercase tracking-widest text-gray-400">
+          <label htmlFor="name" className="text-[clamp(12px,0.95vw,13px)] font-bold uppercase tracking-widest text-gray-400">
             Nombre
           </label>
           <input
-            className="form-input py-3 text-[14px]"
+            className="form-input py-3 text-[clamp(14px,1.05vw,16px)]"
             id="name"
             name="name"
             placeholder="Tu nombre"
@@ -65,11 +65,11 @@ export default function ContactForm() {
           />
         </div>
         <div className="space-y-2">
-          <label htmlFor="email" className="text-[12px] font-bold uppercase tracking-widest text-gray-400">
+          <label htmlFor="email" className="text-[clamp(12px,0.95vw,13px)] font-bold uppercase tracking-widest text-gray-400">
             Email
           </label>
           <input
-            className="form-input py-3 text-[14px]"
+            className="form-input py-3 text-[clamp(14px,1.05vw,16px)]"
             id="email"
             name="email"
             placeholder="tu@email.com"
@@ -80,11 +80,11 @@ export default function ContactForm() {
         </div>
       </div>
       <div className="space-y-2">
-        <label htmlFor="subject" className="text-[12px] font-bold uppercase tracking-widest text-gray-400">
+        <label htmlFor="subject" className="text-[clamp(12px,0.95vw,13px)] font-bold uppercase tracking-widest text-gray-400">
           Asunto
         </label>
         <input
-          className="form-input py-3 text-[14px]"
+          className="form-input py-3 text-[clamp(14px,1.05vw,16px)]"
           id="subject"
           name="subject"
           placeholder="¿En qué puedo ayudarte?"
@@ -93,11 +93,11 @@ export default function ContactForm() {
         />
       </div>
       <div className="space-y-2">
-        <label htmlFor="message" className="text-[12px] font-bold uppercase tracking-widest text-gray-400">
+        <label htmlFor="message" className="text-[clamp(12px,0.95vw,13px)] font-bold uppercase tracking-widest text-gray-400">
           Mensaje
         </label>
         <textarea
-          className="form-input resize-none py-3 text-[14px]"
+          className="form-input resize-none py-3 text-[clamp(14px,1.05vw,16px)]"
           id="message"
           name="message"
           placeholder="Cuéntame sobre tu proyecto o propuesta técnica..."
@@ -107,14 +107,14 @@ export default function ContactForm() {
       </div>
       <div className="flex flex-col items-center gap-3 sm:flex-row">
           <button
-            className="contact-cta group flex h-[52px] w-full flex-1 items-center justify-center gap-2.5 bg-black text-[10px] font-bold uppercase tracking-[0.22em] text-white active:scale-95 dark:bg-white dark:text-black"
+            className="contact-cta group flex h-[52px] w-full flex-1 items-center justify-center gap-2.5 bg-black text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.22em] text-white active:scale-95 dark:bg-white dark:text-black"
           disabled={status === "loading"}
           type="submit"
         >
           {status === "loading" ? "Enviando..." : "Enviar mensaje"}
         </button>
         <a
-          className="contact-cta group flex h-[52px] w-full flex-1 items-center justify-center gap-2.5 border border-black bg-white text-[10px] font-bold uppercase tracking-[0.22em] text-black hover:bg-black hover:text-white active:scale-95 dark:border-white dark:bg-[#0f0f0f] dark:text-white dark:hover:bg-white dark:hover:text-black"
+          className="contact-cta group flex h-[52px] w-full flex-1 items-center justify-center gap-2.5 border border-black bg-white text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.22em] text-black hover:bg-black hover:text-white active:scale-95 dark:border-white dark:bg-[#0f0f0f] dark:text-white dark:hover:bg-white dark:hover:text-black"
           href="https://wa.me/56900000000"
           rel="noreferrer"
           target="_blank"

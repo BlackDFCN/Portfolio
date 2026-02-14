@@ -7,7 +7,7 @@ type CopyEmailButtonProps = {
 export default function CopyEmailButton({ email }: CopyEmailButtonProps) {
   return (
     <button
-      className="flex w-fit items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 transition-colors duration-200 hover:text-black dark:text-gray-400 dark:hover:text-white"
+      className="flex w-fit items-center gap-3 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.2em] text-gray-400 transition-colors duration-200 hover:text-black dark:text-gray-400 dark:hover:text-white"
       onClick={() => navigator.clipboard.writeText(email)}
       type="button"
     >

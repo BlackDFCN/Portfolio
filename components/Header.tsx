@@ -84,11 +84,11 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-xl [-webkit-backdrop-filter:blur(24px)] dark:border-white/10 dark:bg-[#0c0c0c]/80">
-      <nav className="section-container flex h-20 items-center justify-between">
-        <div className="flex items-center gap-4">
+      <nav className="section-container flex h-16 items-center justify-between md:h-20">
+        <div className="flex items-center gap-3 md:gap-4">
           <Link className="group flex items-center gap-2.5" href="/">
             {/* Icon */}
-            <span className="relative h-10 w-10">
+            <span className="relative h-9 w-9 md:h-10 md:w-10">
               <Image
                 src="/icon-negro.svg"
                 alt="BastianDev"
@@ -107,7 +107,7 @@ export default function Header() {
               />
             </span>
             {/* Logo Text */}
-            <span className="text-xl font-extrabold tracking-tight">
+            <span className="text-lg font-extrabold tracking-tight md:text-xl">
               <span className="text-black dark:text-white">Bastian</span>
               <span className="text-gray-500 dark:text-gray-400">Dev</span>
               <span className="font-light text-black dark:text-white">.</span>

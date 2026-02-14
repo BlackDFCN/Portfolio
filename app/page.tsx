@@ -49,7 +49,7 @@ export default function HomePage() {
       <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white/90 py-12 lg:py-20 dark:bg-[#0c0c0c]" data-section="inicio" id="inicio">
         <div className="section-container max-w-6xl grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
           <div className="reveal space-y-10 lg:col-span-8" data-reveal>
-            <div className="group inline-flex items-center gap-2.5 rounded-full border border-emerald-100 bg-emerald-50/70 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-700 shadow-[0_10px_26px_-18px_rgba(16,185,129,0.35)] backdrop-blur">
+            <div className="group inline-flex items-center gap-2.5 rounded-full border border-emerald-100 bg-emerald-50/70 px-4 py-2 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.2em] text-emerald-700 shadow-[0_10px_26px_-18px_rgba(16,185,129,0.35)] backdrop-blur">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
@@ -57,7 +57,7 @@ export default function HomePage() {
               Disponible para proyectos
             </div>
             <div className="space-y-5">
-              <h1 className="text-4xl font-extrabold leading-[0.98] tracking-tight text-black sm:text-5xl lg:text-[5.5rem] dark:text-white">
+              <h1 className="text-[clamp(2.2rem,5vw,5.5rem)] font-extrabold leading-[0.98] tracking-tight text-black dark:text-white">
                 <span className="block">Desarrollador</span>
                 <span className="block text-gray-500 dark:text-gray-400">Full Stack</span>
               </h1>
@@ -109,10 +109,10 @@ export default function HomePage() {
                 <div className="flex items-center gap-3 rounded-2xl border border-gray-100 bg-white/90 px-3.5 py-2 shadow-[0_12px_24px_-20px_rgba(0,0,0,0.28)] dark:border-white/10 dark:bg-[#111111]">
                   <span className="h-7 w-1 rounded-full bg-[#395a8b]" />
                   <div className="leading-tight">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-gray-600 dark:text-gray-200">
+                    <p className="text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.16em] text-gray-600 dark:text-gray-200">
                       Bastian Tapia
                     </p>
-                    <p className="whitespace-nowrap text-[12px] uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500">
+                    <p className="whitespace-nowrap text-[clamp(11px,0.9vw,12px)] uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500">
                       Ing. Ejec. Computacion e Informatica
                     </p>
                   </div>
@@ -127,10 +127,10 @@ export default function HomePage() {
         <div className="section-container max-w-6xl">
           <div className="reveal mb-8 max-w-3xl" data-reveal>
             <span className="eyebrow">Metodología</span>
-            <h3 className="mb-6 text-3xl font-extrabold tracking-tight text-black sm:text-4xl lg:text-6xl dark:text-white">
+            <h3 className="mb-6 text-[clamp(28px,3.5vw,60px)] font-extrabold tracking-tight text-black dark:text-white">
               Enfoque de Ingeniería
             </h3>
-            <p className="text-[17px] leading-relaxed text-gray-500 dark:text-gray-300">
+            <p className="text-[clamp(16px,1.1vw,18px)] leading-relaxed text-gray-500 dark:text-gray-300">
               Abordo cada proyecto con una base sólida en arquitectura, seguridad y rendimiento, asegurando soluciones mantenibles y preparadas para producción.
             </p>
           </div>
@@ -194,11 +194,11 @@ export default function HomePage() {
                       {item.icon}
                     </span>
                   </span>
-                  <h4 className="text-[15px] font-bold uppercase tracking-[0.14em] text-black dark:text-white">
+                  <h4 className="text-[clamp(14px,1vw,16px)] font-bold uppercase tracking-[0.14em] text-black dark:text-white">
                     {item.title}
                   </h4>
                 </div>
-                <p className="text-[14px] leading-relaxed text-gray-500 dark:text-gray-300">
+                <p className="text-[clamp(14px,1.05vw,16px)] leading-relaxed text-gray-500 dark:text-gray-300">
                   {item.text}
                 </p>
               </article>
@@ -211,10 +211,10 @@ export default function HomePage() {
         <div className="section-container max-w-6xl">
           <div className="reveal mb-8 max-w-3xl" data-reveal>
             <span className="eyebrow">STACK TECNOLÓGICO</span>
-            <h3 className="mb-6 text-3xl font-extrabold tracking-tight text-black sm:text-4xl lg:text-6xl dark:text-white">
+            <h3 className="mb-6 text-[clamp(28px,3.5vw,60px)] font-extrabold tracking-tight text-black dark:text-white">
               Ecosistema Técnico
             </h3>
-            <p className="text-[17px] leading-relaxed text-gray-500 dark:text-gray-300">
+            <p className="text-[clamp(16px,1.1vw,18px)] leading-relaxed text-gray-500 dark:text-gray-300">
               Tecnologias y herramientas con las que trabajo y tengo experiencia real en
               proyectos, enfocadas en producto, rendimiento y despliegue.
             </p>
@@ -248,7 +248,7 @@ export default function HomePage() {
                       {group.icon}
                     </span>
                   </span>
-                  <h4 className="text-[15px] font-bold uppercase tracking-[0.14em] text-black dark:text-white">
+                  <h4 className="text-[clamp(14px,1vw,16px)] font-bold uppercase tracking-[0.14em] text-black dark:text-white">
                     {group.title}
                   </h4>
                 </div>
@@ -269,7 +269,7 @@ export default function HomePage() {
         <div className="section-container max-w-6xl">
           <div className="reveal mb-4 max-w-3xl" data-reveal>
             <span className="eyebrow">TRABAJOS DESTACADOS</span>
-            <h3 className="mb-4 text-3xl font-extrabold tracking-tight text-black sm:text-4xl lg:text-5xl dark:text-white">
+            <h3 className="mb-4 text-[clamp(26px,3.2vw,48px)] font-extrabold tracking-tight text-black dark:text-white">
               Proyectos Destacados
             </h3>
             <p className="text-base leading-relaxed text-gray-500 sm:text-lg dark:text-gray-300">
@@ -331,18 +331,18 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex flex-col p-5">
-                <span className="mb-2 inline-flex text-[12px] font-bold uppercase tracking-[0.3em] text-gray-400">
+                <span className="mb-2 inline-flex text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.3em] text-gray-400">
                   CATÁLOGO COMPLETO
                 </span>
-                <h3 className="mb-2 text-lg font-extrabold leading-tight tracking-tight text-black dark:text-white">
+                <h3 className="mb-2 text-[clamp(16px,1.3vw,20px)] font-extrabold leading-tight tracking-tight text-black dark:text-white">
                   Más Proyectos
                 </h3>
-                <p className="mb-3 flex-grow text-[14px] leading-relaxed text-gray-500 dark:text-gray-300">
+                <p className="mb-3 flex-grow text-[clamp(14px,1.05vw,16px)] leading-relaxed text-gray-500 dark:text-gray-300">
                   Explora el catálogo completo con más soluciones empresariales, arquitecturas de sistemas, prototipos y experimentos técnicos desarrollados a lo largo de mi carrera profesional.
                 </p>
                 
                 <Link
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border-2 border-gray-900 bg-white py-3 text-[11px] font-bold uppercase tracking-wide text-gray-900 transition-all duration-300 hover:scale-[1.02] hover:bg-gray-50 hover:shadow-lg dark:border-white dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border-2 border-gray-900 bg-white py-3 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-wide text-gray-900 transition-all duration-300 hover:scale-[1.02] hover:bg-gray-50 hover:shadow-lg dark:border-white dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800"
                   href="/proyectos"
                 >
                   <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:scale-110">visibility</span>
@@ -358,7 +358,7 @@ export default function HomePage() {
         <div className="section-container max-w-6xl">
           <div className="reveal mb-6 max-w-3xl" data-reveal>
             <span className="eyebrow">SERVICIOS PROFESIONALES</span>
-            <h3 className="mb-6 text-3xl font-extrabold tracking-tight text-black sm:text-4xl lg:text-5xl dark:text-white">
+            <h3 className="mb-6 text-[clamp(26px,3.2vw,48px)] font-extrabold tracking-tight text-black dark:text-white">
               Soluciones a medida
             </h3>
             <p className="text-lg leading-relaxed text-gray-500 sm:text-xl dark:text-gray-300">
@@ -407,7 +407,7 @@ export default function HomePage() {
                     {service.title}
                   </h4>
                 </div>
-                <p className="text-[13px] leading-relaxed text-gray-600 dark:text-gray-300">
+                <p className="text-[clamp(13px,1vw,15px)] leading-relaxed text-gray-600 dark:text-gray-300">
                   {service.text}
                 </p>
               </article>
@@ -415,10 +415,10 @@ export default function HomePage() {
           </div>
           <div className="reveal reveal-delay-2 rounded-2xl border border-gray-100 bg-gray-50 p-8 text-center lg:p-10 dark:border-white/10 dark:bg-white/5" data-reveal>
             <div className="space-y-3">
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500">
+              <p className="text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500">
                 Agenda abierta
               </p>
-              <h3 className="text-xl font-extrabold text-black sm:text-2xl lg:text-3xl dark:text-white">
+              <h3 className="text-[clamp(20px,2.2vw,30px)] font-extrabold text-black dark:text-white">
                 ¿Tienes un proyecto en mente?
               </h3>
               <p className="mx-auto max-w-xl text-base text-gray-500 dark:text-gray-300">
@@ -427,7 +427,7 @@ export default function HomePage() {
               </p>
             </div>
             <Link
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-black px-8 py-3 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-xl shadow-black/10 transition-all duration-200 hover:shadow-2xl active:scale-95 dark:bg-white dark:text-black"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-black px-8 py-3 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.2em] text-white shadow-xl shadow-black/10 transition-all duration-200 hover:shadow-2xl active:scale-95 dark:bg-white dark:text-black"
               href="/contacto"
             >
               Contactar para un servicio

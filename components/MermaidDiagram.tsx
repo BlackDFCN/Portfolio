@@ -51,7 +51,7 @@ export default function MermaidDiagram({
   return (
     <div className="mermaid-wrapper">
       {title ? (
-        <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500">
+        <p className="mb-4 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500">
           {title}
         </p>
       ) : null}
