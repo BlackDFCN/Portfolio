@@ -157,12 +157,12 @@ export default function Header() {
         </div>
       </nav>
       <div
-        className={`md:hidden ${
-          isMenuOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
-        } origin-top overflow-hidden border-t border-gray-100 bg-white/95 transition-[transform,opacity] duration-300 dark:border-white/10 dark:bg-[#0c0c0c]`}
+        className={`md:hidden overflow-hidden border-t border-gray-100 bg-white/95 transition-[max-height,opacity] duration-300 dark:border-white/10 dark:bg-[#0c0c0c] ${
+          isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
         id="mobile-nav"
       >
-        <div className="section-container flex flex-col gap-4 py-5">
+        <div className={`section-container flex flex-col gap-4 ${isMenuOpen ? "py-5" : "py-0"}`}>
           {navItems.map((item) => (
             <Link
               className={`text-sm font-semibold uppercase tracking-[0.2em] transition-colors ${
