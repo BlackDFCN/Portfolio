@@ -46,7 +46,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white/90 py-12 lg:py-20 dark:bg-[#0c0c0c]" data-section="inicio" id="inicio">
+      <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white/90 py-8 lg:py-12 dark:bg-[#0c0c0c]" data-section="inicio" id="inicio">
         <div className="section-container max-w-6xl grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
           <div className="reveal space-y-10 lg:col-span-8" data-reveal>
             <div className="relative inline-flex items-center group">
@@ -140,11 +140,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]" data-section="metodologia" id="metodologia">
+      <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white py-6 lg:py-12 dark:bg-[#0c0c0c]" data-section="metodologia" id="metodologia">
         <div className="section-container max-w-6xl">
-          <div className="reveal mb-8 max-w-3xl" data-reveal>
+          <div className="reveal mb-4 max-w-3xl" data-reveal>
             <span className="eyebrow">Metodología</span>
-            <h3 className="mb-6 text-[clamp(28px,3.5vw,60px)] font-extrabold tracking-tight text-black dark:text-white">
+            <h3 className="mb-4 text-[clamp(28px,3.5vw,60px)] font-extrabold tracking-tight text-black dark:text-white">
               Enfoque de Ingeniería
             </h3>
             <p className="text-[clamp(16px,1.1vw,18px)] leading-relaxed text-gray-500 dark:text-gray-300">
@@ -235,16 +235,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]" data-section="stack" id="stack">
+      <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white py-6 lg:py-12 dark:bg-[#0c0c0c]" data-section="stack" id="stack">
         <div className="section-container max-w-6xl">
-          <div className="reveal mb-8 max-w-3xl" data-reveal>
+          <div className="reveal mb-4 max-w-3xl" data-reveal>
             <span className="eyebrow">STACK TECNOLÓGICO</span>
-            <h3 className="mb-6 text-[clamp(28px,3.5vw,60px)] font-extrabold tracking-tight text-black dark:text-white">
+            <h3 className="mb-4 text-[clamp(28px,3.5vw,60px)] font-extrabold tracking-tight text-black dark:text-white">
               Ecosistema Técnico
             </h3>
             <p className="text-[clamp(16px,1.1vw,18px)] leading-relaxed text-gray-500 dark:text-gray-300">
-              Tecnologias y herramientas con las que trabajo y tengo experiencia real en
-              proyectos, enfocadas en producto, rendimiento y despliegue.
+              Tecnologias y herramientas con las que trabajo y tengo experiencia real en proyectos, enfocadas en producto, rendimiento y despliegue.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -385,14 +384,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]" data-section="servicios" id="servicios">
+      <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white py-6 lg:py-12 dark:bg-[#0c0c0c]" data-section="servicios" id="servicios">
         <div className="section-container max-w-6xl">
-          <div className="reveal mb-8 max-w-3xl" data-reveal>
+          <div className="reveal mb-4 max-w-3xl" data-reveal>
             <span className="eyebrow">SERVICIOS PROFESIONALES</span>
-            <h3 className="mb-4 text-[clamp(26px,3vw,48px)] font-extrabold tracking-tight text-black dark:text-white">
+            <h3 className="mb-4 text-[clamp(28px,3.5vw,60px)] font-extrabold tracking-tight text-black dark:text-white">
               Soluciones a medida
             </h3>
-            <p className="text-[clamp(15px,1vw,17px)] leading-relaxed text-gray-500 dark:text-gray-300">
+            <p className="text-[clamp(16px,1.1vw,18px)] leading-relaxed text-gray-500 dark:text-gray-300">
               Arquitectura, desarrollo y entrega continua para tu producto digital.
             </p>
           </div>

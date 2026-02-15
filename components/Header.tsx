@@ -129,6 +129,10 @@ export default function Header() {
               }
               onClick={e => {
                 e.preventDefault();
+                if (window.location.pathname !== "/") {
+                  window.location.href = `/#${item.sectionId}`;
+                  return;
+                }
                 const el = document.getElementById(item.sectionId);
                 if (el) {
                   const header = document.querySelector('header');

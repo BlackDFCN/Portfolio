@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="section-snap bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]">
+      <section className="section-snap bg-white py-6 lg:py-12 dark:bg-[#0c0c0c]">
         <div className="section-container max-w-6xl">
-          <div className="reveal mb-8 max-w-3xl" data-reveal>
+          <div className="reveal mb-4 max-w-3xl" data-reveal>
             <span className="eyebrow">CONTACTO</span>
             <h1 className="mb-4 text-3xl font-extrabold tracking-tight text-black sm:text-4xl lg:text-5xl dark:text-white">
               Iniciemos tu próximo proyecto.

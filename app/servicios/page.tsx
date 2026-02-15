@@ -53,11 +53,11 @@ export default function ServiciosPage() {
   return (
     <div className="flex flex-1 flex-col">
       {/* Hero Section */}
-      <section className="bg-white py-12 lg:py-20 dark:bg-[#0c0c0c]">
+      <section className="bg-white py-6 lg:py-12 dark:bg-[#0c0c0c]">
         <div className="section-container max-w-6xl">
-          <div className="reveal max-w-3xl" data-reveal>
+          <div className="reveal mb-4 max-w-3xl" data-reveal>
             <span className="eyebrow">SERVICIOS PROFESIONALES</span>
-            <h1 className="mb-6 text-[clamp(32px,4vw,64px)] font-extrabold leading-[1.1] tracking-tight text-black dark:text-white">
+            <h1 className="mb-4 text-[clamp(32px,4vw,64px)] font-extrabold leading-[1.1] tracking-tight text-black dark:text-white">
               Soluciones a medida para tu producto
             </h1>
             <p className="text-[clamp(16px,1.15vw,18px)] leading-relaxed text-gray-500 dark:text-gray-300">
@@ -123,11 +123,11 @@ export default function ServiciosPage() {
       </section>
 
       {/* Approach Section */}
-      <section className="bg-gray-50 py-8 lg:py-16 dark:bg-[#0a0a0a]">
+      <section className="bg-gray-50 py-6 lg:py-12 dark:bg-[#0a0a0a]">
         <div className="section-container max-w-6xl">
-          <div className="reveal mb-8 max-w-3xl" data-reveal>
+          <div className="reveal mb-4 max-w-3xl" data-reveal>
             <span className="eyebrow">METODOLOGÍA DE TRABAJO</span>
-            <h2 className="mb-6 text-[clamp(26px,3.2vw,48px)] font-extrabold tracking-tight text-black dark:text-white">
+            <h2 className="mb-4 text-[clamp(26px,3.2vw,48px)] font-extrabold tracking-tight text-black dark:text-white">
               Cómo trabajo contigo
             </h2>
             <p className="text-[clamp(15px,1.1vw,17px)] leading-relaxed text-gray-600 dark:text-gray-300">
