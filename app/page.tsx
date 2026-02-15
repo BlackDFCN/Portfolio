@@ -99,29 +99,41 @@ export default function HomePage() {
               <DownloadCVButton className="btn-lift flex items-center justify-center gap-3 rounded-full px-10 py-5 text-xs font-bold uppercase tracking-widest transition-all duration-200 border border-black text-black bg-white hover:bg-black hover:text-white dark:border-white dark:text-white dark:bg-[#0f0f0f] dark:hover:bg-white dark:hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" variant="secondary" />
             </div>
           </div>
-          <div className="reveal reveal-delay-2 flex justify-center lg:col-span-4 lg:justify-end" data-reveal>
-            <div className="relative h-56 w-56 sm:h-64 sm:w-64 lg:h-[360px] lg:w-[360px]">
-              <div className="relative h-full w-full overflow-hidden rounded-[36px] border border-white/80 bg-white shadow-[0_28px_60px_-22px_rgba(0,0,0,0.18)] ring-1 ring-gray-200/60 dark:border-white/10 dark:bg-[#111111] dark:ring-white/10">
+          <div className="reveal reveal-delay-2 flex flex-col items-center justify-center lg:col-span-4 lg:justify-end" data-reveal>
+            <div className="relative h-56 w-56 sm:h-64 sm:w-64 lg:h-[360px] lg:w-[360px] group">
+              <div className="relative h-full w-full overflow-hidden rounded-[36px] border border-white/80 bg-white/70 shadow-[0_28px_60px_-22px_rgba(0,0,0,0.22)] ring-1 ring-gray-200/60 dark:border-white/10 dark:bg-[#181f1b]/80 dark:ring-white/10 backdrop-blur-md transition-all duration-300">
                 <Image
                   alt="Foto de perfil - Bastian Tapia"
-                  className="h-full w-full object-cover grayscale transition-[filter] duration-400 hover:grayscale-0"
+                  className="h-full w-full object-cover grayscale group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500"
                   src="/avatar.png"
                   width={360}
                   height={360}
                   priority
                 />
-                <div className="absolute left-1/2 -translate-x-1/2 bottom-4 w-[90%] flex justify-center">
-                  <div className="flex items-center gap-3 rounded-2xl border border-gray-100 bg-white/95 backdrop-blur-md px-4 py-2 shadow-[0_12px_24px_-20px_rgba(0,0,0,0.18)] dark:border-white/10 dark:bg-[#111111]/90 dark:backdrop-blur-md">
-                    <span className="h-7 w-1 rounded-full bg-gradient-to-b from-[#395a8b] to-[#2dd4bf]" />
-                    <div className="leading-tight text-center">
-                      <p className="text-[clamp(12px,1vw,13px)] font-bold uppercase tracking-[0.16em] text-gray-700 dark:text-gray-200 m-0">
-                        Bastian Tapia
-                      </p>
-                      <p className="text-[clamp(11px,0.9vw,12px)] uppercase tracking-[0.14em] text-gray-500 dark:text-gray-400 m-0">
-                        Ing. Ejec. Computacion e Informatica
-                      </p>
-                    </div>
+              </div>
+            </div>
+            <div className="mt-4 flex justify-center">
+              <div 
+                className="relative flex items-start gap-4 rounded-3xl border border-white/80 bg-white shadow-md px-7 py-5 dark:border-white/10 dark:bg-[#181f1b] transition-all duration-300"
+                style={{ maxWidth: '360px', minWidth: '220px', width: '100%' }}>
+                <span className="self-stretch w-0.5 rounded-full bg-sky-400" />
+                <div className="flex flex-col justify-center gap-2 text-left w-full">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[clamp(15px,1.1vw,18px)] font-extrabold uppercase tracking-[0.16em] text-gray-900 dark:text-white drop-shadow-sm">
+                      Bastian Tapia
+                    </span>
+                    <span className="inline-block align-middle ml-1 relative" title="Verificado">
+                      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={{zIndex:0}}>
+                        <circle cx="14" cy="14" r="12" fill="#38BDF8" fillOpacity="0.18" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style={{position:'relative',zIndex:1}}>
+                        <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.47 0-.903.084-1.302.233C14.817 2.482 13.502 1.5 12 1.5c-1.503 0-2.817.982-3.47 2.243-.4-.15-.832-.233-1.303-.233-2.107 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.02-2.147 3.6 0 1.58.875 2.95 2.147 3.6-.154.435-.237.905-.237 1.4 0 2.21 1.71 3.99 3.818 3.99.47 0 .903-.084 1.303-.233C9.183 21.518 10.498 22.5 12 22.5c1.502 0 2.817-.982 3.47-2.243.4.15.83.233 1.302.233 2.108 0 3.818-1.79 3.818-4 0-.494-.084-.964-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6zm-12.5 4L6 12.5l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5-8 8z" fill="#38BDF8"/>
+                      </svg>
+                    </span>
                   </div>
+                  <span className="block text-[clamp(13px,1vw,15px)] font-medium tracking-[0.08em] text-gray-400 dark:text-gray-300 leading-normal">
+                    Ingeniero de Ejecución en Computación e Informática
+                  </span>
                 </div>
               </div>
             </div>
