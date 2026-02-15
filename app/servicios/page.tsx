@@ -53,7 +53,7 @@ export default function ServiciosPage() {
   return (
     <div className="flex flex-1 flex-col">
       {/* Hero Section */}
-      <section className="bg-white py-6 lg:py-12 dark:bg-[#0c0c0c]">
+      <section className="bg-transparent py-6 lg:py-12 dark:bg-transparent">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-4 max-w-3xl" data-reveal>
             <span className="eyebrow">SERVICIOS PROFESIONALES</span>
@@ -68,7 +68,7 @@ export default function ServiciosPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]">
+      <section className="bg-transparent py-8 lg:py-16 dark:bg-transparent">
         <div className="section-container max-w-6xl">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
             {services.map((service, index) => (
@@ -194,7 +194,7 @@ export default function ServiciosPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-white py-12 lg:py-20 dark:bg-[#0c0c0c]">
+      <section className="bg-transparent py-12 lg:py-20 dark:bg-transparent">
         <div className="section-container max-w-4xl">
           <div className="reveal rounded-2xl border border-gray-200 bg-gray-50 p-10 text-center lg:p-14 dark:border-white/10 dark:bg-white/5" data-reveal>
             <div className="mb-8 space-y-4">

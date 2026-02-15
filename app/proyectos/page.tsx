@@ -13,7 +13,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <section className="bg-white py-6 lg:py-12 dark:bg-[#0c0c0c]">
+      <section className="bg-transparent py-6 lg:py-12 dark:bg-transparent">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-4 max-w-3xl" data-reveal>
             <span className="eyebrow">PROYECTOS</span>
