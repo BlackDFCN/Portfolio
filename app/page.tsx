@@ -45,16 +45,20 @@ export default function HomePage() {
   };
 
   return (
-    <>
+    <div>
       <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white/90 py-12 lg:py-20 dark:bg-[#0c0c0c]" data-section="inicio" id="inicio">
         <div className="section-container max-w-6xl grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
           <div className="reveal space-y-10 lg:col-span-8" data-reveal>
-            <div className="group inline-flex items-center gap-2.5 rounded-full border border-emerald-100 bg-emerald-50/70 px-4 py-2 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.2em] text-emerald-700 shadow-[0_10px_26px_-18px_rgba(16,185,129,0.35)] backdrop-blur">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+            <div className="relative inline-flex items-center">
+              <span className="absolute inset-0 rounded-full bg-white z-0" />
+              <span className="absolute inset-0 rounded-full bg-emerald-400/30 z-10" />
+              <span className="relative inline-flex items-center gap-2.5 rounded-full border border-emerald-500 bg-transparent px-4 py-2 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.2em] text-emerald-700 shadow-[0_10px_26px_-18px_rgba(16,185,129,0.35)] z-20">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                </span>
+                Disponible para proyectos
               </span>
-              Disponible para proyectos
             </div>
             <div className="space-y-5">
               <h1 className="text-[clamp(2.2rem,5vw,5.5rem)] font-extrabold leading-[0.98] tracking-tight text-black dark:text-white">
@@ -85,13 +89,14 @@ export default function HomePage() {
             </div>
             <div className="flex flex-wrap gap-5">
               <Link
-                className="btn-lift flex items-center justify-center gap-3 rounded-full bg-black px-10 py-5 text-xs font-bold uppercase tracking-widest text-white shadow-lg shadow-black/10"
+                className="btn-lift flex items-center justify-center gap-3 rounded-full px-10 py-5 text-xs font-bold uppercase tracking-widest transition-colors duration-200
+                  bg-black text-white shadow-lg shadow-black/10 hover:bg-white hover:text-black border border-black dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white dark:border-white"
                 href="/contacto"
               >
                 <span className="material-symbols-outlined text-sm">mail</span>
                 Contactar ahora
               </Link>
-              <DownloadCVButton />
+              <DownloadCVButton className="border border-black text-black bg-white hover:bg-black hover:text-white dark:border-white dark:text-white dark:bg-[#0f0f0f] dark:hover:bg-white dark:hover:text-black" variant="secondary" />
             </div>
           </div>
           <div className="reveal reveal-delay-2 flex justify-center lg:col-span-4 lg:justify-end" data-reveal>
@@ -105,17 +110,17 @@ export default function HomePage() {
                   height={360}
                   priority
                 />
-              </div>
-              <div className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 justify-center sm:-bottom-8">
-                <div className="flex items-center gap-3 rounded-2xl border border-gray-100 bg-white/90 px-3.5 py-2 shadow-[0_12px_24px_-20px_rgba(0,0,0,0.28)] dark:border-white/10 dark:bg-[#111111]">
-                  <span className="h-7 w-1 rounded-full bg-[#395a8b]" />
-                  <div className="leading-tight">
-                    <p className="text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.16em] text-gray-600 dark:text-gray-200">
-                      Bastian Tapia
-                    </p>
-                    <p className="whitespace-nowrap text-[clamp(11px,0.9vw,12px)] uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500">
-                      Ing. Ejec. Computacion e Informatica
-                    </p>
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-4 w-[90%] flex justify-center">
+                  <div className="flex items-center gap-3 rounded-2xl border border-gray-100 bg-white/95 backdrop-blur-md px-4 py-2 shadow-[0_12px_24px_-20px_rgba(0,0,0,0.18)] dark:border-white/10 dark:bg-[#111111]/90 dark:backdrop-blur-md">
+                    <span className="h-7 w-1 rounded-full bg-[#395a8b]" />
+                    <div className="leading-tight text-center">
+                      <p className="text-[clamp(12px,1vw,13px)] font-bold uppercase tracking-[0.16em] text-gray-700 dark:text-gray-200 m-0">
+                        Bastian Tapia
+                      </p>
+                      <p className="text-[clamp(11px,0.9vw,12px)] uppercase tracking-[0.14em] text-gray-500 dark:text-gray-400 m-0">
+                        Ing. Ejec. Computacion e Informatica
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -123,7 +128,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-white py-8 lg:py-16 dark:bg-[#0c0c0c]" data-section="metodologia" id="metodologia">
         <div className="section-container max-w-6xl">
           <div className="reveal mb-8 max-w-3xl" data-reveal>
@@ -448,6 +452,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
