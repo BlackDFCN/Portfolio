@@ -308,7 +308,7 @@ export default function HomePage() {
                 <ProjectCard key={project.slug} project={project} />
               ) : (
                 <article
-                  className="project-card reveal overflow-hidden border-t-4 border-t-gray-400 h-full"
+                  className="project-card reveal overflow-hidden h-full"
                   data-reveal
                   key={`empty-${index}`}
                 >
@@ -336,7 +336,7 @@ export default function HomePage() {
             )}
             
             {/* CTA Card */}
-            <article className="project-card reveal group border-t-4 border-t-gray-400" data-reveal>
+            <article className="project-card reveal group" data-reveal>
               <div className="aspect-[2/1] overflow-hidden border-b border-gray-100 bg-gray-50 p-6 dark:border-white/10 dark:bg-white/5">
                 <div className="relative flex h-full w-full items-center justify-center">
                   {/* Logo */}
@@ -371,7 +371,7 @@ export default function HomePage() {
                 <div className="mb-6 flex-grow"></div>
                 
                 <Link
-                  className="project-card-link dark:border-white dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800 mt-auto"
+                  className="project-card-link mt-auto"
                   href="/proyectos"
                 >
                   <span className="material-symbols-outlined text-sm">visibility</span>

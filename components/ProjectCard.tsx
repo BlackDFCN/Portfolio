@@ -16,7 +16,7 @@ export default function ProjectCard({ project }: { project: ProjectSummary }) {
   const hasImage = Boolean(project.image);
 
   return (
-    <article className="project-card reveal border-t-4 border-t-gray-400 h-full" data-reveal>
+    <article className="project-card reveal h-full" data-reveal>
       {/* Image Section */}
       <div className="aspect-[2/1] overflow-hidden border-b border-gray-100 bg-gray-50 p-3 dark:border-white/10 dark:bg-white/5">
         {hasImage ? (
@@ -45,24 +45,24 @@ export default function ProjectCard({ project }: { project: ProjectSummary }) {
         </span>
 
         {/* Title */}
-        <h3 className="project-card-title dark:text-white">
+        <h3 className="project-card-title">
           {project.title}
         </h3>
 
         {/* Description */}
-        <p className="project-card-description dark:text-gray-300">
+        <p className="project-card-description">
           {project.description}
         </p>
 
         {/* Tags */}
         <div className="mb-6 flex flex-grow flex-wrap gap-2">
           {project.tags.slice(0, 3).map((tag) => (
-            <span className="project-tag dark:border-white/10 dark:bg-white/5 dark:text-gray-400" key={tag}>
+            <span className="project-tag" key={tag}>
               {tag}
             </span>
           ))}
           {project.tags.length > 3 && (
-            <span className="project-tag dark:border-white/10 dark:bg-white/5 dark:text-gray-400">
+            <span className="project-tag">
               +{project.tags.length - 3}
             </span>
           )}
