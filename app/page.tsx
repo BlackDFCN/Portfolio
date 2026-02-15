@@ -279,10 +279,7 @@ export default function HomePage() {
                   </h4>
                 </div>
                 <div className="project-card-content flex flex-col gap-2 p-4 sm:p-5 bg-white/90 dark:bg-white/5 rounded-lg w-full">
-                  {/* Description (if any) */}
-                  {group.description && (
-                    <p className="project-card-description mb-2">{group.description}</p>
-                  )}
+                  {/* No description field in group, removed for build fix */}
                   <div className="flex flex-wrap gap-2">
                     {group.items.map((item) => (
                       <span className="project-tag" key={item}>
