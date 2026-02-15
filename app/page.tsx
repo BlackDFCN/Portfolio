@@ -47,8 +47,8 @@ export default function HomePage() {
   return (
     <div>
       <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-transparent py-8 lg:py-12 dark:bg-transparent" data-section="inicio" id="inicio">
-        <div className="section-container max-w-6xl grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
-          <div className="reveal space-y-10 lg:col-span-8" data-reveal>
+        <div className="section-container max-w-6xl grid grid-cols-1 items-center gap-16 lg:grid-cols-12 flex flex-col-reverse lg:flex-row">
+          <div className="reveal space-y-10 lg:col-span-8 order-2 lg:order-1" data-reveal>
             <div className="relative inline-flex items-center group">
               <span className="absolute inset-0 rounded-full bg-white/90 dark:bg-[#181f1b] z-0 transition-colors duration-300" />
               <span className="absolute inset-0 rounded-full bg-emerald-400/30 dark:bg-emerald-500/20 z-10 transition-colors duration-300" />
@@ -99,7 +99,7 @@ export default function HomePage() {
               <DownloadCVButton className="btn-lift flex items-center justify-center gap-1 rounded-md !px-4 !py-1.5 !text-[11px] font-bold uppercase tracking-widest transition-all duration-200 border border-black text-black bg-white hover:bg-black hover:text-white dark:border-white dark:text-white dark:bg-[#0f0f0f] dark:hover:bg-white dark:hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" variant="secondary" />
             </div>
           </div>
-          <div className="reveal reveal-delay-2 flex flex-col items-center justify-center lg:col-span-4 lg:justify-end" data-reveal>
+          <div className="reveal reveal-delay-2 flex flex-col items-center justify-center lg:col-span-4 lg:justify-end order-1 lg:order-2" data-reveal>
             <div className="relative h-56 w-56 sm:h-64 sm:w-64 lg:h-[360px] lg:w-[360px] group">
               <div className="relative h-full w-full overflow-hidden rounded-[36px] border border-white/80 bg-white/70 shadow-[0_28px_60px_-22px_rgba(0,0,0,0.22)] ring-1 ring-gray-200/60 dark:border-white/10 dark:bg-[#181f1b]/80 dark:ring-white/10 backdrop-blur-md transition-all duration-300">
                 <Image
