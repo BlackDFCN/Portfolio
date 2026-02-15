@@ -278,12 +278,18 @@ export default function HomePage() {
                     {group.title}
                   </h4>
                 </div>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {group.items.map((item) => (
-                    <span className="px-3 py-1 rounded-full border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/10 text-[clamp(13px,1vw,15px)] font-medium text-gray-700 dark:text-gray-200 shadow-sm transition-all duration-300 group-hover:bg-white/90 group-hover:dark:bg-white/20" key={item}>
-                      {item}
-                    </span>
-                  ))}
+                <div className="project-card-content flex flex-col gap-2 p-4 sm:p-5 bg-white/90 dark:bg-white/5 rounded-lg w-full">
+                  {/* Description (if any) */}
+                  {group.description && (
+                    <p className="project-card-description mb-2">{group.description}</p>
+                  )}
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span className="project-tag" key={item}>
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </article>
             ))}
