@@ -162,10 +162,10 @@ export default function Header() {
         }`}
         id="mobile-nav"
       >
-        <div className={`section-container flex flex-col gap-4 ${isMenuOpen ? "py-5" : "py-0"}`}>
+        <div className={`section-container flex flex-col items-center justify-center gap-4 ${isMenuOpen ? "py-5" : "py-0"}`}> 
           {navItems.map((item) => (
             <Link
-              className={`text-sm font-semibold uppercase tracking-[0.2em] transition-colors ${
+              className={`text-sm font-semibold uppercase tracking-[0.2em] transition-colors text-center w-full ${
                 activeSection && item.sectionId === activeSection
                   ? "text-black dark:text-white"
                   : "text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white"
@@ -182,7 +182,7 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          <Link className="btn-talk w-full text-center" href="/contacto">
+          <Link className="btn-talk mx-auto text-center" href="/contacto">
             Hablemos
           </Link>
         </div>
