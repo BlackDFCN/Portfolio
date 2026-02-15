@@ -18,7 +18,7 @@ export default function ProjectCard({ project }: { project: ProjectSummary }) {
   return (
     <article className="project-card reveal h-full" data-reveal>
       {/* Image Section */}
-      <div className="aspect-[2/1] overflow-hidden border-b border-gray-100 bg-gray-50 p-3 dark:border-white/10 dark:bg-white/5">
+      <div className="aspect-[2/1] overflow-hidden border-b border-gray-200 bg-gray-50 p-3 dark:bg-white/5 mt-2">
         {hasImage ? (
           <img
             alt={`Imagen del proyecto ${project.title}`}

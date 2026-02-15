@@ -315,7 +315,7 @@ export default function HomePage() {
                   data-reveal
                   key={`empty-${index}`}
                 >
-                  <div className="aspect-[2/1] overflow-hidden border-b border-gray-100 bg-gray-50 p-3 animate-pulse dark:border-white/10 dark:bg-white/5">
+                  <div className="aspect-[2/1] overflow-hidden border-b border-gray-200 bg-gray-50 p-3 animate-pulse dark:bg-white/5 mt-2">
                     <div className="flex h-full w-full items-center justify-center bg-gray-100/60 dark:bg-white/10">
                       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100/80 dark:bg-white/5" />
                     </div>
@@ -340,7 +340,7 @@ export default function HomePage() {
             
             {/* CTA Card */}
             <article className="project-card reveal group" data-reveal>
-              <div className="aspect-[2/1] overflow-hidden border-b border-gray-100 bg-gray-50 p-6 dark:border-white/10 dark:bg-white/5">
+              <div className="aspect-[2/1] overflow-hidden border-b border-gray-200 bg-gray-50 p-3 dark:bg-white/5 mt-2">
                 <div className="relative flex h-full w-full items-center justify-center">
                   {/* Logo */}
                   <Image
@@ -403,13 +403,13 @@ export default function HomePage() {
                 icon: "web",
                 title: "Desarrollo Full Stack",
                 text: "Aplicaciones web completas con frontend moderno, backend robusto e integración con bases de datos. Desde la idea hasta el despliegue.",
-                color: "emerald"
+                color: "indigo"
               },
               {
                 icon: "settings_input_component",
                 title: "Arquitectura Backend",
                 text: "Diseño e implementación de APIs escalables, microservicios, modelado de datos y optimización de sistemas distribuidos.",
-                color: "indigo"
+                color: "emerald"
               },
               {
                 icon: "precision_manufacturing",
@@ -417,37 +417,44 @@ export default function HomePage() {
                 text: "Pipelines CI/CD, containerización con Docker, infraestructura cloud, monitoreo y observabilidad en producción.",
                 color: "amber"
               }
-            ].map((service, index) => (
-              <article
-                className={`pillar-card stack-lift reveal ${
-                  index === 0 ? "" : `reveal-delay-${Math.min(index, 4)}`
-                }`}
-                data-reveal
-                key={service.title}
-              >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-gray-200/80 bg-gray-50 dark:border-white/10 dark:bg-white/5">
-                    <span
-                      className={`material-symbols-outlined text-xl ${
-                        service.color === "emerald"
-                          ? "text-emerald-500"
-                          : service.color === "indigo"
-                            ? "text-indigo-500"
-                            : "text-amber-500"
-                      }`}
-                    >
-                      {service.icon}
+            ].map((item, index) => {
+              // Definir clases de color según el item.color
+              const colorBg = item.color === "indigo" ? "bg-indigo-100/40 dark:bg-indigo-400/10" :
+                item.color === "emerald" ? "bg-emerald-100/40 dark:bg-emerald-400/10" :
+                item.color === "amber" ? "bg-amber-100/40 dark:bg-amber-400/10" : "";
+              const colorIcon = item.color === "indigo" ? "text-indigo-500" :
+                item.color === "emerald" ? "text-emerald-500" :
+                item.color === "amber" ? "text-amber-500" : "";
+              const colorBar = item.color === "indigo" ? "bg-indigo-500/90" :
+                item.color === "emerald" ? "bg-emerald-500/90" :
+                item.color === "amber" ? "bg-amber-500/90" : "";
+              return (
+                <article
+                  className={`reveal group transition-all duration-300 ${
+                    index === 0 ? "" : `reveal-delay-${Math.min(index, 4)}`
+                  } rounded-xl border border-gray-200/70 bg-gray-50/80 shadow-2xl backdrop-blur-md hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.025] dark:border-white/10 dark:bg-[#23272e]/90 dark:shadow-black/40 dark:hover:shadow-2xl`}
+                  data-reveal
+                  key={item.title}
+                >
+                  <div className="flex items-center gap-4 px-2 pt-2">
+                    <span className={`flex h-12 w-12 items-center justify-center rounded-full shadow-sm ring-1 ring-inset ring-gray-200/40 dark:ring-white/10 transition-all duration-300 ${colorBg}`}>
+                      <span className={`material-symbols-outlined text-2xl ${colorIcon}`}>
+                        {item.icon}
+                      </span>
                     </span>
-                  </span>
-                  <h4 className="text-[clamp(14px,1vw,16px)] font-bold uppercase tracking-[0.14em] text-black dark:text-white">
-                    {service.title}
-                  </h4>
-                </div>
-                <p className="text-[clamp(13px,0.95vw,15px)] leading-relaxed text-gray-500 dark:text-gray-300">
-                  {service.text}
-                </p>
-              </article>
-            ))}
+                    <h4 className="text-[clamp(15px,1.1vw,18px)] font-bold uppercase tracking-[0.18em] text-gray-900 dark:text-white">
+                      {item.title}
+                    </h4>
+                  </div>
+                  <div className="flex flex-row items-stretch px-5 pb-5 pt-2">
+                    <span className={`w-0.5 rounded-full opacity-80 mr-3 self-stretch ${colorBar}`} />
+                    <p className="text-[clamp(15px,1.05vw,16px)] leading-relaxed text-gray-700 dark:text-gray-200 my-0">
+                      {item.text}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
           <div className="reveal reveal-delay-2 rounded-2xl border border-gray-100 bg-gray-50 p-6 text-center lg:p-8 dark:border-white/10 dark:bg-white/5" data-reveal>
             <p className="mb-2 text-[clamp(11px,0.9vw,12px)] font-bold uppercase tracking-[0.3em] text-gray-400 dark:text-gray-500">
