@@ -246,42 +246,41 @@ export default function HomePage() {
               Tecnologias y herramientas con las que trabajo y tengo experiencia real en proyectos, enfocadas en producto, rendimiento y despliegue.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {stackContent.groups.map((group, index) => (
               <article
-                className={`pillar-card stack-lift reveal ${
-                  index === 0 ? "" : `reveal-delay-${Math.min(index, 4)}`
-                }`}
+                className={`group transition-all duration-300 rounded-xl border border-gray-200/70 bg-gray-50/80 shadow-2xl backdrop-blur-md hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.025] dark:border-white/10 dark:bg-[#23272e]/90 dark:shadow-black/40 dark:hover:shadow-2xl flex flex-col p-6 min-h-[180px]`}
                 data-reveal
                 key={group.title}
               >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-gray-200/80 bg-gray-50 dark:border-white/10 dark:bg-white/5">
+                <div className="flex items-center gap-4 mb-3">
+                  <span className={`flex h-12 w-12 items-center justify-center rounded-full shadow-sm ring-1 ring-inset ring-gray-200/40 dark:ring-white/10 transition-all duration-300
+                    ${group.title === "Lenguajes" ? "bg-indigo-100/40 dark:bg-indigo-400/10" :
+                      group.title === "Frontend" ? "bg-sky-100/40 dark:bg-sky-400/10" :
+                      group.title === "Backend" ? "bg-emerald-100/40 dark:bg-emerald-400/10" :
+                      group.title === "Bases de Datos" ? "bg-amber-100/40 dark:bg-amber-400/10" :
+                      group.title === "Cloud & DevOps" ? "bg-violet-100/40 dark:bg-violet-400/10" :
+                      "bg-slate-100/40 dark:bg-slate-400/10"}`}
+                  >
                     <span
-                      className={`material-symbols-outlined text-xl ${
-                        group.title === "Lenguajes"
-                          ? "text-indigo-500"
-                          : group.title === "Frontend"
-                            ? "text-sky-500"
-                            : group.title === "Backend"
-                              ? "text-emerald-500"
-                              : group.title === "Bases de Datos"
-                                ? "text-amber-500"
-                                : group.title === "Cloud & DevOps"
-                                  ? "text-violet-500"
-                                  : "text-slate-500"
-                      }`}
+                      className={`material-symbols-outlined text-2xl transition-colors duration-300
+                        ${group.title === "Lenguajes" ? "text-indigo-500" :
+                          group.title === "Frontend" ? "text-sky-500" :
+                          group.title === "Backend" ? "text-emerald-500" :
+                          group.title === "Bases de Datos" ? "text-amber-500" :
+                          group.title === "Cloud & DevOps" ? "text-violet-500" :
+                          "text-slate-500"}`}
                     >
                       {group.icon}
                     </span>
                   </span>
-                  <h4 className="text-[clamp(14px,1vw,16px)] font-bold uppercase tracking-[0.14em] text-black dark:text-white">
+                  <h4 className="text-[clamp(15px,1.1vw,18px)] font-bold uppercase tracking-[0.18em] text-gray-900 dark:text-white">
                     {group.title}
                   </h4>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mt-2">
                   {group.items.map((item) => (
-                    <span className="tech-pill" key={item}>
+                    <span className="px-3 py-1 rounded-full border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-white/10 text-[clamp(13px,1vw,15px)] font-medium text-gray-700 dark:text-gray-200 shadow-sm transition-all duration-300 group-hover:bg-white/90 group-hover:dark:bg-white/20" key={item}>
                       {item}
                     </span>
                   ))}
