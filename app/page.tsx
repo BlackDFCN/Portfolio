@@ -113,12 +113,16 @@ export default function HomePage() {
               </div>
             </div>
             <div className="mt-4 flex justify-center">
-              <div 
-                  className="relative flex items-start gap-5 rounded-[2rem] border border-white/80 bg-white/80 shadow-xl px-8 py-6 mt-6 dark:border-white/10 dark:bg-[#181f1b]/80 backdrop-blur-md transition-all duration-300"
-                  style={{ maxWidth: '360px', minWidth: '220px', width: '100%' }}>
-                  <span className="self-stretch w-1 rounded-full bg-gradient-to-b from-sky-400/80 to-sky-400/0" />
-                  <div className="flex flex-col justify-center gap-2 text-left w-full">
-                    <div className="flex items-center gap-2">
+                <div 
+                  className="relative flex flex-col items-center rounded-xl border border-white/80 bg-white/80 shadow-xl px-8 py-2 mt-6 dark:border-white/10 dark:bg-[#181f1b]/80 backdrop-blur-md transition-all duration-300"
+                  style={{
+                    width: 'auto',
+                    minWidth: '0',
+                    maxWidth: '100%'
+                  }}>
+                  {/* Borde superior azul reemplaza la línea lateral */}
+                  <div className="flex flex-col justify-center gap-2 text-center w-full">
+                    <div className="flex items-center gap-2 justify-center">
                       <span className="text-[clamp(17px,1.3vw,21px)] font-extrabold uppercase tracking-[0.12em] text-gray-900 dark:text-white drop-shadow-sm">
                         Bastian Tapia
                       </span>
@@ -131,8 +135,10 @@ export default function HomePage() {
                         </svg>
                       </span>
                     </div>
-                    <span className="block text-[clamp(14px,1.05vw,16px)] font-normal tracking-[0.04em] text-gray-400 dark:text-gray-300 leading-normal">
-                      Ingeniero de Ejecución en Computación e Informática
+                    <span
+                      className="block text-[clamp(14px,1.05vw,16px)] font-normal tracking-[0.04em] text-gray-400 dark:text-gray-300 leading-normal whitespace-nowrap overflow-hidden text-ellipsis"
+                      style={{ whiteSpace: 'nowrap' }}>
+                      Ing. de Ejec. en Computación e Informática
                     </span>
                   </div>
               </div>
