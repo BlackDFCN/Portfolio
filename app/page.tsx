@@ -114,27 +114,27 @@ export default function HomePage() {
             </div>
             <div className="mt-4 flex justify-center">
               <div 
-                className="relative flex items-start gap-4 rounded-3xl border border-white/80 bg-white shadow-md px-7 py-5 dark:border-white/10 dark:bg-[#181f1b] transition-all duration-300"
-                style={{ maxWidth: '360px', minWidth: '220px', width: '100%' }}>
-                <span className="self-stretch w-0.5 rounded-full bg-sky-400" />
-                <div className="flex flex-col justify-center gap-2 text-left w-full">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[clamp(15px,1.1vw,18px)] font-extrabold uppercase tracking-[0.16em] text-gray-900 dark:text-white drop-shadow-sm">
-                      Bastian Tapia
-                    </span>
-                    <span className="inline-block align-middle ml-1 relative" title="Verificado">
-                      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={{zIndex:0}}>
-                        <circle cx="14" cy="14" r="12" fill="#38BDF8" fillOpacity="0.18" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style={{position:'relative',zIndex:1}}>
-                        <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.47 0-.903.084-1.302.233C14.817 2.482 13.502 1.5 12 1.5c-1.503 0-2.817.982-3.47 2.243-.4-.15-.832-.233-1.303-.233-2.107 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.02-2.147 3.6 0 1.58.875 2.95 2.147 3.6-.154.435-.237.905-.237 1.4 0 2.21 1.71 3.99 3.818 3.99.47 0 .903-.084 1.303-.233C9.183 21.518 10.498 22.5 12 22.5c1.502 0 2.817-.982 3.47-2.243.4.15.83.233 1.302.233 2.108 0 3.818-1.79 3.818-4 0-.494-.084-.964-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6zm-12.5 4L6 12.5l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5-8 8z" fill="#38BDF8"/>
-                      </svg>
+                  className="relative flex items-start gap-5 rounded-[2rem] border border-white/80 bg-white/80 shadow-xl px-8 py-6 mt-6 dark:border-white/10 dark:bg-[#181f1b]/80 backdrop-blur-md transition-all duration-300"
+                  style={{ maxWidth: '360px', minWidth: '220px', width: '100%' }}>
+                  <span className="self-stretch w-1 rounded-full bg-gradient-to-b from-sky-400/80 to-sky-400/0" />
+                  <div className="flex flex-col justify-center gap-2 text-left w-full">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[clamp(17px,1.3vw,21px)] font-extrabold uppercase tracking-[0.12em] text-gray-900 dark:text-white drop-shadow-sm">
+                        Bastian Tapia
+                      </span>
+                      <span className="inline-block align-middle ml-1 relative" title="Verificado">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={{zIndex:0}}>
+                          <circle cx="14" cy="14" r="12" fill="#38BDF8" fillOpacity="0.18" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style={{position:'relative',zIndex:1}}>
+                          <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.47 0-.903.084-1.302.233C14.817 2.482 13.502 1.5 12 1.5c-1.503 0-2.817.982-3.47 2.243-.4-.15-.832-.233-1.303-.233-2.107 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.02-2.147 3.6 0 1.58.875 2.95 2.147 3.6-.154.435-.237.905-.237 1.4 0 2.21 1.71 3.99 3.818 3.99.47 0 .903-.084 1.303-.233C9.183 21.518 10.498 22.5 12 22.5c1.502 0 2.817-.982 3.47-2.243.4.15.83.233 1.302.233 2.108 0 3.818-1.79 3.818-4 0-.494-.084-.964-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6zm-12.5 4L6 12.5l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5-8 8z" fill="#38BDF8"/>
+                        </svg>
+                      </span>
+                    </div>
+                    <span className="block text-[clamp(14px,1.05vw,16px)] font-normal tracking-[0.04em] text-gray-400 dark:text-gray-300 leading-normal">
+                      Ingeniero de Ejecución en Computación e Informática
                     </span>
                   </div>
-                  <span className="block text-[clamp(13px,1vw,15px)] font-medium tracking-[0.08em] text-gray-400 dark:text-gray-300 leading-normal">
-                    Ingeniero de Ejecución en Computación e Informática
-                  </span>
-                </div>
               </div>
             </div>
           </div>
