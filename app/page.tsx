@@ -96,7 +96,7 @@ export default function HomePage() {
                 <span className="material-symbols-outlined text-sm">mail</span>
                 Contactar ahora
               </Link>
-              <DownloadCVButton className="btn-lift flex items-center justify-center gap-1 rounded-md px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest transition-all duration-200 border border-black text-black bg-white hover:bg-black hover:text-white dark:border-white dark:text-white dark:bg-[#0f0f0f] dark:hover:bg-white dark:hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" variant="secondary" />
+              <DownloadCVButton className="btn-lift flex items-center justify-center gap-1 rounded-md !px-4 !py-1.5 !text-[11px] font-bold uppercase tracking-widest transition-all duration-200 border border-black text-black bg-white hover:bg-black hover:text-white dark:border-white dark:text-white dark:bg-[#0f0f0f] dark:hover:bg-white dark:hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" variant="secondary" />
             </div>
           </div>
           <div className="reveal reveal-delay-2 flex flex-col items-center justify-center lg:col-span-4 lg:justify-end" data-reveal>
@@ -115,19 +115,8 @@ export default function HomePage() {
             <div className="mt-4 flex justify-center">
                 <div className="flex flex-col items-center gap-1 mt-6 w-fit mx-auto">
                   <div className="flex items-center gap-2 justify-center flex-wrap">
-                    <span className="flex items-center text-2xl font-extrabold uppercase tracking-wide text-gray-900 dark:text-white" style={{letterSpacing: '0.08em'}}>
+                    <span className="text-2xl font-extrabold uppercase tracking-wide text-gray-900 dark:text-white" style={{letterSpacing: '0.08em'}}>
                       BASTIAN TAPIA
-                      <span
-                        className="inline-block align-middle ml-2 relative transition-transform duration-200 hover:scale-110"
-                        title="Verificado"
-                        style={{lineHeight:0, top:'2px', position:'relative', opacity:0.85}}>
-                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={{zIndex:0}}>
-                          <circle cx="14" cy="14" r="12" fill="#10b981" fillOpacity="0.18" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style={{position:'relative',zIndex:1}}>
-                          <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.47 0-.903.084-1.302.233C14.817 2.482 13.502 1.5 12 1.5c-1.503 0-2.817.982-3.47 2.243-.4-.15-.832-.233-1.303-.233-2.107 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.02-2.147 3.6 0 1.58.875 2.95 2.147 3.6-.154.435-.237.905-.237 1.4 0 2.21 1.71 3.99 3.818 3.99.47 0 .903-.084 1.303-.233C9.183 21.518 10.498 22.5 12 22.5c1.502 0 2.817-.982 3.47-2.243.4.15.83.233 1.302.233 2.108 0 3.818-1.79 3.818-4 0-.494-.084-.964-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6zm-12.5 4L6 12.5l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5-8 8z" fill="#10b981"/>
-                        </svg>
-                      </span>
                     </span>
                     <span className="mt-1 text-sm text-gray-500 dark:text-gray-600 font-medium whitespace-nowrap overflow-hidden text-ellipsis" style={{ whiteSpace: 'nowrap', opacity: 0.5 }}>
                       Ing. de Ejec. en Computación e Informática
@@ -139,26 +128,25 @@ export default function HomePage() {
         </div>
       </section>
       <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-transparent py-6 lg:py-12 dark:bg-transparent" data-section="metodologia" id="metodologia">
-        <>
-          <div className="section-container max-w-6xl">
-            <div className="reveal mb-4 max-w-3xl" data-reveal>
-              <span className="eyebrow">Metodología</span>
-              <h3 className="mb-4 text-[clamp(28px,3.5vw,60px)] font-extrabold tracking-tight text-black dark:text-white">
-                Enfoque de Ingeniería
-              </h3>
-              <p className="text-[clamp(16px,1.1vw,18px)] leading-relaxed text-gray-500 dark:text-gray-300">
-                Abordo cada proyecto con una base sólida en arquitectura, seguridad y rendimiento, asegurando soluciones mantenibles y preparadas para producción.
-              </p>
-            </div>
-            {/* Methodology items array moved outside JSX for clarity and to fix syntax errors */}
+        <div className="section-container max-w-6xl">
+          <div className="reveal mb-4 max-w-3xl" data-reveal>
+            <span className="eyebrow">Metodología</span>
+            <h3 className="mb-4 text-[clamp(28px,3.5vw,60px)] font-extrabold tracking-tight text-black dark:text-white">
+              Enfoque de Ingeniería
+            </h3>
+            <p className="text-[clamp(16px,1.1vw,18px)] leading-relaxed text-gray-500 dark:text-gray-300">
+              Abordo cada proyecto con una base sólida en arquitectura, seguridad y rendimiento, asegurando soluciones mantenibles y preparadas para producción.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                icon: "architecture",
+                icon: "account_tree",
                 title: "Arquitectura",
-                text: "Diseño soluciones modulares, desacopladas y mantenibles, priorizando la escalabilidad y la calidad técnica desde el inicio."
+                text: "Diseño sistemas modulares con APIs bien definidas y modelado de datos coherente, facilitando escalabilidad y evolución continua."
               },
               {
-                icon: "code",
+                icon: "code_blocks",
                 title: "Calidad de Código",
                 text: "Aplico principios SOLID, tipado estricto y buenas prácticas para garantizar claridad, consistencia y colaboración eficiente."
               },
@@ -231,7 +219,7 @@ export default function HomePage() {
                 </article>
             ))}
           </div>
-        </>
+        </div>
       </section>
 
       <section className="section-snap topo-section min-h-screen min-h-[100dvh] bg-transparent py-6 lg:py-12 dark:bg-transparent" data-section="stack" id="stack">
