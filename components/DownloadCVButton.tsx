@@ -10,7 +10,7 @@ export default function DownloadCVButton({
   variant = "secondary"
 }: DownloadCVButtonProps) {
   const baseClassName =
-    "btn-lift flex items-center justify-center gap-3 rounded-full font-bold uppercase tracking-widest text-xs px-10 py-5";
+    "btn-lift flex items-center justify-center gap-3 rounded-full font-bold uppercase tracking-widest text-xs px-10 py-5 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400";
 
   const variantClassName =
     variant === "default"
