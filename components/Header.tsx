@@ -116,7 +116,7 @@ export default function Header() {
         </div>
         <div className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
-            <Link
+            <a
               className={`nav-link ${
                 activeSection && item.sectionId === activeSection ? "active" : ""
               }`}
@@ -127,14 +127,30 @@ export default function Header() {
                   ? "page"
                   : undefined
               }
-              onClick={() => {
+              onClick={e => {
+                e.preventDefault();
+                const el = document.getElementById(item.sectionId);
+                if (el) {
+                  const header = document.querySelector('header');
+                  let yOffset = header ? header.getBoundingClientRect().height + 16 : 110;
+                  let y;
+                  if (window.innerWidth < 1024) {
+                    // En móvil: offset sobre el section-container
+                    let anchor = el.querySelector('.section-container') || el;
+                    y = anchor.getBoundingClientRect().top + window.pageYOffset - yOffset;
+                  } else {
+                    // En desktop: offset sobre la propia sección
+                    y = el.getBoundingClientRect().top + window.pageYOffset - yOffset;
+                  }
+                  window.scrollTo({ top: y, left: 0, behavior: "smooth" });
+                }
                 if (item.sectionId) {
                   setActiveSection(item.sectionId);
                 }
               }}
             >
               {item.label}
-            </Link>
+            </a>
           ))}
         </div>
         <div className="flex items-center gap-6">
@@ -164,7 +180,7 @@ export default function Header() {
       >
         <div className={`section-container flex flex-col items-center justify-center gap-4 ${isMenuOpen ? "py-5" : "py-0"}`}> 
           {navItems.map((item) => (
-            <Link
+            <a
               className={`text-sm font-semibold uppercase tracking-[0.2em] transition-colors text-center w-full ${
                 activeSection && item.sectionId === activeSection
                   ? "text-black dark:text-white"
@@ -172,7 +188,16 @@ export default function Header() {
               }`}
               key={item.label}
               href={item.href}
-              onClick={() => {
+              onClick={e => {
+                e.preventDefault();
+                const el = document.getElementById(item.sectionId);
+                if (el) {
+                  let anchor = el.querySelector('.section-container') || el;
+                  const header = document.querySelector('header');
+                  let yOffset = header ? header.getBoundingClientRect().height + 16 : 110;
+                  const y = anchor.getBoundingClientRect().top + window.pageYOffset - yOffset;
+                  window.scrollTo({ top: y, left: 0, behavior: "smooth" });
+                }
                 if (item.sectionId) {
                   setActiveSection(item.sectionId);
                 }
@@ -180,7 +205,7 @@ export default function Header() {
               }}
             >
               {item.label}
-            </Link>
+            </a>
           ))}
           <Link className="btn-talk mx-auto text-center" href="/contacto">
             Hablemos

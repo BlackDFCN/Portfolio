@@ -185,40 +185,51 @@ export default function HomePage() {
               }
             ].map((item, index) => (
                 <article
-                  className={`pillar-card stack-lift reveal ${
-                  index === 0 ? "" : `reveal-delay-${Math.min(index, 4)}`
-                }`}
-                data-reveal
-                key={item.title}
-              >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-gray-200/80 bg-gray-50 dark:border-white/10 dark:bg-white/5">
-                    <span
-                      className={`material-symbols-outlined text-xl ${
-                        item.title === "Arquitectura"
-                          ? "text-indigo-500"
-                          : item.title === "Calidad de Código"
-                            ? "text-emerald-500"
-                            : item.title === "Rendimiento"
-                              ? "text-amber-500"
-                              : item.title === "Seguridad"
-                                ? "text-rose-500"
-                                : item.title === "Automatización"
-                                  ? "text-sky-500"
-                                  : "text-violet-500"
-                      }`}
+                  className={`reveal group transition-all duration-300 ${
+                    index === 0 ? "" : `reveal-delay-${Math.min(index, 4)}`
+                  } rounded-xl border border-gray-200/70 bg-gray-50/80 shadow-2xl backdrop-blur-md hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.025] dark:border-white/10 dark:bg-[#23272e]/90 dark:shadow-black/40 dark:hover:shadow-2xl`}
+                  data-reveal
+                  key={item.title}
+                >
+                  <div className="flex items-center gap-4 px-2 pt-2">
+                    <span className={`flex h-12 w-12 items-center justify-center rounded-full shadow-sm ring-1 ring-inset ring-gray-200/40 dark:ring-white/10 transition-all duration-300
+                      ${item.title === "Arquitectura" ? "bg-indigo-100/40 dark:bg-indigo-400/10" :
+                        item.title === "Calidad de Código" ? "bg-emerald-100/40 dark:bg-emerald-400/10" :
+                        item.title === "Rendimiento" ? "bg-amber-100/40 dark:bg-amber-400/10" :
+                        item.title === "Seguridad" ? "bg-rose-100/40 dark:bg-rose-400/10" :
+                        item.title === "Automatización" ? "bg-sky-100/40 dark:bg-sky-400/10" :
+                        "bg-violet-100/40 dark:bg-violet-400/10"}`}
                     >
-                      {item.icon}
+                      <span
+                        className={`material-symbols-outlined text-2xl transition-colors duration-300
+                          ${item.title === "Arquitectura" ? "text-indigo-500" :
+                            item.title === "Calidad de Código" ? "text-emerald-500" :
+                            item.title === "Rendimiento" ? "text-amber-500" :
+                            item.title === "Seguridad" ? "text-rose-500" :
+                            item.title === "Automatización" ? "text-sky-500" :
+                            "text-violet-500"}`}
+                      >
+                        {item.icon}
+                      </span>
                     </span>
-                  </span>
-                  <h4 className="text-[clamp(14px,1vw,16px)] font-bold uppercase tracking-[0.14em] text-black dark:text-white">
-                    {item.title}
-                  </h4>
-                </div>
-                <p className="text-[clamp(14px,1.05vw,16px)] leading-relaxed text-gray-500 dark:text-gray-300">
-                  {item.text}
-                </p>
-              </article>
+                      <h4 className="text-[clamp(15px,1.1vw,18px)] font-bold uppercase tracking-[0.18em] text-gray-900 dark:text-white">
+                        {item.title === "Escalabilidad y Entrega" ? "Escalabilidad" : item.title}
+                      </h4>
+                  </div>
+                  <div className="flex flex-row items-stretch px-5 pb-5 pt-2">
+                    <span className={`w-0.5 rounded-full opacity-80 mr-3 self-stretch
+                      ${item.title === "Arquitectura" ? "bg-indigo-500/90" :
+                        item.title === "Calidad de Código" ? "bg-emerald-500/90" :
+                        item.title === "Rendimiento" ? "bg-amber-400/90" :
+                        item.title === "Seguridad" ? "bg-rose-500/90" :
+                        item.title === "Automatización" ? "bg-sky-500/90" :
+                        "bg-violet-500/90"}`}
+                    />
+                    <p className="text-[clamp(15px,1.05vw,16px)] leading-relaxed text-gray-700 dark:text-gray-200 my-0">
+                      {item.text}
+                    </p>
+                  </div>
+                </article>
             ))}
           </div>
         </div>

@@ -169,13 +169,12 @@ body {
   will-change: transform, box-shadow;
 }
 
-.pillar-card {
-  @apply card-hover-base flex flex-col items-start gap-4 rounded-2xl border border-gray-200/70 bg-white p-8;
-  box-shadow: 0 12px 28px -22px rgba(0, 0, 0, 0.22);
-}
-
-.pillar-card:hover {
-  @apply border-gray-200;
+@media (max-width: 640px) {
+  .pillar-card {
+    margin-bottom: 1.25rem;
+    padding: 1.25rem 1rem;
+    gap: 1.25rem;
+  }
 }
 
 .tech-badge {
@@ -471,9 +470,16 @@ body {
   @apply bg-white p-12 lg:p-20;
 }
 
+
 .section-snap {
   scroll-snap-align: start;
   scroll-margin-top: 80px;
+}
+
+@media (max-width: 1023px) {
+  .section-snap {
+    scroll-margin-top: 110px;
+  }
 }
 
 :root {
