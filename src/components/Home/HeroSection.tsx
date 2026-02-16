@@ -43,29 +43,27 @@ export default function HeroSection() {
 
       {/* Avatar con glow y badge */}
       <div className="relative z-10 mb-6 flex flex-col items-center">
+        {/* Badge alineado arriba del avatar */}
+        <span id="badge-disponible" className="mb-3 px-6 py-1.5 rounded-full font-bold bg-[#3b82f6]/80 text-white shadow-lg text-sm tracking-wide">
+          Estoy disponible para proyectos
+        </span>
         <div className="relative">
-          <img src="/avatar.png" alt="Bastián Tapia" className="w-40 h-40 rounded-full shadow-2xl object-cover border-4 border-[#3b82f6] animate-glow" />
-          {/* Bocadillo animado como mensaje del avatar, más separado */}
-          <span id="badge-disponible" className="absolute left-1/2 top-0 -translate-x-1/2 translate-y-[-70px] px-4 py-2 rounded-xl font-normal border border-[#3b82f6] bg-[#18181b] text-[#3b82f6] shadow-md whitespace-nowrap animate-tooltip after:content-[''] after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:w-4 after:h-4 after:bg-[#18181b] after:border-l after:border-b after:border-[#3b82f6] after:rounded-bl-xl">
-            <span className="text-xs font-semibold">Estoy disponible para proyectos</span>
-          </span>
+          <img src="/avatar.png" alt="Bastián Tapia" className="w-40 h-40 rounded-full shadow-2xl object-cover border-4 border-[#3b82f6] animate-glow ring-4 ring-[#3b82f6]/30" />
         </div>
       </div>
 
       {/* Nombre y separador */}
       <h1 className="text-5xl md:text-7xl font-extrabold mb-2 text-white tracking-tight drop-shadow-lg z-10">
-        Bastián <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] via-[#38bdf8] to-[#0A66C2]">Tapia</span>
+        <span className="text-white">Bastián</span> <span className="text-[#3b82f6]">Tapia</span>
       </h1>
-      <div className="w-24 h-1 mx-auto my-3 bg-gradient-to-r from-[#3b82f6] via-[#38bdf8] to-[#0A66C2] rounded-full opacity-80 z-10" />
+      <div className="w-20 h-0.5 mx-auto my-2 bg-[#3b82f6] rounded-full opacity-80 z-10" />
 
-      {/* Subtítulo con badge */}
-      <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-[#38bdf8] drop-shadow z-10 flex flex-wrap items-center justify-center gap-2">
-        <span>Desarrollador Full Stack</span>
-      </h2>
+      {/* Rol destacado */}
+      <h2 className="text-xl md:text-2xl font-bold mb-4 text-[#3b82f6] tracking-widest uppercase z-10">Desarrollador Full Stack</h2>
 
-      {/* Frase de valor */}
-      <p className="max-w-2xl mx-auto text-xl text-neutral-200 mb-10 font-medium leading-relaxed drop-shadow z-10">
-        Transformo ideas en <span className="text-[#38bdf8] font-bold underline underline-offset-4 decoration-[#38bdf8]/40">soluciones digitales robustas</span> y <span className="text-[#38bdf8] font-bold underline underline-offset-4 decoration-[#38bdf8]/40">seguras</span>. Experto en frontend, backend y cloud. Enfocado en <span className="font-bold text-white">rendimiento</span>, <span className="font-bold text-white">UX</span> y <span className="font-bold text-white">calidad</span>.
+      {/* Descripción breve y alineada */}
+      <p className="max-w-lg mx-auto text-base text-neutral-300 mb-10 font-medium leading-normal text-center drop-shadow z-10">
+        Desarrollo <span className="text-[#3b82f6] font-bold">soluciones digitales robustas</span> y <span className="text-[#3b82f6] font-bold">seguras</span>. Apasionado por el <span className="text-[#3b82f6] font-bold">frontend</span>, <span className="text-[#3b82f6] font-bold">backend</span> y <span className="text-[#3b82f6] font-bold">cloud</span>. Enfocado en <span className="font-bold text-white">rendimiento</span>, <span className="font-bold text-white">UX</span> y <span className="font-bold text-white">calidad</span>.
       </p>
 
       {/* Botones CTA animados */}
