@@ -42,22 +42,21 @@ export default function HeroSection() {
       </div>
 
       {/* Avatar con glow y badge */}
-      <div className="relative z-10 mb-4 flex flex-col items-center">
-        {/* Badge compacto, borde acento, sombra suave, fondo semitransparente */}
-        <span id="badge-disponible" className="absolute -top-12 left-1/2 -translate-x-1/2 flex items-center gap-2 px-5 py-1 rounded-full font-medium border border-[#3b82f6] bg-[#22c55e]/30 text-[#22c55e] shadow-md whitespace-nowrap animate-blink">
-          <span className="w-2 h-2 rounded-full bg-[#22c55e] shadow-sm animate-pulse"></span>
-          <span>Disponible para proyectos</span>
-        </span>
-        <div className="relative mt-8">
-          <img src="/avatar.png" alt="Bastián Tapia" className="w-40 h-40 rounded-full object-cover border-4 border-[#3b82f6] shadow-lg" style={{boxShadow:'0 0 0 4px #2c2c34, 0 4px 24px #3a3a42'}} />
+      <div className="relative z-10 mb-6 flex flex-col items-center">
+        <div className="relative">
+          <img src="/avatar.png" alt="Bastián Tapia" className="w-40 h-40 rounded-full shadow-2xl object-cover border-4 border-[#3b82f6] animate-glow" />
+          {/* Bocadillo animado como mensaje del avatar, más separado */}
+          <span id="badge-disponible" className="absolute left-1/2 top-0 -translate-x-1/2 translate-y-[-70px] px-4 py-2 rounded-xl font-normal border border-[#3b82f6] bg-[#18181b] text-[#3b82f6] shadow-md whitespace-nowrap animate-tooltip after:content-[''] after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:w-4 after:h-4 after:bg-[#18181b] after:border-l after:border-b after:border-[#3b82f6] after:rounded-bl-xl">
+            <span className="text-xs font-semibold">Estoy disponible para proyectos</span>
+          </span>
         </div>
       </div>
 
       {/* Nombre y separador */}
       <h1 className="text-5xl md:text-7xl font-extrabold mb-2 text-white tracking-tight drop-shadow-lg z-10">
-        Bastián <span className="text-[#3b82f6]">Tapia</span>
+        Bastián <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] via-[#38bdf8] to-[#0A66C2]">Tapia</span>
       </h1>
-      <div className="w-24 h-1 mx-auto my-3 bg-[#3b82f6] rounded-full opacity-80 z-10" />
+      <div className="w-24 h-1 mx-auto my-3 bg-gradient-to-r from-[#3b82f6] via-[#38bdf8] to-[#0A66C2] rounded-full opacity-80 z-10" />
 
       {/* Subtítulo con badge */}
       <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-[#38bdf8] drop-shadow z-10 flex flex-wrap items-center justify-center gap-2">
@@ -66,23 +65,7 @@ export default function HeroSection() {
 
       {/* Frase de valor */}
       <p className="max-w-2xl mx-auto text-xl text-neutral-200 mb-10 font-medium leading-relaxed drop-shadow z-10">
-        <span className="text-[#c7c7c7]">Construyo </span>
-        <span className="text-[#3b82f6] font-bold">soluciones digitales</span>
-        <span className="text-[#c7c7c7]"> robustas y </span>
-        <span className="text-[#22c55e] font-bold">seguras</span>
-        <span className="text-[#c7c7c7]">. Experto en </span>
-        <span className="text-[#3b82f6] font-bold">frontend</span>
-        <span className="text-[#c7c7c7]">, </span>
-        <span className="text-[#3b82f6] font-bold">backend</span>
-        <span className="text-[#c7c7c7]"> y </span>
-        <span className="text-[#3b82f6] font-bold">cloud</span>
-        <span className="text-[#c7c7c7]">. Enfoque en </span>
-        <span className="text-[#3b82f6] font-bold">rendimiento</span>
-        <span className="text-[#c7c7c7]">, </span>
-        <span className="text-[#3b82f6] font-bold">UX</span>
-        <span className="text-[#c7c7c7]"> y </span>
-        <span className="text-[#3b82f6] font-bold">calidad</span>
-        <span className="text-[#c7c7c7]">.</span>
+        Transformo ideas en <span className="text-[#38bdf8] font-bold underline underline-offset-4 decoration-[#38bdf8]/40">soluciones digitales robustas</span> y <span className="text-[#38bdf8] font-bold underline underline-offset-4 decoration-[#38bdf8]/40">seguras</span>. Experto en frontend, backend y cloud. Enfocado en <span className="font-bold text-white">rendimiento</span>, <span className="font-bold text-white">UX</span> y <span className="font-bold text-white">calidad</span>.
       </p>
 
       {/* Botones CTA animados */}
