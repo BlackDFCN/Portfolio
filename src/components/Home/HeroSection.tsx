@@ -33,7 +33,7 @@ const socialLinks = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center py-12 sm:py-24 px-4 overflow-x-hidden overflow-y-visible animate-fade-in">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center py-24 px-4 overflow-x-hidden overflow-y-visible animate-fade-in">
       {/* Fondo animado: aura centrada, gradiente original en bordes */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Aura animada centrada, sin cortar el fondo original */}
@@ -43,7 +43,7 @@ export default function HeroSection() {
 
       {/* Avatar con glow y badge */}
       <div className="relative z-10 mb-6 flex flex-col items-center">
-        <div className="relative mt-2 sm:mt-6">
+        <div className="relative">
           <img src="/avatar.png" alt="Bastián Tapia" className="w-40 h-40 rounded-full shadow-2xl object-cover border-4 border-[#3b82f6] animate-glow ring-4 ring-[#3b82f6]/30" />
         </div>
       </div>
@@ -64,13 +64,13 @@ export default function HeroSection() {
 
       {/* Botones CTA animados */}
       <div className="flex flex-wrap gap-4 justify-center mb-10 z-10">
-        <a href="#contacto" className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[#3b82f6] text-white font-bold shadow-xl hover:bg-[#2563eb] focus:bg-[#2563eb] transition-all text-lg animate-fade-in-up">
+        <a href="#contacto" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#3b82f6] text-white font-bold shadow-xl hover:bg-[#60a5fa] focus:bg-[#60a5fa] transition-all text-base animate-fade-in-up sm:px-5 sm:py-2.5 sm:text-base">
           <FaEnvelope className="text-2xl" /> Hablemos
         </a>
-        <a href="#proyectos" className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-neutral-800 text-[#3b82f6] font-bold shadow-xl hover:bg-neutral-700 hover:text-[#2563eb] focus:text-[#2563eb] transition-all text-lg border border-[#3b82f6] animate-fade-in-up">
+        <a href="#proyectos" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neutral-800 text-[#3b82f6] font-bold shadow-xl hover:bg-[#60a5fa] hover:text-white focus:text-white transition-all text-base border border-[#3b82f6] animate-fade-in-up sm:px-5 sm:py-2.5 sm:text-base">
           <FaGithub className="text-2xl" /> Ver Proyectos
         </a>
-        <a href="/bastiantapia_cv.pdf" download="Bastian_Tapia_CV.pdf" className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-[#0A66C2] text-white font-bold shadow-xl hover:bg-[#004182] focus:bg-[#004182] transition-all text-lg animate-fade-in-up">
+        <a href="/bastiantapia_cv.pdf" download="Bastian_Tapia_CV.pdf" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0A66C2] text-white font-bold shadow-xl hover:bg-[#004182] focus:bg-[#004182] transition-all text-base animate-fade-in-up sm:px-5 sm:py-2.5 sm:text-base">
           <FaFilePdf className="text-2xl" /> Descargar CV
           <span className="ml-1 bg-white/10 text-xs px-2 py-0.5 rounded-full border border-white/20">PDF</span>
         </a>
