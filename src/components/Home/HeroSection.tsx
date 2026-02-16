@@ -33,7 +33,7 @@ const socialLinks = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center py-24 px-4 overflow-x-hidden overflow-y-visible animate-fade-in">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center py-12 sm:py-24 px-4 overflow-x-hidden overflow-y-visible animate-fade-in">
       {/* Fondo animado: aura centrada, gradiente original en bordes */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Aura animada centrada, sin cortar el fondo original */}
