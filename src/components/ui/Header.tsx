@@ -59,8 +59,8 @@ function Header() {
         <div className="hidden md:flex items-center gap-4">
           <ThemeToggle />
         </div>
-        <div className="md:hidden flex items-center gap-2">
-          <ThemeToggle />
+        <div className="md:hidden flex items-center gap-4">
+          <ThemeToggle size={32} />
           <MobileMenu />
         </div>
       </nav>

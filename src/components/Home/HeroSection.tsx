@@ -33,7 +33,7 @@ const socialLinks = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center py-24 px-4 overflow-x-hidden overflow-y-visible animate-fade-in">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center py-28 px-4 overflow-x-hidden overflow-y-visible animate-fade-in">
       {/* Fondo animado: aura centrada, gradiente original en bordes */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Aura animada centrada, sin cortar el fondo original */}
@@ -42,7 +42,7 @@ export default function HeroSection() {
       </div>
 
       {/* Avatar con glow y badge */}
-      <div className="relative z-10 mb-6 flex flex-col items-center">
+      <div className="relative z-10 mb-10 flex flex-col items-center">
         <div className="relative">
           <img src="/avatar.png" alt="Bastián Tapia" className="w-28 h-28 md:w-40 md:h-40 rounded-full shadow-2xl object-cover border-4 border-[#3b82f6] animate-glow ring-2 md:ring-4 ring-[#3b82f6]/30" />
         </div>
@@ -50,7 +50,7 @@ export default function HeroSection() {
 
       {/* Saludo profesional */}
       <span className="text-sm text-neutral-400 mb-1 block md:text-base">¡Hola! Soy</span>
-      <h1 className="text-3xl md:text-5xl lg:text-7xl font-extrabold mb-2 text-white tracking-tight drop-shadow-lg z-10">
+      <h1 className="text-3xl md:text-5xl lg:text-7xl font-extrabold mb-4 text-white tracking-tight drop-shadow-lg z-10">
         <span className="text-white">Bastián</span> <span className="text-[#3b82f6]">Tapia</span>
       </h1>
       <div className="w-16 md:w-20 h-0.5 mx-auto my-2 bg-[#3b82f6] rounded-full opacity-80 z-10" />
@@ -66,23 +66,21 @@ export default function HeroSection() {
       </div>
 
       {/* Botones CTA animados */}
-      <div className="flex flex-wrap gap-4 justify-center mb-10 z-10">
+      <div className="flex flex-col md:flex-row gap-4 justify-center mb-10 z-10 w-full max-w-md mx-auto">
         <a href="#contacto" className="inline-flex items-center gap-2 w-full md:w-auto justify-center px-5 py-3 md:py-2.5 rounded-xl bg-[#3b82f6] text-white font-bold shadow-xl hover:bg-[#60a5fa] focus:bg-[#60a5fa] transition-all text-base animate-fade-in-up mb-2 md:mb-0">
           <FaEnvelope className="text-2xl" /> Hablemos
         </a>
-        <div className="flex gap-2 w-full md:w-auto justify-center">
-          <a href="#proyectos" className="inline-flex items-center gap-2 flex-1 md:flex-none justify-center px-5 py-3 md:py-2.5 rounded-xl bg-neutral-800 text-[#3b82f6] font-bold shadow-xl hover:bg-[#60a5fa] hover:text-white focus:text-white transition-all text-base border border-[#3b82f6] animate-fade-in-up">
-            <FaGithub className="text-2xl" /> Ver Proyectos
-          </a>
-          <a href="/bastiantapia_cv.pdf" download="Bastian_Tapia_CV.pdf" className="inline-flex items-center gap-2 flex-1 md:flex-none justify-center px-5 py-3 md:py-2.5 rounded-xl bg-[#0A66C2] text-white font-bold shadow-xl hover:bg-[#004182] focus:bg-[#004182] transition-all text-base animate-fade-in-up">
-            <FaFilePdf className="text-2xl" /> Descargar CV
-            <span className="ml-1 bg-white/10 text-xs px-2 py-0.5 rounded-full border border-white/20">PDF</span>
-          </a>
-        </div>
+        <a href="#proyectos" className="inline-flex items-center gap-2 w-full md:w-auto justify-center px-5 py-3 md:py-2.5 rounded-xl bg-neutral-800 text-[#3b82f6] font-bold shadow-xl hover:bg-[#60a5fa] hover:text-white focus:text-white transition-all text-base border border-[#3b82f6] animate-fade-in-up">
+          <FaGithub className="text-2xl" /> Ver Proyectos
+        </a>
+        <a href="/bastiantapia_cv.pdf" download="Bastian_Tapia_CV.pdf" className="inline-flex items-center gap-2 w-full md:w-auto justify-center px-5 py-3 md:py-2.5 rounded-xl bg-[#0A66C2] text-white font-bold shadow-xl hover:bg-[#004182] focus:bg-[#004182] transition-all text-base animate-fade-in-up">
+          <FaFilePdf className="text-2xl" /> Descargar CV
+          <span className="ml-1 bg-white/10 text-xs px-2 py-0.5 rounded-full border border-white/20">PDF</span>
+        </a>
       </div>
 
       {/* Redes sociales grandes y animadas */}
-      <div className="flex gap-7 justify-center mb-4 z-10">
+      <div className="flex gap-5 md:gap-7 justify-center mb-4 z-10">
         {socialLinks.map((link) => (
           <a
             key={link.label}
