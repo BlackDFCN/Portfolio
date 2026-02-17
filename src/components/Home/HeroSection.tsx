@@ -64,12 +64,11 @@ export default function HeroSection() {
           </div>
         </div>
         {/* Botones CTA */}
-        <div className="flex flex-col sm:flex-row gap-2 w-full max-w-xl">
+        <div className="flex flex-col gap-2 w-full max-w-xl">
           {/* Botón CTA principal */}
           <a
             href="#contacto"
-            className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-[#2196f3] text-white font-bold shadow-md hover:scale-[1.03] active:scale-95 transition-all text-sm py-3 px-5 focus:outline-none focus:ring-2 focus:ring-[#2196f3]/40 group min-w-0"
-            style={{ minWidth: 0 }}
+            className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#2196f3] text-white font-bold shadow-md hover:scale-[1.03] active:scale-95 transition-all text-sm py-3 px-5 focus:outline-none focus:ring-2 focus:ring-[#2196f3]/40 group"
           >
             <span className="truncate">Hablemos</span>
             <FaArrowRight className="ml-1 text-base transition-transform group-hover:translate-x-1" />
@@ -77,8 +76,7 @@ export default function HeroSection() {
           {/* Botón secundario outline */}
           <a
             href="#proyectos"
-            className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-white font-semibold shadow hover:border-[#2196f3] hover:text-[#2196f3] transition-all text-sm py-3 px-5 group min-w-0"
-            style={{ minWidth: 0 }}
+            className="w-full flex items-center justify-center gap-2 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-white font-semibold shadow hover:border-[#2196f3] hover:text-[#2196f3] transition-all text-sm py-3 px-5 group"
           >
             <span className="truncate">Ver Proyectos</span>
             <FaThLarge className="ml-1 text-base text-neutral-300 group-hover:text-[#2196f3] transition-colors" />
@@ -87,8 +85,7 @@ export default function HeroSection() {
           <a
             href="/bastiantapia_cv.pdf"
             download="Bastian_Tapia_CV.pdf"
-            className="flex-1 flex items-center justify-center gap-2 rounded-xl text-neutral-400 font-bold transition-all text-sm py-3 px-5 group min-w-0"
-            style={{ minWidth: 0 }}
+            className="w-full flex items-center justify-center gap-2 rounded-xl text-neutral-400 font-bold transition-all text-sm py-3 px-5 group"
           >
             <span className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center bg-neutral-100 group-hover:bg-[#2196f3]/10 transition-colors overflow-hidden">
               <FaFilePdf className="text-lg" />
