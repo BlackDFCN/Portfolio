@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "./ThemeToggle";
+import MobileMenu from "./MobileMenu";
 
 const navItems = [
   { label: "Inicio", href: "/" },
@@ -55,8 +56,11 @@ function Header() {
             </a>
           ))}
         </div>
-        <div className="flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4">
           <ThemeToggle />
+        </div>
+        <div className="md:hidden flex items-center">
+          <MobileMenu />
         </div>
       </nav>
     </header>

@@ -70,13 +70,15 @@ export default function HeroSection() {
         <a href="#contacto" className="inline-flex items-center gap-2 w-full md:w-auto justify-center px-5 py-3 md:py-2.5 rounded-xl bg-[#3b82f6] text-white font-bold shadow-xl hover:bg-[#60a5fa] focus:bg-[#60a5fa] transition-all text-base animate-fade-in-up mb-2 md:mb-0">
           <FaEnvelope className="text-2xl" /> Hablemos
         </a>
-        <a href="#proyectos" className="inline-flex items-center gap-2 w-1/2 md:w-auto justify-center px-5 py-3 md:py-2.5 rounded-xl bg-neutral-800 text-[#3b82f6] font-bold shadow-xl hover:bg-[#60a5fa] hover:text-white focus:text-white transition-all text-base border border-[#3b82f6] animate-fade-in-up mb-2 md:mb-0">
-          <FaGithub className="text-2xl" /> Ver Proyectos
-        </a>
-        <a href="/bastiantapia_cv.pdf" download="Bastian_Tapia_CV.pdf" className="inline-flex items-center gap-2 w-1/2 md:w-auto justify-center px-5 py-3 md:py-2.5 rounded-xl bg-[#0A66C2] text-white font-bold shadow-xl hover:bg-[#004182] focus:bg-[#004182] transition-all text-base animate-fade-in-up">
-          <FaFilePdf className="text-2xl" /> Descargar CV
-          <span className="ml-1 bg-white/10 text-xs px-2 py-0.5 rounded-full border border-white/20">PDF</span>
-        </a>
+        <div className="flex gap-2 w-full md:w-auto justify-center">
+          <a href="#proyectos" className="inline-flex items-center gap-2 flex-1 md:flex-none justify-center px-5 py-3 md:py-2.5 rounded-xl bg-neutral-800 text-[#3b82f6] font-bold shadow-xl hover:bg-[#60a5fa] hover:text-white focus:text-white transition-all text-base border border-[#3b82f6] animate-fade-in-up">
+            <FaGithub className="text-2xl" /> Ver Proyectos
+          </a>
+          <a href="/bastiantapia_cv.pdf" download="Bastian_Tapia_CV.pdf" className="inline-flex items-center gap-2 flex-1 md:flex-none justify-center px-5 py-3 md:py-2.5 rounded-xl bg-[#0A66C2] text-white font-bold shadow-xl hover:bg-[#004182] focus:bg-[#004182] transition-all text-base animate-fade-in-up">
+            <FaFilePdf className="text-2xl" /> Descargar CV
+            <span className="ml-1 bg-white/10 text-xs px-2 py-0.5 rounded-full border border-white/20">PDF</span>
+          </a>
+        </div>
       </div>
 
       {/* Redes sociales grandes y animadas */}
