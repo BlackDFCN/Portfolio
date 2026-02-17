@@ -1,5 +1,5 @@
 "use client";
-import { FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp, FaFilePdf, FaArrowRight, FaThLarge } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp, FaFilePdf, FaArrowRight, FaThLarge, FaReact, FaNodeJs, FaCloud } from 'react-icons/fa';
 
 const socialLinks = [
   {
@@ -45,18 +45,21 @@ export default function HeroSection() {
         </p>
         {/* Stack cards */}
         <div className="flex flex-row md:flex-row gap-2 md:gap-4 mb-8 w-full max-w-xl overflow-x-auto justify-center md:justify-start">
-          <div className="flex flex-col items-center bg-white dark:bg-neutral-800 rounded-xl px-4 py-3 shadow border border-neutral-100 dark:border-neutral-800 min-w-[120px]">
-            <FaThLarge className="text-[#2196f3] text-2xl mb-1" />
+          {/* Client Side / Frontend */}
+          <div className="flex flex-col items-center bg-white dark:bg-neutral-800 rounded-xl px-4 py-3 shadow border border-neutral-100 dark:border-neutral-800 min-w-[120px] transition-all duration-200 group cursor-pointer">
+            <FaReact className="text-[#2196f3] text-3xl mb-1 animate-spin-slow group-hover:animate-spin" />
             <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Client Side</span>
             <span className="text-sm font-semibold text-neutral-800 dark:text-white">Frontend</span>
           </div>
-          <div className="flex flex-col items-center bg-white dark:bg-neutral-800 rounded-xl px-4 py-3 shadow border border-neutral-100 dark:border-neutral-800 min-w-[120px]">
-            <FaThLarge className="text-[#2196f3] text-2xl mb-1" />
+          {/* Server Side / Backend */}
+          <div className="flex flex-col items-center bg-white dark:bg-neutral-800 rounded-xl px-4 py-3 shadow border border-neutral-100 dark:border-neutral-800 min-w-[120px] transition-all duration-200 group cursor-pointer">
+            <FaNodeJs className="text-[#2196f3] text-3xl mb-1 group-hover:animate-bounce" />
             <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Server Side</span>
             <span className="text-sm font-semibold text-neutral-800 dark:text-white">Backend</span>
           </div>
-          <div className="flex flex-col items-center bg-white dark:bg-neutral-800 rounded-xl px-4 py-3 shadow border border-neutral-100 dark:border-neutral-800 min-w-[120px]">
-            <FaThLarge className="text-[#2196f3] text-2xl mb-1" />
+          {/* Deployment / Cloud */}
+          <div className="flex flex-col items-center bg-white dark:bg-neutral-800 rounded-xl px-4 py-3 shadow border border-neutral-100 dark:border-neutral-800 min-w-[120px] transition-all duration-200 group cursor-pointer">
+            <FaCloud className="text-[#2196f3] text-3xl mb-1 group-hover:animate-pulse" />
             <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Deployment</span>
             <span className="text-sm font-semibold text-neutral-800 dark:text-white">Cloud</span>
           </div>
@@ -120,8 +123,19 @@ export default function HeroSection() {
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[170px] h-[170px] md:w-[250px] md:h-[250px] rounded-full bg-gradient-to-br from-[#2196f3]/20 via-[#2196f3]/10 to-transparent blur-lg opacity-40 animate-spin-slow" />
           <img src="/avatar.png" alt="Bastián Tapia" className="relative w-36 h-36 md:w-56 md:h-56 rounded-full shadow-2xl object-cover border-4 border-[#2196f3] z-10" />
           {/* Badge de disponibilidad mejorado */}
-          <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-4 py-1 rounded-full shadow border border-neutral-800 dark:border-neutral-200 flex items-center gap-2 text-xs font-bold whitespace-nowrap z-20">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>Disponible para proyectos
+          <span
+            className="absolute left-1/2 -translate-x-1/2 -bottom-16 px-6 py-2 rounded-[2rem] flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] glass-pill shadow-2xl border border-white/10 backdrop-blur-md bg-white/10 dark:bg-white/10 text-white z-20 whitespace-nowrap"
+            style={{
+              background: 'rgba(255,255,255,0.08)',
+              border: '1px solid rgba(255,255,255,0.12)',
+              boxShadow: '0 8px 32px 0 rgba(0,102,255,0.10)'
+            }}
+          >
+            <span className="relative flex items-center justify-center">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#00D1FF]"></span>
+              <span className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-[#00D1FF] animate-ping opacity-75"></span>
+            </span>
+            Disponible Ahora
           </span>
         </div>
       </div>
