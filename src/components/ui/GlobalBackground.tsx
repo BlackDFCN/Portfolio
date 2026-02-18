@@ -3,12 +3,12 @@
 
 import React from "react";
 import { useTheme } from "@/hooks/useTheme";
-import StarfieldBackground from "../ui/StarfieldBackground";
-import LightfieldBackground from "../ui/LightfieldBackground";
+import DarkBackground from "../ui/DarkBackground";
+import LightBackground from "../ui/LightBackground";
 
 export default function GlobalBackground() {
   const { theme } = useTheme();
-  if (theme === "dark") return <StarfieldBackground />;
-  if (theme === "light") return <LightfieldBackground />;
+  if (theme === "dark") return <DarkBackground />;
+  if (theme === "light") return <LightBackground />;
   return null;
 }

@@ -1,30 +1,32 @@
 "use client";
+import React from 'react';
+import { useTheme } from '@/hooks/useTheme';
 import { FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp, FaFilePdf, FaArrowRight, FaThLarge, FaReact, FaNodeJs, FaCloud, FaLayerGroup, FaRegComments, FaFolderOpen, FaRegFileAlt } from 'react-icons/fa';
 
 const socialLinks = [
   {
     href: 'https://linkedin.com/in/bastiantapia07',
     label: 'LinkedIn',
-    icon: <FaLinkedin size={24} className="text-[#c7c7c7]" />,
-    color: 'hover:text-[#0A66C2] focus:text-[#0A66C2]'
+    icon: <FaLinkedin size={22} />, // color neutro, se aplica abajo
+    brand: 'linkedin'
   },
   {
     href: 'https://github.com/BlackDFCN',
     label: 'GitHub',
-    icon: <FaGithub size={24} className="text-[#c7c7c7]" />,
-    color: 'hover:text-[#0A66C2] focus:text-[#0A66C2]'
+    icon: <FaGithub size={22} />, // color neutro, se aplica abajo
+    brand: 'github'
   },
   {
     href: 'mailto:bastiantapia.dev@gmail.com',
     label: 'Email',
-    icon: <FaEnvelope size={24} className="text-[#c7c7c7]" />,
-    color: 'hover:text-[#0A66C2] focus:text-[#0A66C2]'
+    icon: <FaEnvelope size={22} />, // color neutro, se aplica abajo
+    brand: 'email'
   },
   {
     href: 'https://wa.me/56959800748',
     label: 'WhatsApp',
-    icon: <FaWhatsapp size={24} className="text-[#c7c7c7]" />,
-    color: 'hover:text-[#0A66C2] focus:text-[#0A66C2]'
+    icon: <FaWhatsapp size={22} />, // color neutro, se aplica abajo
+    brand: 'whatsapp'
   }
 ];
 
@@ -85,20 +87,51 @@ export default function HeroSection() {
           </a>
         </div>
         {/* Redes sociales */}
-        <div className="flex gap-4 mt-8 justify-center md:justify-start">
-          {socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              aria-label={link.label}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`transition-all text-xl p-2 rounded-full bg-neutral-900/80 dark:bg-white/10 text-neutral-200 hover:text-[#2196f3] hover:-translate-y-1 focus:-translate-y-1 focus:text-[#2196f3] shadow-sm border border-neutral-800 dark:border-white/10`}
-              title={link.label}
-            >
-              {link.icon}
-            </a>
-          ))}
+        <div className="flex gap-6 mt-8 justify-center md:justify-start">
+          {(() => {
+            const brandColors: Record<string, string> = {
+              linkedin: '#0A66C2',
+              github: '#181717',
+              email: '#EA4335',
+              whatsapp: '#25D366',
+            };
+            const { theme } = useTheme();
+            const baseColor = theme === 'dark' ? '#c7c7c7' : '#222';
+            return socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                aria-label={link.label}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={
+                  `transition-all duration-200 flex items-center justify-center rounded-full shadow-lg ` +
+                  `bg-white/10 dark:bg-white/10 backdrop-blur-md border border-white/20 hover:scale-110 focus:scale-110 ` +
+                  `hover:shadow-[0_0_0_4px_rgba(33,150,243,0.10)]`
+                }
+                style={{
+                  width: 44,
+                  height: 44,
+                  color: baseColor,
+                  boxShadow: '0 2px 12px 0 rgba(0,0,0,0.10)',
+                  transition: 'all 0.2s',
+                }}
+                title={link.label}
+                onMouseEnter={e => {
+                  const svg = e.currentTarget.querySelector('svg');
+                  if (svg) svg.style.color = brandColors[link.brand] || '#2196f3';
+                }}
+                onMouseLeave={e => {
+                  const svg = e.currentTarget.querySelector('svg');
+                  if (svg) svg.style.color = baseColor;
+                }}
+              >
+                {React.cloneElement(link.icon, {
+                  style: { color: baseColor, transition: 'color 0.2s' },
+                })}
+              </a>
+            ));
+          })()}
         </div>
       </div>
       {/* Columna derecha: avatar */}
