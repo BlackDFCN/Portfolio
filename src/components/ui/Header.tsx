@@ -7,8 +7,12 @@ import { usePathname } from "next/navigation";
 
 const navItems = [
   { label: "Inicio", href: "/" },
+  { label: "Sobre Mí", href: "#sobre-mi" },
   { label: "Servicios", href: "#servicios" },
   { label: "Proyectos", href: "#proyectos" },
+  { label: "Stack", href: "#stack" },
+  { label: "Testimonios", href: "#testimonios" },
+  { label: "Contacto", href: "#contacto" },
 ];
 
 function Header() {
@@ -44,10 +48,9 @@ function Header() {
         </div>
         <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => {
-            // Detectar si la ruta está activa (exacta o hash)
+            // Solo marcar activo por pathname para evitar hydration mismatch
             const isActive =
               (item.href === "/" && pathname === "/") ||
-              (item.href.startsWith("#") && typeof window !== "undefined" && window.location.hash === item.href) ||
               (item.href !== "/" && pathname.startsWith(item.href.replace('#', '')));
             return (
               <a
