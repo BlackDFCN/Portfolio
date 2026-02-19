@@ -110,24 +110,28 @@ export default function HeroSection() {
                   `hover:shadow-[0_0_0_4px_rgba(33,150,243,0.10)]`
                 }
                 style={{
-                  width: 44,
-                  height: 44,
+                  width: "44px",
+                  height: "44px",
                   color: baseColor,
-                  boxShadow: '0 2px 12px 0 rgba(0,0,0,0.10)',
-                  transition: 'all 0.2s',
+                  boxShadow: "0 2px 12px 0 rgba(0,0,0,0.10)",
+                  transition: "all 0.2s",
                 }}
                 title={link.label}
                 onMouseEnter={e => {
-                  const svg = e.currentTarget.querySelector('svg');
-                  if (svg) svg.style.color = brandColors[link.brand] || '#2196f3';
+                  if (typeof window !== "undefined") {
+                    const svg = e.currentTarget.querySelector("svg");
+                    if (svg) svg.style.color = brandColors[link.brand] || "#2196f3";
+                  }
                 }}
                 onMouseLeave={e => {
-                  const svg = e.currentTarget.querySelector('svg');
-                  if (svg) svg.style.color = baseColor;
+                  if (typeof window !== "undefined") {
+                    const svg = e.currentTarget.querySelector("svg");
+                    if (svg) svg.style.color = baseColor;
+                  }
                 }}
               >
                 {React.cloneElement(link.icon, {
-                  style: { color: baseColor, transition: 'color 0.2s' },
+                  style: { color: baseColor, transition: "color 0.2s" },
                 })}
               </a>
             ));
