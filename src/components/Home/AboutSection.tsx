@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useEffect } from "react";
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 export default function AboutSection() {
   // Animación de barras de skills
@@ -21,8 +22,9 @@ export default function AboutSection() {
     animate(nodeBar, '80%');
     animate(reactBar, '90%');
   }, []);
+  const revealRef = useScrollReveal<HTMLElement>();
   return (
-    <section id="sobre-mi" className="relative z-10 w-full max-w-7xl mx-auto px-2 md:px-0 mt-16 mb-28 pt-24 scroll-mt-24">
+    <section ref={revealRef} id="sobre-mi" className="relative z-10 w-full max-w-7xl mx-auto px-2 md:px-0 mt-16 mb-28 pt-24 scroll-mt-24 opacity-0 transition-opacity duration-700">
       <h2 className="text-xl font-bold text-[#2563eb] flex items-center gap-2 mb-2 md:mb-4 md:mt-2 w-full">
         <span className="w-6 h-1 bg-[#2563eb] rounded-full inline-block"></span> Sobre mí
       </h2>

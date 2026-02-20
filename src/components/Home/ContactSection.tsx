@@ -1,6 +1,9 @@
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+
 export default function ContactSection() {
+  const revealRef = useScrollReveal<HTMLElement>();
   return (
-    <section className="w-full max-w-2xl mx-auto py-16 md:py-24 px-4 text-center" id="contacto">
+    <section ref={revealRef} className="w-full max-w-2xl mx-auto py-16 md:py-24 px-4 text-center opacity-0 transition-opacity duration-700" id="contacto">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">¿Listo para llevar tu proyecto al siguiente nivel?</h2>
       <p className="text-neutral-300 mb-8">Contáctame y conversemos sobre cómo puedo ayudarte a lograr tus objetivos.</p>
       <form className="flex flex-col gap-4 items-center">

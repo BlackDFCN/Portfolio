@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useTheme } from '@/hooks/useTheme';
 import { FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp, FaFilePdf, FaArrowRight, FaThLarge, FaReact, FaNodeJs, FaCloud, FaLayerGroup, FaRegComments, FaFolderOpen, FaRegFileAlt } from 'react-icons/fa';
 
@@ -31,17 +32,18 @@ const socialLinks = [
 ];
 
 export default function HeroSection() {
+  const revealRef = useScrollReveal<HTMLElement>();
   return (
-    <section className="relative min-h-screen flex flex-col-reverse md:flex-row items-center justify-center md:justify-between gap-8 md:gap-0 px-4 md:px-12 py-12 md:py-24 max-w-7xl mx-auto animate-fade-in">
+    <section ref={revealRef} className="relative min-h-screen flex flex-col-reverse md:flex-row items-center justify-center md:justify-between gap-8 md:gap-0 px-4 md:px-12 py-12 md:py-24 max-w-7xl mx-auto opacity-0 transition-opacity duration-700">
       {/* Columna izquierda: texto */}
       <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left z-10">
-        <span className="text-xs md:text-sm text-[#2563eb] tracking-widest mb-3 uppercase font-bold drop-shadow-sm">¡Hola! Soy</span>
+        <span className="text-xs md:text-sm text-[#2563eb] tracking-widest mb-3 mt-8 md:mt-0 uppercase font-bold drop-shadow-sm">¡Hola! Soy</span>
         <h1
           className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl font-black leading-tight mb-3 drop-shadow-xl tracking-tight break-keep max-w-full"
         >
           <span className="text-[#232a3a] dark:text-white">Bastián</span> <span className="text-[#2563eb]">Tapia</span>
         </h1>
-        <span className="inline-flex items-center gap-2 border-2 border-[#2563eb] text-[#2563eb] px-5 py-2 rounded-full text-sm font-bold mb-10 mt-3 bg-white dark:bg-neutral-900 shadow-md">
+        <span className="inline-flex items-center gap-2 border-2 border-[#2563eb] text-[#2563eb] px-5 py-2 rounded-full text-sm font-bold mb-10 mt-8 md:mt-3 bg-white dark:bg-neutral-900 shadow-md">
           <FaLayerGroup className="text-[#2563eb] text-xl" /> Full Stack Developer
         </span>
         <p className="text-lg md:text-xl text-[#232a3a] dark:text-neutral-100 max-w-2xl mb-2 font-semibold leading-relaxed">
@@ -114,7 +116,7 @@ export default function HeroSection() {
           <img src="/avatar.png" alt="Bastián Tapia" className="relative w-52 h-52 md:w-80 md:h-80 rounded-full object-cover border-4 border-[#2563eb] z-10 shadow-[0_12px_64px_0_rgba(37,99,235,0.30)] dark:shadow-[0_12px_64px_0_rgba(59,130,246,0.30)]" />
           {/* Badge de disponibilidad mejorado */}
           <span
-            className="absolute left-1/2 -translate-x-1/2 -bottom-8 px-10 py-3 rounded-[2rem] flex items-center gap-3 text-sm font-black uppercase tracking-[0.2em] border-2 border-[#2563eb] bg-white dark:bg-neutral-900 text-[#2563eb] z-20 whitespace-nowrap shadow"
+            className="absolute left-1/2 -translate-x-1/2 -bottom-8 px-10 py-3 rounded-[2rem] flex items-center gap-3 text-sm font-black uppercase tracking-[0.2em] border-2 border-[#2563eb] bg-white dark:bg-neutral-900 text-[#2563eb] z-20 whitespace-nowrap shadow mt-8 md:mt-0"
           >
             <span className="relative flex items-center justify-center">
               <span className="w-3 h-3 rounded-full bg-[#22c55e]"></span>
