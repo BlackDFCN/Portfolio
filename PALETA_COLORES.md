@@ -26,6 +26,3 @@
 | Text        | #f8fafc   | ⬜ #f8fafc | Texto principal |
 | Badge       | #2563eb   | 🟦 #2563eb | Badge |
 | Border      | #232a3a   | ⬛ #232a3a | Bordes |
-
----
-> Utiliza estos valores para mantener la coherencia visual en todos los componentes y secciones.

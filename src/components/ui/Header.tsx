@@ -53,7 +53,7 @@ function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#2c2c34] bg-white dark:bg-[#0c0c0c]">
+    <header className="sticky top-0 z-50 w-full border-b border-[#232a3a] bg-white dark:bg-[#0c0c0c]">
       <nav className="max-w-6xl mx-auto section-container flex h-20 items-center justify-between px-6">
         <div className="flex items-center gap-3 md:gap-4">
           <Link className="group flex items-center gap-2.5" href="/">
@@ -75,10 +75,10 @@ function Header() {
                 priority
               />
             </span>
-              <span className="text-lg font-extrabold tracking-tight md:text-xl">
-                <span className="text-[#18181b] dark:text-[#ffffff]">Bastian</span>
-                <span className="bg-gradient-to-r from-[#2563eb] to-[#3b82f6] dark:from-[#2563eb] dark:to-[#3b82f6] bg-clip-text text-transparent font-extrabold">Dev.</span>
-              </span>
+                <span className="text-lg font-extrabold tracking-tight md:text-xl">
+                  <span className="text-[#232a3a] dark:text-[#f8fafc]">Bastian</span>
+                  <span className="text-[#2563eb] dark:text-[#3b82f6] font-extrabold">Dev.</span>
+                </span>
           </Link>
         </div>
         <div className="hidden md:flex items-center gap-6">

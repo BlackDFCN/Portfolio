@@ -25,9 +25,9 @@ export default function MobileMenu() {
         className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
         onClick={() => setOpen((v) => !v)}
       >
-        <span className="block w-6 h-0.5 bg-[#3b82f6] mb-1 rounded transition-all" style={{transform: open ? 'rotate(45deg) translateY(7px)' : 'none'}}></span>
-        <span className={`block w-6 h-0.5 bg-[#3b82f6] mb-1 rounded transition-all ${open ? 'opacity-0' : ''}`}></span>
-        <span className="block w-6 h-0.5 bg-[#3b82f6] rounded transition-all" style={{transform: open ? 'rotate(-45deg) translateY(-7px)' : 'none'}}></span>
+        <span className="block w-6 h-0.5 bg-[#2563eb] mb-1 rounded transition-all" style={{transform: open ? 'rotate(45deg) translateY(7px)' : 'none'}}></span>
+        <span className={`block w-6 h-0.5 bg-[#2563eb] mb-1 rounded transition-all ${open ? 'opacity-0' : ''}`}></span>
+        <span className="block w-6 h-0.5 bg-[#2563eb] rounded transition-all" style={{transform: open ? 'rotate(-45deg) translateY(-7px)' : 'none'}}></span>
       </button>
       {open && (
         <div className="fixed inset-0 z-[9999] flex">
@@ -39,50 +39,40 @@ export default function MobileMenu() {
             <div className="relative z-10 flex flex-col h-full justify-between">
               {/* Header menú */}
               <div className="flex justify-between items-center mb-4">
-                <span className="text-xl font-bold text-[#3b82f6]">Menú</span>
-                <button onClick={() => setOpen(false)} aria-label="Cerrar menú" className="text-2xl text-[#3b82f6]">×</button>
+                <span className="text-xl font-bold text-[#2563eb] dark:text-[#2563eb]">Menú</span>
+                <button onClick={() => setOpen(false)} aria-label="Cerrar menú" className="text-2xl text-[#2563eb] dark:text-[#2563eb]">×</button>
               </div>
-              {/* Avatar y nombre */}
-              <div className="flex flex-col items-center mt-2 mb-6">
-                <img src="/avatar.png" alt="Bastián Tapia" className="w-20 h-20 rounded-full shadow-lg object-cover border-2 border-[#3b82f6] bg-white dark:bg-[#0c0c0c]" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Bastian+Tapia&background=2196f3&color=fff'; }} />
-                <span className="mt-2 text-lg font-bold text-[#18181b] dark:text-white drop-shadow">Bastián Tapia</span>
-                <span className="text-xs text-[#3b82f6] font-semibold drop-shadow">Full Stack Developer</span>
-              </div>
-              <hr className="my-2 border-[#2c2c34] opacity-30" />
-              {/* Navegación */}
-              <nav className="flex flex-col gap-6 mb-6">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="text-lg font-semibold text-[#c7c7c7] hover:text-[#3b82f6] transition-colors text-center"
-                    onClick={() => setOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
-              <hr className="my-2 border-[#2c2c34] opacity-30" />
-              {/* Redes sociales abajo, espacio simétrico */}
+                  <img src="/avatar.png" alt="Bastián Tapia" className="w-20 h-20 rounded-full shadow-lg object-cover border-2 border-[#2563eb] bg-white dark:bg-[#0c0c0c]" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Bastian+Tapia&background=2563eb&color=fff'; }} />
+                  <span className="mt-2 text-lg font-bold text-[#232a3a] dark:text-[#f8fafc] drop-shadow">Bastián Tapia</span>
+                  <span className="text-xs text-[#2563eb] dark:text-[#2563eb] font-semibold drop-shadow">Full Stack Developer</span>
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className="text-lg font-semibold text-[#232a3a] dark:text-[#f8fafc] hover:text-[#2563eb] dark:hover:text-[#2563eb] transition-colors text-center"
+                      onClick={() => setOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
               <div className="flex items-center justify-center gap-4 mb-2">
-                <a href="https://linkedin.com/in/bastiantapia07" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-[#3b82f6] text-2xl">
+                <a href="https://linkedin.com/in/bastiantapia07" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-[#2563eb] dark:text-[#2563eb] text-2xl">
                   <FaLinkedin />
                 </a>
-                <a href="https://github.com/BlackDFCN" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-[#3b82f6] text-2xl">
+                <a href="https://github.com/BlackDFCN" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-[#2563eb] dark:text-[#2563eb] text-2xl">
                   <FaGithub />
                 </a>
-                <a href="mailto:bastiantapia.dev@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" className="text-[#3b82f6] text-2xl">
+                <a href="mailto:bastiantapia.dev@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" className="text-[#2563eb] dark:text-[#2563eb] text-2xl">
                   <FaEnvelope />
                 </a>
-                <a href="https://wa.me/56959800748" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-[#3b82f6] text-2xl">
-                  <FaWhatsapp />
-                </a>
+                  <a href="https://wa.me/56959800748" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-[#2563eb] text-2xl">
+                    <FaWhatsapp />
+                  </a>
               </div>
             </div>
           </div>
         </div>
       )}
-      {/* Animación movida a globals.css */}
     </div>
   );
 }
