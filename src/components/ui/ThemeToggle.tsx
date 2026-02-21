@@ -12,9 +12,8 @@ export function ThemeToggle({ size = 40 }: { size?: number }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
   const current = theme === 'dark' ? 'night' : 'day';
-  // Reduce default size for better header fit
-    // Maximize icon size for best fit in container
-    const iconSize = size || 38;
+  // Aumentar el tamaño del icono para mejor visibilidad
+  const iconSize = size ? size + 8 : 48;
 
   if (!mounted) {
     // Placeholder: círculo animado (spinner minimalista)
@@ -35,8 +34,8 @@ export function ThemeToggle({ size = 40 }: { size?: number }) {
     <button
       aria-label="Cambiar tema"
       onClick={handleClick}
-      className="relative flex items-center justify-center border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 transition-colors duration-200 shadow-sm rounded-full h-10 w-10 p-0 hover:bg-blue-50 active:bg-blue-100"
-      style={{ boxShadow: '0 2px 8px 0 #00000011' }}
+      className="relative flex items-center justify-center rounded-full h-10 w-10 p-0 bg-transparent transition-colors duration-200 focus:outline-none hover:bg-black/10 dark:hover:bg-white/10 active:bg-black/20 dark:active:bg-white/20"
+      style={{ boxShadow: 'none', border: 'none' }}
     >
       <span
         className="transition-transform duration-200 hover:scale-110 active:scale-95"

@@ -2,7 +2,8 @@
 
 ## 1. Home (`/`)
 - Hero / Propuesta de valor
-- Sobre mí (bio breve, valores)
+- Sobre mí (bio breve, valores)+
+- Stack Tecnologico
 - Servicios principales
 - Proyectos destacados
 - Testimonios

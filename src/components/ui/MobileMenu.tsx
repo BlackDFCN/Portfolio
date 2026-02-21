@@ -8,7 +8,7 @@ import { FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 const navItems = [
   { label: "Inicio", href: "/" },
-  { label: "Sobre Mí", href: "#sobre-mi" },
+  { label: "Conóceme", href: "#sobre-mi" },
   { label: "Servicios", href: "#servicios" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Stack", href: "#stack" },

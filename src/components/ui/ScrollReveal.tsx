@@ -2,10 +2,8 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import React, { useEffect } from 'react';
 
-/**
- * Componente que envuelve sus hijos y aplica animación de aparición al hacer scroll.
- * Uso: <ScrollReveal><div>...</div></ScrollReveal>
- */
+// Componente que envuelve sus hijos y aplica animación de aparición al hacer scroll.
+// Uso: <ScrollReveal><div>...</div></ScrollReveal>
 export function ScrollReveal({ children, className = "" }: { children: React.ReactNode, className?: string }) {
   const revealRef = useScrollReveal<HTMLDivElement>();
   return (
