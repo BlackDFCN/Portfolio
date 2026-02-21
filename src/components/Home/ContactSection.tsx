@@ -91,7 +91,7 @@ export default function ContactSection() {
             target="_blank"
             rel="noopener noreferrer"
             className={
-              `flex items-center justify-center rounded-full border-2 border-[#2563eb] bg-white dark:bg-neutral-900 w-[44px] h-[44px] text-[#2563eb] shadow`
+              `transition-all duration-200 flex items-center justify-center rounded-full border-2 border-[#2563eb] bg-white dark:bg-neutral-900 w-[44px] h-[44px] text-[#2563eb] hover:bg-[#2563eb] hover:text-white hover:scale-110 focus:scale-110`
             }
             title={link.label}
           >
