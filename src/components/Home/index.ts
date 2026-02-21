@@ -1,8 +1,5 @@
-export * from './HeroSection';
-export * from './AboutSection';
-export * from './ServicesSection';
-export * from './ProjectsSection';
-export * from './TestimonialsSection';
-export * from './ContactSection';
-
-export { default as MethodologySection } from './MethodologySection';
+export { default as HeroSection } from './HeroSection';
+export { default as AboutSection } from './AboutSection';
+export { default as ServicesSection } from './ServicesSection';
+export { default as ProjectsSection } from './ProjectsSection';
+export { default as ContactSection } from './ContactSection';

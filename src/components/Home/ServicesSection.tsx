@@ -1,10 +1,8 @@
 "use client";
 import { FaCode, FaCogs, FaCloud } from "react-icons/fa";
-import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 export default function ServicesSection() {
-  // const revealRef = useScrollReveal<HTMLElement>();
   return (
     <section id="servicios" className="w-full max-w-6xl mx-auto py-16 md:py-24 px-4 pt-24 scroll-mt-24">
       {/* Header */}
