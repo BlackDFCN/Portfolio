@@ -9,8 +9,9 @@ import { useEffect, useState } from "react";
 const navItems = [
   { label: "Inicio", href: "/" },
   { label: "Conóceme", href: "#sobre-mi" },
+  // Proyectos: asociar tanto con /proyectos como con #proyectos
+  { label: "Proyectos", href: "#proyectos", altHref: "/proyectos" },
   { label: "Servicios", href: "#servicios" },
-  { label: "Proyectos", href: "#proyectos" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -20,6 +21,7 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Incluye #proyectos como sección scrollable
       const offsets = navItems
         .filter(item => item.href.startsWith('#'))
         .map(item => {
@@ -29,13 +31,16 @@ function Header() {
           const rect = el.getBoundingClientRect();
           return { href: item.href, top: Math.abs(rect.top - 90) }; // 90px offset for sticky header
         });
+      // Detecta la sección más cercana
       const min = offsets.reduce((a, b) => (a.top < b.top ? a : b), { href: '/', top: Infinity });
       if (window.scrollY < 100) setActiveSection("/");
       else setActiveSection(min.href);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    if (typeof window !== 'undefined' && window.location.pathname === "/") {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
   }, []);
 
   // Scroll suave con offset para header sticky
@@ -83,14 +88,34 @@ function Header() {
         </div>
         <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => {
-            const isActive =
-              (item.href === "/" && activeSection === "/" && pathname === "/") ||
-              (item.href !== "/" && activeSection === item.href);
+            let isActive = false;
+            if (item.label === "Proyectos") {
+              isActive = pathname.startsWith("/proyectos") || (pathname === "/" && activeSection === "#proyectos");
+            } else if (item.href === "/") {
+              isActive = pathname === "/" && (activeSection === "/" || activeSection === undefined);
+            } else {
+              isActive = pathname === "/" && activeSection === item.href;
+            }
+            // Para "Proyectos", el href real debe ser /proyectos si no estamos en home
+            const href = item.label === "Proyectos" && pathname !== "/" ? "/proyectos" : item.href;
+            const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+              if (item.label === "Proyectos" && pathname === "/") {
+                e.preventDefault();
+                const el = document.getElementById("proyectos");
+                if (el) {
+                  const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                  setActiveSection("#proyectos");
+                }
+              } else {
+                handleNavClick(e, href);
+              }
+            };
             return (
               <a
                 key={item.label}
-                href={item.href}
-                onClick={e => handleNavClick(e, item.href)}
+                href={href}
+                onClick={handleClick}
                 className={`text-base font-semibold px-2 py-1 rounded transition-all duration-200 relative group focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-[#60a5fa] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0c0c0c] ${
                   isActive
                     ? "text-[#2563eb] dark:text-[#2563eb]"

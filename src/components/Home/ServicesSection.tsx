@@ -1,91 +1,72 @@
+
 "use client";
-import { FaCode, FaCogs, FaCloud } from "react-icons/fa";
-import useInView from '@/features/home/hooks/useInView';
+import { FaCode, FaCloud, FaLock } from 'react-icons/fa';
+
+const SERVICES = [
+  {
+    icon: <FaCode className="text-4xl text-[#2563eb] animate-bounce-slow mb-2" />,
+    badge: "Desarrollo",
+    title: "Desarrollo a Medida",
+    description:
+      "Aplicaciones web y móviles robustas, escalables y modernas, adaptadas a las necesidades de tu negocio. Stack: Next.js, React, Node.js, TypeScript, Tailwind, etc.",
+  },
+  {
+    icon: <FaCloud className="text-4xl text-[#2563eb] animate-bounce-slow mb-2" />,
+    badge: "Cloud & DevOps",
+    title: "Cloud & DevOps",
+    description:
+      "Automatización, despliegue y optimización en la nube (Azure, AWS, GCP). CI/CD, contenedores, infraestructura como código y buenas prácticas para escalar seguro.",
+  },
+  {
+    icon: <FaLock className="text-4xl text-[#2563eb] animate-bounce-slow mb-2" />,
+    badge: "Arquitectura",
+    title: "Arquitectura & Seguridad",
+    description:
+      "Diseño de arquitecturas limpias, seguras y eficientes. Auditoría, refactorización, integración de buenas prácticas y protección de datos en cada capa.",
+  },
+];
 
 export default function ServicesSection() {
-  const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: false });
   return (
-    <section
-      id="servicios"
-      ref={ref}
-      className="min-h-[100dvh] flex items-center justify-center px-4 sm:px-6 lg:px-8"
-    >
-      <div
-        className={[
-          'w-full max-w-6xl mx-auto transition-all duration-700 ease-out',
-          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10',
-        ].join(' ')}
-      >
-        {/* Header */}
-        <div className="mb-12 text-center relative z-10">
-          <span className="uppercase tracking-widest text-[#2563eb] text-xs font-semibold">SERVICIOS</span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#232a3a] dark:text-white mt-2 mb-4">
-            Servicios <span className="text-[#2563eb]">Principales</span>
-          </h2>
-          <p className="text-[#232a3a] dark:text-neutral-300 max-w-2xl mx-auto font-medium">
-            Ofrezco soluciones tecnológicas integrales diseñadas para escalar. Mi enfoque combina la excelencia técnica con una visión orientada a resultados de alto impacto.
-          </p>
-        </div>
-
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Full Stack */}
-          <div className="bg-white dark:bg-neutral-900 border border-[#232a3a] rounded-2xl p-8 shadow-lg flex flex-col items-start relative transition-all hover:scale-[1.03] hover:shadow-[0_0_0_6px_rgba(37,99,235,0.10)] focus:scale-[1.03] cursor-pointer">
-            <div className="flex items-center mb-4">
-              <span className="bg-[#232a3a] p-2 rounded-full mr-3">
-                <FaCode className="text-[#3b82f6] text-xl" />
-              </span>
-              <h3 className="text-xl font-bold text-[#232a3a] dark:text-white">Desarrollo Full Stack</h3>
-            </div>
-            <p className="text-[#232a3a] dark:text-neutral-300 mb-4 text-sm">
-              Construcción de aplicaciones web complejas y robustas. Desarrollo de interfaces reactivas con <a href="#" className="text-[#2563eb] underline">React</a> y APIs de alto rendimiento con <a href="#" className="text-[#2563eb] underline">Node.js</a>.
+    <section id="servicios" className="w-full max-w-6xl mx-auto py-20 px-4 relative z-10">
+      <div className="mb-6 md:mb-8 text-center">
+        <span className="uppercase tracking-widest text-[#2563eb] text-sm md:text-base font-semibold mb-2 inline-block letter-spacing-[0.2em]">
+          SERVICIOS
+        </span>
+        <h2 className="text-3xl md:text-5xl font-extrabold text-[#232a3a] dark:text-white mb-3 drop-shadow-lg">
+          ¿Cómo puedo <span className="text-[#2563eb]">ayudarte</span>?
+        </h2>
+        <p className="text-[#232a3a] dark:text-white max-w-2xl mx-auto font-medium text-base md:text-lg">
+          Servicios profesionales para potenciar tu negocio con tecnología de alto nivel, automatización y seguridad.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {SERVICES.map((service, idx) => (
+          <div
+            key={service.title}
+            className="relative rounded-2xl shadow-lg border border-[#2563eb]/30 flex flex-col items-center text-center bg-white dark:bg-neutral-900 p-8 transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_0_8px_rgba(37,99,235,0.10)] focus:scale-[1.04] group"
+          >
+            <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white bg-[#2563eb] shadow-md animate-fade-in">
+              {service.badge}
+            </span>
+            {service.icon}
+            <h3 className="text-lg font-extrabold text-[#232a3a] dark:text-white mb-2 mt-2">
+              {service.title}
+            </h3>
+            <p className="text-sm text-[#232a3a] dark:text-white mb-0">
+              {service.description}
             </p>
-            <ul className="text-[#232a3a] dark:text-neutral-400 text-sm space-y-2 mb-6">
-              <li>• React, Next.js & Tailwind CSS</li>
-              <li>• Node.js, Express & NestJS</li>
-              <li>• PostgreSQL, MongoDB & Prisma</li>
-            </ul>
-            <a href="#" className="w-full bg-blue-50 dark:bg-[#232a3a] hover:bg-[#2563eb] hover:text-white text-[#2563eb] font-semibold py-2 rounded-lg text-center transition">Saber más</a>
           </div>
-
-          {/* Arquitectura */}
-          <div className="bg-white dark:bg-neutral-900 border border-[#232a3a] rounded-2xl p-8 shadow-lg flex flex-col items-start relative transition-all hover:scale-[1.03] hover:shadow-[0_0_0_6px_rgba(37,99,235,0.10)] focus:scale-[1.03] cursor-pointer">
-            <div className="flex items-center mb-4">
-              <span className="bg-[#232a3a] p-2 rounded-full mr-3">
-                <FaCogs className="text-[#3b82f6] text-xl" />
-              </span>
-              <h3 className="text-xl font-bold text-[#232a3a] dark:text-white">Arquitectura de Software</h3>
-            </div>
-            <p className="text-[#232a3a] dark:text-neutral-300 mb-4 text-sm">
-              Diseño de sistemas escalables bajo principios de <a href="#" className="text-[#2563eb] underline">Clean Architecture</a>. Enfoque en mantenibilidad, seguridad y optimización de recursos técnicos.
-            </p>
-            <ul className="text-[#232a3a] dark:text-neutral-400 text-sm space-y-2 mb-6">
-              <li>• SOLID, DRY & Design Patterns</li>
-              <li>• Microservicios & API Design</li>
-              <li>• Optimización de Performance (LCP)</li>
-            </ul>
-            <a href="#" className="w-full bg-blue-50 dark:bg-[#232a3a] hover:bg-[#2563eb] hover:text-white text-[#2563eb] font-semibold py-2 rounded-lg text-center transition">Saber más</a>
-          </div>
-
-          {/* CI/CD */}
-          <div className="bg-white dark:bg-neutral-900 border border-[#232a3a] rounded-2xl p-8 shadow-lg flex flex-col items-start relative transition-all hover:scale-[1.03] hover:shadow-[0_0_0_6px_rgba(37,99,235,0.10)] focus:scale-[1.03] cursor-pointer">
-            <div className="flex items-center mb-4">
-              <span className="bg-[#232a3a] p-2 rounded-full mr-3">
-                <FaCloud className="text-[#3b82f6] text-xl" />
-              </span>
-              <h3 className="text-xl font-bold text-[#232a3a] dark:text-white">Automatización & CI/CD</h3>
-            </div>
-            <p className="text-[#232a3a] dark:text-neutral-300 mb-4 text-sm">
-              Implementación de pipelines de despliegue eficientes. Automatización de flujos de trabajo con <a href="#" className="text-[#2563eb] underline">GitHub Actions</a> y contenedores <a href="#" className="text-[#2563eb] underline">Docker</a>.
-            </p>
-            <ul className="text-[#232a3a] dark:text-neutral-400 text-sm space-y-2 mb-6">
-              <li>• CI/CD Pipelines con GitHub Actions</li>
-              <li>• Docker & Contenerización</li>
-              <li>• Infraestructura como Código</li>
-            </ul>
-            <a href="#" className="w-full bg-blue-50 dark:bg-[#232a3a] hover:bg-[#2563eb] hover:text-white text-[#2563eb] font-semibold py-2 rounded-lg text-center transition">Saber más</a>
-          </div>
-        </div>
+        ))}
+      </div>
+      <div className="flex justify-center mt-12">
+        <a
+          href="#contacto"
+          className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#2563eb] text-white font-extrabold shadow-lg hover:bg-[#3b82f6] hover:scale-105 active:scale-95 transition-all text-lg py-3 px-8 focus:outline-none focus:ring-2 focus:ring-[#3b82f6]/40 group w-full max-w-xs md:max-w-sm"
+          style={{ boxShadow: '0 4px 24px 0 #2563eb22' }}
+        >
+          ¿Tienes un reto? ¡Hablemos!
+        </a>
       </div>
     </section>
   );

@@ -16,49 +16,52 @@ const AboutSection = () => {
           inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10',
         ].join(' ')}
       >
-        <div className="flex flex-col md:flex-row items-center md:items-center gap-12 w-full">
+        <div className="flex flex-col md:flex-row items-center md:items-center gap-8 w-full min-h-[500px]">
           {/* Columna izquierda: texto principal */}
-          <div className="flex-1 flex flex-col justify-center items-start text-left">
+          <div className="flex-1 flex flex-col justify-center items-start text-left h-full">
             <span className="uppercase tracking-widest text-[#2563eb] text-sm md:text-base font-semibold mb-2">SOBRE MÍ</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-[#232a3a] dark:text-white mb-3 drop-shadow-lg">
-              Perfil <span className="text-[#2563eb]">Profesional</span>
+              Sobre <span className="text-[#2563eb]">mí</span>
             </h2>
-            <p className="text-[#232a3a] dark:text-neutral-300 max-w-xl font-medium text-xl md:text-2xl mb-3 mt-2">
-              Ingeniero en computación e informática, especializado en el desarrollo de soluciones digitales <span className="text-[#2563eb] font-semibold">innovadoras</span> y <span className="text-[#2563eb] font-semibold">seguras</span>. Mi enfoque combina <span className="text-[#2563eb] font-semibold">excelencia técnica</span> y atención al detalle para crear experiencias de usuario sobresalientes.
+            <p className="text-[#232a3a] dark:text-neutral-300 max-w-2xl font-medium text-xl md:text-2xl mb-6 mt-2">
+              Soy un apasionado de la tecnología y la innovación. Me encanta transformar ideas en soluciones digitales que realmente marcan la diferencia para las personas y los negocios. Disfruto enfrentar <span className="text-[#2563eb] font-bold">retos técnicos</span> y colaborar con equipos <span className="text-[#2563eb] font-bold">diversos</span>, siempre buscando la <span className="text-[#2563eb] font-bold">excelencia</span> y la <span className="text-[#2563eb] font-bold">innovación</span>.
             </p>
-            <span className="block text-sm md:text-base text-[#3b82f6] dark:text-[#60a5fa] mt-2 mb-6 italic">
-              Transformo ideas en productos digitales robustos y escalables.
-            </span>
-            <div className="w-full max-w-xl my-3 border-t border-[#2563eb]/20"></div>
-            <p className="text-[#232a3a] dark:text-neutral-300 max-w-xl font-medium text-xl md:text-2xl mt-4">
-              Comprometido con la calidad y la innovación.
+            <p className="text-[#232a3a] dark:text-neutral-300 max-w-2xl font-medium text-lg md:text-xl mb-2">
+              Mi enfoque combina <span className="text-[#2563eb] font-bold">automatización</span>, <span className="text-[#2563eb] font-bold">arquitectura limpia</span> y <span className="text-[#2563eb] font-bold">buenas prácticas</span> para crear productos <span className="text-[#2563eb] font-bold">robustos</span>, <span className="text-[#2563eb] font-bold">escalables</span> y <span className="text-[#2563eb] font-bold">seguros</span>. Creo en el <span className="text-[#2563eb] font-bold">aprendizaje continuo</span> y en aportar <span className="text-[#2563eb] font-bold">valor real</span> en cada proyecto.
             </p>
+            <hr className="my-5 border-[#2563eb]/20 w-full max-w-2xl" />
+            <h4 className="mb-2 text-[#232a3a] dark:text-white font-bold text-base">Tecnologías principales</h4>
+            <div className="flex flex-wrap gap-2 mb-6">
+              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">TypeScript</span>
+              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">JavaScript</span>
+              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">React</span>
+              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">Next.js</span>
+              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">Node.js</span>
+              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">Docker</span>
+            </div>
           </div>
-          {/* Columna derecha: certificaciones */}
-          <div className="flex-1 flex flex-col justify-center items-center md:items-start mt-8 md:mt-0 md:self-center">
-            <div
-              className="w-full max-w-md rounded-[2rem] border border-[#2563eb]/60 bg-white/90 dark:bg-neutral-900/90 px-10 py-10 flex flex-col items-start shadow-[0_8px_32px_0_rgba(37,99,235,0.10)]"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="bg-[#2563eb]/10 rounded-full p-3 flex items-center justify-center border border-[#2563eb]/60">
-                  <Award className="w-8 h-8 text-[#2563eb]" />
-                </span>
-                <h3 className="text-xl font-bold text-[#2563eb] tracking-tight">Título profesional</h3>
-              </div>
-              <ul className="text-[#232a3a] dark:text-neutral-200 text-sm font-semibold w-full mb-4">
-                <li className="border-b border-neutral-200 dark:border-neutral-700 pb-2 pl-2">Ingeniero en Computación e Informática</li>
-                <li className="pb-2 pt-2 pl-2">Técnico Profesional en Telecomunicaciones</li>
+          {/* Columna derecha: cards de certificaciones y títulos */}
+          <div className="flex-1 flex flex-col justify-center items-center gap-3 w-full max-w-xs min-w-[260px] h-full">
+            {/* Card Títulos profesionales */}
+            <div className="rounded-xl border-2 border-[#2563eb] bg-white dark:bg-neutral-900 px-5 py-4 shadow flex flex-col items-start w-full transition-all hover:scale-[1.03] hover:shadow-[0_0_0_6px_rgba(37,99,235,0.10)] focus:scale-[1.03] cursor-pointer">
+              <h3 className="text-base font-bold text-[#232a3a] dark:text-white mb-1 flex items-center gap-2"><Award className="w-5 h-5 text-[#2563eb]" /> Títulos profesionales</h3>
+              <div className="w-full h-[1px] bg-[#2563eb]/10 mb-2" />
+              <ul className="text-[#232a3a] dark:text-neutral-200 text-xs font-semibold w-full list-disc list-inside">
+                <li className="pb-1">Ingeniero en Computación e Informática</li>
+                <li className="pb-1">Técnico Profesional en Telecomunicaciones</li>
               </ul>
-              <div className="flex items-center gap-3 mb-3 mt-4">
-                <span className="bg-[#2563eb]/10 rounded-full p-2 flex items-center justify-center border border-[#2563eb]/60">
-                  <Award className="w-5 h-5 text-[#2563eb]" />
-                </span>
-                <h3 className="text-base font-bold text-[#2563eb] tracking-tight">Certificaciones</h3>
-              </div>
-              <ul className="text-[#232a3a] dark:text-neutral-200 text-sm font-medium w-full mb-1">
-                <li className="border-b border-neutral-200 dark:border-neutral-700 pb-2">AWS Cloud Practitioner</li>
-                <li className="border-b border-neutral-200 dark:border-neutral-700 pb-2 pt-2">Google Cloud</li>
-                <li className="pb-2 pt-2">DevOps y Automatización</li>
+            </div>
+            {/* Card Certificaciones */}
+            <div className="rounded-xl border-2 border-[#2563eb] bg-white dark:bg-neutral-900 px-5 py-4 shadow flex flex-col items-start w-full transition-all hover:scale-[1.03] hover:shadow-[0_0_0_6px_rgba(37,99,235,0.10)] focus:scale-[1.03] cursor-pointer">
+              <h3 className="text-base font-bold text-[#232a3a] dark:text-white mb-1 flex items-center gap-2"><Award className="w-5 h-5 text-[#2563eb]" /> Certificaciones</h3>
+              <div className="w-full h-[1px] bg-[#2563eb]/10 mb-2" />
+              <ul className="text-[#232a3a] dark:text-neutral-200 text-xs font-semibold w-full list-disc list-inside">
+                <li className="pb-1">Google Cloud Computing Foundations</li>
+                <li className="pb-1">Kubernetes in Google Cloud</li>
+                <li className="pb-1">Introduction to Cloud 101</li>
+                <li className="pb-1">Inteligencia Artificial y Productividad</li>
+                <li className="pb-1">Transformación Digital</li>
+                <li className="pb-1">Scrum Foundation</li>
               </ul>
             </div>
           </div>
