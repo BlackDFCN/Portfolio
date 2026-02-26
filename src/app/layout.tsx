@@ -6,7 +6,26 @@ import GlobalBackground from '@/components/ui/GlobalBackground';
 import { Footer } from '@/components/ui/Footer';
 import { ThemeProvider } from '@/hooks/useTheme';
 
+import { useEffect } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Remove hash from URL after scrolling to section
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const hash = window.location.hash;
+    if (hash) {
+      const el = document.getElementById(hash.replace('#', ''));
+      if (el) {
+        // Scroll to the element with offset for sticky header
+        const y = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        // Remove hash from URL without reloading
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    }
+  }, []);
+
   return (
     <html lang="es" suppressHydrationWarning>
       <head>

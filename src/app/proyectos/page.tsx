@@ -37,7 +37,7 @@ export default async function ProyectosPage() {
                     className="rounded-2xl border-2 border-[#2563eb]/10 bg-white dark:bg-neutral-900 shadow-lg flex flex-col h-full transition-all hover:scale-[1.03] hover:shadow-[0_0_0_6px_rgba(37,99,235,0.10)] focus:scale-[1.03] cursor-pointer overflow-hidden"
                   >
                     {/* Imagen con aspect ratio fijo y fondo */}
-                    <div className="relative w-full aspect-[16/9] bg-[#f3f4f6] dark:bg-neutral-800 flex items-center justify-center border-b-2 border-[#2563eb]/10">
+                    <div className="relative w-full aspect-[16/7] bg-[#f3f4f6] dark:bg-neutral-800 flex items-center justify-center border-b-2 border-[#2563eb]/10">
                       {project.image ? (
                         <img
                           src={project.image.startsWith('/') ? project.image : `/projects/${project.image}`}
@@ -45,7 +45,7 @@ export default async function ProyectosPage() {
                           className="object-cover w-full h-full"
                           loading="lazy"
                           width={400}
-                          height={225}
+                          height={125}
                           decoding="async"
                         />
                       ) : (
@@ -54,28 +54,35 @@ export default async function ProyectosPage() {
                     </div>
                     {/* Contenido */}
                     <div className="flex-1 flex flex-col p-6 gap-2">
-                      <h2 className="text-lg md:text-xl font-bold text-[#232a3a] dark:text-white mb-1">
-                        <Link href={`/proyectos/${project.slug}`}>{project.title}</Link>
-                      </h2>
-                      <p className="mb-2 text-[#232a3a] dark:text-neutral-300 text-base font-medium line-clamp-3">
-                        {project.description}
-                      </p>
-                      {project.tags && project.tags.length > 0 && (
-                        <div className="flex flex-nowrap gap-2 mb-4 overflow-hidden pr-2">
-                          {project.tags.slice(0, 2).map((tag: string) => (
-                            <span
-                              key={tag}
-                              className="whitespace-nowrap px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                          {project.tags.length > 2 && (
-                            <span className="whitespace-nowrap px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition ml-1">+{project.tags.length - 2}</span>
+                      <div className="flex flex-col flex-1 justify-between min-h-[180px] max-h-[180px]">
+                        <div>
+                          <h2 className="text-lg font-extrabold text-[#232a3a] dark:text-white mb-1 line-clamp-2">
+                            <Link href={`/proyectos/${project.slug}`}>{project.title}</Link>
+                          </h2>
+                          <hr className="my-2 border-t border-[#2563eb]/10 dark:border-white/10" />
+                          <p className="mb-4 text-sm text-[#232a3a] dark:text-white line-clamp-3 min-h-[56px]">
+                            {project.description}
+                          </p>
+                          <hr className="my-2 border-t border-[#2563eb]/10 dark:border-white/10" />
+                        </div>
+                        <div className="mt-2 mb-2">
+                          {project.tags && project.tags.length > 0 && (
+                            <div className="flex flex-nowrap gap-2 overflow-hidden pr-2">
+                              {project.tags.slice(0, 2).map((tag: string) => (
+                                <span
+                                  key={tag}
+                                  className="whitespace-nowrap px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                              {project.tags.length > 2 && (
+                                <span className="whitespace-nowrap px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition ml-1">+{project.tags.length - 2}</span>
+                              )}
+                            </div>
                           )}
                         </div>
-                      )}
-                      <div className="flex-1" />
+                      </div>
                       <Link
                         href={`/proyectos/${project.slug}`}
                         className="inline-flex items-center justify-center w-full px-4 py-2 rounded-lg bg-[#2563eb] text-white font-semibold shadow hover:bg-[#1e40af] transition mt-2 gap-2"

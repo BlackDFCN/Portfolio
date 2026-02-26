@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 const navItems = [
   { label: "Inicio", href: "/" },
   { label: "Conóceme", href: "#sobre-mi" },
+  { label: "Proyectos", href: "#proyectos" },
   { label: "Servicios", href: "#servicios" },
   { label: "Contacto", href: "#contacto" },
 ];
@@ -27,11 +28,12 @@ function Header() {
           const el = document.getElementById(id);
           if (!el) return { href: item.href, top: Infinity };
           const rect = el.getBoundingClientRect();
-          return { href: item.href, top: Math.abs(rect.top - 90) }; // 90px offset for sticky header
+          return { href: item.href, top: Math.abs(rect.top - 90) };
         });
       // Detecta la sección más cercana
       const min = offsets.reduce((a, b) => (a.top < b.top ? a : b), { href: '/', top: Infinity });
       if (window.scrollY < 100) setActiveSection("/");
+      else if (min.href === "#proyectos") setActiveSection("#proyectos");
       else setActiveSection(min.href);
     };
     if (typeof window !== 'undefined' && window.location.pathname === "/") {
@@ -88,16 +90,34 @@ function Header() {
           {navItems.map((item) => {
             let isActive = false;
             if (item.label === "Proyectos") {
-              isActive = pathname.startsWith("/proyectos") || (pathname === "/" && activeSection === "#proyectos");
+              // Activo si estamos en /proyectos o si estamos en home y la sección activa es #proyectos
+              isActive = pathname.startsWith("/proyectos") || (pathname === "/" && (activeSection === "#proyectos" || activeSection === "/proyectos"));
             } else if (item.href === "/") {
               isActive = pathname === "/" && (activeSection === "/" || activeSection === undefined);
             } else {
               isActive = pathname === "/" && activeSection === item.href;
             }
-            // Para "Proyectos", el href real debe ser /proyectos si no estamos en home
-            const href = item.label === "Proyectos" && pathname !== "/" ? "/proyectos" : item.href;
+            // Para "Proyectos", el href real debe ser #proyectos si estamos en home, /proyectos si no
+            // Si no estamos en home y el link es a una sección (#), redirigir a /#seccion
+            const href = (pathname !== "/" && item.href.startsWith("#"))
+              ? `/${item.href}`
+              : (item.label === "Proyectos" ? (pathname === "/" ? "#proyectos" : "/proyectos") : item.href);
             const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-              if (item.label === "Proyectos" && pathname === "/") {
+              // Si estamos en home y el link es a una sección (#), hacer scroll suave
+              if (pathname === "/" && href.startsWith("#")) {
+                e.preventDefault();
+                const id = href.replace('#', '');
+                const el = document.getElementById(id);
+                if (el) {
+                  const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                  setActiveSection(href);
+                }
+              } else if (item.label === "Inicio" && pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                setActiveSection("/");
+              } else if (item.label === "Proyectos" && pathname === "/") {
                 e.preventDefault();
                 const el = document.getElementById("proyectos");
                 if (el) {
