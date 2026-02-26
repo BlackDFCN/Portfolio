@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import '../styles/globals.css';
 import Header from '@/components/ui/Header';
@@ -31,10 +32,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <ThemeProvider>
-          <GlobalBackground />
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }} aria-hidden="true">
+            <GlobalBackground />
+          </div>
+          <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <Header />
+            <main style={{ flex: 1 }}>{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

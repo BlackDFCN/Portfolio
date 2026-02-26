@@ -1,57 +1,89 @@
-import fs from 'fs';
+import type { Metadata } from 'next';
+export async function generateMetadata({ params }: { params: any }): Promise<Metadata> {
+  const { slug } = await params;
+  const filePath = path.join(process.cwd(), 'content/projects', `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) {
+    return { title: 'Proyecto no encontrado', metadataBase: new URL('http://localhost:3000') };
+  }
+  try {
+    const source = fs.readFileSync(filePath, 'utf8');
+    const { data } = matter(source);
+    return {
+      title: data.title || 'Proyecto',
+      description: data.description || '',
+      openGraph: {
+        title: data.title || 'Proyecto',
+        description: data.description || '',
+        images: data.image ? [{ url: data.image }] : [],
+      },
+      metadataBase: new URL('http://localhost:3000'),
+    };
+  } catch {
+    return { title: 'Proyecto', metadataBase: new URL('http://localhost:3000') };
+  }
+}
+
+
 import path from 'path';
+import fs from 'fs';
+
 import matter from 'gray-matter';
-import { notFound } from 'next/navigation';
-import React from 'react';
+import { compile } from '@mdx-js/mdx';
+import dynamic from 'next/dynamic';
 
-interface Project {
-  slug: string;
-  content: string;
-  title: string;
-  role: string;
-  stack: string;
-  badge: string;
-  badgeColor: string;
-  image: string;
-  description: string;
-  [key: string]: any;
-}
+export default async function ProjectPage({ params }: { params: any }) {
+  const { slug } = await params;
+  const filePath = path.join(process.cwd(), 'content/projects', `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) {
+    notFound();
+  }
+  let source = '';
+  let content = '';
+  let data: any = {};
+  try {
+    source = fs.readFileSync(filePath, 'utf8');
+    const parsed = matter(source);
+    content = parsed.content;
+    data = parsed.data;
+  } catch (e) {
+    return <article><h1>Error al leer el archivo del proyecto.</h1></article>;
+  }
+  if (!data.title || !data.description) {
+    return <article><h1>Error: El archivo MDX carece de metadatos obligatorios.</h1></article>;
+  }
 
-const PROJECTS_PATH = path.join(process.cwd(), 'src', 'content', 'projects');
+  // Compilar el MDX a función exportada como string para el client
+  let compiledCode = '';
+  try {
+    const compiled = await compile(content, { outputFormat: 'function', jsx: true, jsxImportSource: 'react' });
+    compiledCode = String(compiled.value);
+  } catch (e) {
+    return <article><h1>Error al compilar el contenido MDX.</h1></article>;
+  }
 
-function getProjectBySlug(slug: string): Project | null {
-  const filePath = path.join(PROJECTS_PATH, `${slug}.mdx`);
-  if (!fs.existsSync(filePath)) return null;
-  const fileContent = fs.readFileSync(filePath, 'utf8');
-  const { data, content } = matter(fileContent);
-  return { ...data, slug, content } as Project;
-}
-
-export default function ProyectoDetallePage({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug);
-  if (!project) return notFound();
+  // Usar el Client Component wrapper para MDXRenderer
+  const ClientMDXRenderer = (await import("@/components/ui/ClientMDXRenderer")).default;
 
   return (
-    <section className="w-full max-w-3xl mx-auto py-20 px-4">
-      <h1 className="text-3xl md:text-5xl font-extrabold text-[#232a3a] dark:text-white mb-6">
-        {project.title}
-      </h1>
-      <div className="flex items-center gap-4 mb-6">
-        <span className="inline-block px-3 py-1 rounded-full text-xs font-bold text-white shadow" style={{background: project.badgeColor}}>{project.badge}</span>
-        <span className="text-xs font-bold text-[#2563eb] uppercase">{project.role} • {project.stack}</span>
-      </div>
-      <div className="flex items-center justify-center w-full h-64 bg-[#f3f4f6] dark:bg-neutral-800 p-4 rounded-lg mb-8">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="max-h-full max-w-full object-contain rounded-md shadow-sm"
-        />
-      </div>
-      <p className="text-lg text-[#232a3a] dark:text-white mb-8">{project.description}</p>
-      <article className="prose dark:prose-invert max-w-none">
-        {/* Aquí podrías renderizar el contenido MDX si lo deseas */}
-        <pre className="whitespace-pre-wrap text-sm">{project.content}</pre>
+    <main>
+      <article aria-labelledby="project-title" className="prose dark:prose-invert mx-auto">
+        <header>
+          <h1 id="project-title" className="text-3xl font-bold mb-4">{data.title}</h1>
+          {data.description && <p className="text-lg text-gray-600 dark:text-gray-300 mb-2">{data.description}</p>}
+          {data.image && (
+            <img
+              src={data.image.startsWith('/') ? data.image : `/projects/${data.image}`}
+              alt={data.title}
+              className="w-full h-56 object-cover rounded mb-4"
+              loading="lazy"
+              width={600}
+              height={224}
+              decoding="async"
+            />
+          )}
+        </header>
+        <ClientMDXRenderer code={compiledCode} />
       </article>
-    </section>
+    </main>
   );
 }

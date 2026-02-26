@@ -1,20 +1,14 @@
 "use client";
 import { Award } from "lucide-react";
-import useInView from '../../features/home/hooks/useInView';
 
 const AboutSection = () => {
-  const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: false });
   return (
     <section
       id="sobre-mi"
-      ref={ref}
       className="min-h-[100dvh] flex items-center justify-center px-4 sm:px-6 lg:px-8"
     >
       <div
-        className={[
-          'w-full max-w-6xl mx-auto transition-all duration-700 ease-out py-16 md:py-24',
-          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10',
-        ].join(' ')}
+        className="w-full max-w-6xl mx-auto transition-all duration-700 ease-out py-16 md:py-24"
       >
         <div className="flex flex-col md:flex-row items-center md:items-center gap-8 w-full min-h-[500px]">
           {/* Columna izquierda: texto principal */}

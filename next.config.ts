@@ -1,13 +1,11 @@
-import type { NextConfig } from 'next';
-
-
-const nextConfig: NextConfig = {
+const nextConfig = {
   reactStrictMode: true,
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
   compiler: {
     styledComponents: false,
   },
   experimental: {},
-  turbopack: {}, // Silencia el error de Turbopack
+  turbopack: {},
   webpack(config) {
     config.resolve.alias['@'] = require('path').resolve(__dirname, 'src');
     return config;

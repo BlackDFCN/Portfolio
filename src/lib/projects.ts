@@ -1,50 +1,23 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 
-
-const PROJECTS_PATH = path.join(process.cwd(), 'src', 'content', 'projects');
-
-export interface ProjectFrontmatter {
-  title: string;
-  slug: string;
-  destacado: boolean;
-  role: string;
-  stack: string;
-  badge: string;
-  badgeColor: string;
-  image: string;
-  description: string;
-}
-
-export interface ProjectData extends ProjectFrontmatter {
-  content: string;
-}
-
-export function getProjectBySlug(slug: string): ProjectData | null {
-  const filePath = path.join(PROJECTS_PATH, `${slug}.mdx`);
-  if (!fs.existsSync(filePath)) return null;
-  const fileContent = fs.readFileSync(filePath, 'utf8');
-  const { data, content } = matter(fileContent);
-  return {
-    ...(data as ProjectFrontmatter),
-    content,
-  };
-}
-
-export function getFeaturedProjects(): ProjectData[] {
-  // Lee todos los archivos MDX y filtra por destacado, agregando slug
-  const files = fs.readdirSync(PROJECTS_PATH).filter(f => f.endsWith('.mdx') && !f.startsWith('_base'));
-  return files
-    .map(file => {
-      const filePath = path.join(PROJECTS_PATH, file);
-      const fileContent = fs.readFileSync(filePath, 'utf8');
-      const { data, content } = matter(fileContent);
-      return {
-        ...(data as ProjectFrontmatter),
-        slug: file.replace(/\.mdx$/, ''),
-        content,
-      };
+export async function getAllProjects() {
+  const projectsDir = path.join(process.cwd(), 'content/projects');
+  const files = await fs.readdir(projectsDir);
+  const projects = await Promise.all(
+    files.filter((file) => file.endsWith('.mdx')).map(async (file) => {
+      const fullPath = path.join(projectsDir, file);
+      const fileContents = await fs.readFile(fullPath, 'utf8');
+      const { data } = matter(fileContents);
+      const slug = file.replace(/\.mdx$/, '');
+      const title = typeof data.title === 'string' ? data.title.trim() : 'Sin título';
+      const description = typeof data.description === 'string' ? data.description.trim() : '';
+      const date = typeof data.date === 'string' ? data.date : '';
+      const image = typeof data.image === 'string' ? data.image.trim() : '';
+      const tags = Array.isArray(data.tags) ? data.tags.filter((t) => typeof t === 'string') : [];
+      return { slug, title, description, date, image, tags };
     })
-    .filter(project => project.destacado === true);
+  );
+  return projects.sort((a, b) => (a.date < b.date ? 1 : -1));
 }

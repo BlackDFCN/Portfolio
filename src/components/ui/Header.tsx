@@ -9,8 +9,6 @@ import { useEffect, useState } from "react";
 const navItems = [
   { label: "Inicio", href: "/" },
   { label: "Conóceme", href: "#sobre-mi" },
-  // Proyectos: asociar tanto con /proyectos como con #proyectos
-  { label: "Proyectos", href: "#proyectos", altHref: "/proyectos" },
   { label: "Servicios", href: "#servicios" },
   { label: "Contacto", href: "#contacto" },
 ];
