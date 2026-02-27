@@ -54,24 +54,17 @@ export default async function ProjectPage({ params }: { params: any }) {
     return <article><h1>Error: El archivo MDX carece de metadatos obligatorios.</h1></article>;
   }
 
-  // Compilar el MDX a función exportada como string para el client
-  let compiledCode = '';
-  try {
-    const compiled = await compile(content, { outputFormat: 'function-body', jsx: true, jsxImportSource: 'react' });
-    compiledCode = String(compiled.value);
-  } catch (e) {
-    return <article><h1>Error al compilar el contenido MDX.</h1></article>;
-  }
-
-  // Usar el Client Component wrapper para MDXRenderer
-  const ClientMDXRenderer = (await import("@/components/ui/ClientMDXRenderer")).default;
-
+  // Renderizar los campos del frontmatter
   return (
     <main>
       <article aria-labelledby="project-title" className="prose dark:prose-invert mx-auto">
         <header>
           <h1 id="project-title" className="text-3xl font-bold mb-4">{data.title}</h1>
-          {data.description && <p className="text-lg text-gray-600 dark:text-gray-300 mb-2">{data.description}</p>}
+          {data.company && <p className="text-sm text-gray-500 dark:text-gray-400 mb-1"><strong>Empresa:</strong> {data.company}</p>}
+          {data.role && <p className="text-sm text-gray-500 dark:text-gray-400 mb-1"><strong>Rol:</strong> {data.role}</p>}
+          {data.date && <p className="text-sm text-gray-500 dark:text-gray-400 mb-1"><strong>Fecha:</strong> {data.date}</p>}
+          {data.duration && <p className="text-sm text-gray-500 dark:text-gray-400 mb-1"><strong>Duración:</strong> {data.duration}</p>}
+          {data.location && <p className="text-sm text-gray-500 dark:text-gray-400 mb-1"><strong>Ubicación:</strong> {data.location}</p>}
           {data.image && (
             <img
               src={data.image.startsWith('/') ? data.image : `/projects/${data.image}`}
@@ -84,7 +77,22 @@ export default async function ProjectPage({ params }: { params: any }) {
             />
           )}
         </header>
-        <ClientMDXRenderer code={compiledCode} />
+        <section>
+          {data.description && <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">{data.description}</p>}
+          {data.problem && <p className="mb-2"><strong>Problema:</strong> {data.problem}</p>}
+          {data.solution && <p className="mb-2"><strong>Solución:</strong> {data.solution}</p>}
+          {data.results && <p className="mb-2"><strong>Resultados:</strong> {data.results}</p>}
+          {data.technologies && data.technologies.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-4">
+              <strong className="w-full mb-1">Tecnologías:</strong>
+              {data.technologies.map((tech: string) => (
+                <span key={tech} className="whitespace-nowrap px-2 py-0.5 rounded bg-[#eaf1fd] border border-[#dbeafe] text-[#2563eb] font-medium text-xs hover:bg-[#dbeafe] transition">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )}
+        </section>
       </article>
     </main>
   );
