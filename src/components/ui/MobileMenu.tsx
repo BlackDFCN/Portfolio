@@ -1,10 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import GlobalBackground from '@/components/ui/GlobalBackground';
-import Image from "next/image";
 import { FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp } from "react-icons/fa";
-// import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { label: "Inicio", href: "/" },

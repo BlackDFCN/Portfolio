@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
 // Fondo para modo oscuro: estrellas blancas pequeñas, parpadean y aparecen/desaparecen random
 const STAR_COUNT = 120;

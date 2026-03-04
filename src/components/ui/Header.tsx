@@ -58,11 +58,11 @@ function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#232a3a]/10 dark:border-[#232a3a]/30 bg-white dark:bg-[#0c0c0c]">
-      <nav className="max-w-6xl mx-auto section-container flex h-20 items-center justify-between px-6">
-        <div className="flex items-center gap-3 md:gap-4">
-          <Link className="group flex items-center gap-2.5" href="/">
-            <span className="relative h-9 w-9 md:h-10 md:w-10">
+    <header className="sticky top-0 z-50 w-full border-b border-[#232a3a]/10 dark:border-[#232a3a]/30 bg-white dark:bg-[#0c0c0c]" role="banner">
+      <nav className="max-w-6xl w-full mx-auto flex h-16 sm:h-20 items-center justify-between px-4 sm:px-6" aria-label="Navegación principal">
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-4 min-w-0">
+          <Link className="group flex items-center gap-2.5 min-w-0" href="/" aria-label="Ir al inicio">
+            <span className="relative h-9 w-9 sm:h-10 sm:w-10">
               <Image
                 src="/icon-negro.svg"
                 alt="Logo"
@@ -80,13 +80,13 @@ function Header() {
                 priority
               />
             </span>
-            <span className="flex flex-col leading-tight">
-              <span className="font-extrabold tracking-tight text-base md:text-lg text-[#232a3a] dark:text-[#f8fafc]">Bastian Tapia</span>
-              <span className="text-[10px] font-medium text-gray-400 dark:text-gray-500 tracking-widest uppercase">Full Stack Developer</span>
+            <span className="flex flex-col leading-tight min-w-0">
+              <span className="font-extrabold tracking-tight text-base sm:text-lg text-[#232a3a] dark:text-[#f8fafc] truncate">Bastian Tapia</span>
+              <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 tracking-widest uppercase truncate">Full Stack Developer</span>
             </span>
           </Link>
         </div>
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-4 lg:gap-6 min-w-0">
           {navItems.map((item) => {
             let isActive = false;
             if (item.label === "Proyectos") {
@@ -134,14 +134,16 @@ function Header() {
                 key={item.label}
                 href={href}
                 onClick={handleClick}
-                className={`text-base font-semibold px-2 py-1 rounded transition-all duration-200 relative group focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-[#60a5fa] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0c0c0c] ${
+                className={`text-base font-semibold px-2 py-1 rounded transition-all duration-200 relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0c0c0c] ${
                   isActive
                     ? "text-[#2563eb] dark:text-[#2563eb]"
                     : "text-[#232a3a] dark:text-[#c7c7c7] hover:text-[#2563eb] dark:hover:text-[#2563eb]"
                 }`}
                 style={{ marginTop: 2, marginBottom: 2, textDecoration: "none" }}
+                aria-current={isActive ? "page" : undefined}
+                tabIndex={0}
               >
-                <span className="transition-all duration-200">{item.label}</span>
+                <span className="transition-all duration-200 truncate">{item.label}</span>
                 <span
                   className={`absolute left-0 -bottom-1 h-0.5 transition-all duration-300 ${
                       isActive
@@ -153,17 +155,19 @@ function Header() {
             );
           })}
         </div>
-        <div className="hidden md:flex items-center gap-6" style={{marginLeft: '2.5rem'}}>
+        <div className="hidden md:flex items-center gap-4 lg:gap-6 min-w-0" style={{marginLeft: '2.5rem'}}>
           <ThemeToggle size={20} />
-            <a
-              href="#contacto"
-              className="ml-6 px-6 py-2 rounded-full bg-gradient-to-r from-[#2563eb] to-[#3b82f6] text-white font-bold shadow-md hover:from-[#3b82f6] hover:to-[#2563eb] transition-all duration-200 text-base focus:outline-none focus:ring-2 focus:ring-[#3b82f6] scale-100 hover:scale-105 active:scale-95"
-              style={{boxShadow: '0 2px 16px 0 #3b82f644'}}
-            >
-              Hablemos
-            </a>
+          <a
+            href="#contacto"
+            className="ml-4 px-4 py-2 rounded-full bg-gradient-to-r from-[#2563eb] to-[#3b82f6] text-white font-bold shadow-md hover:from-[#3b82f6] hover:to-[#2563eb] transition-all duration-200 text-base focus:outline-none focus:ring-2 focus:ring-[#3b82f6] scale-100 hover:scale-105 active:scale-95"
+            style={{boxShadow: '0 2px 16px 0 #3b82f644'}}
+            aria-label="Ir a contacto"
+            tabIndex={0}
+          >
+            Hablemos
+          </a>
         </div>
-        <div className="md:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center gap-2 min-w-0">
           <ThemeToggle size={20} />
           <MobileMenu />
         </div>

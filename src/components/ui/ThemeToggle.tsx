@@ -2,21 +2,29 @@ import Image from 'next/image';
 import { useTheme } from '@/hooks/useTheme';
 import { useState, useEffect } from 'react';
 
+// Iconos para los modos de tema
 const ICONS = {
   day: '/icons/sun.png',
   night: '/icons/moon.png',
 };
 
+/**
+ * Botón para alternar entre tema claro y oscuro.
+ * Accesible, mobile first y optimizado.
+ */
 export function ThemeToggle({ size = 40 }: { size?: number }) {
   const { theme, toggleTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
+  // Espera a que el componente esté montado para evitar problemas de hidratación
   useEffect(() => { setMounted(true); }, []);
+
   const current = theme === 'dark' ? 'night' : 'day';
-  // Aumentar el tamaño del icono para mejor visibilidad
+  // Tamaño del icono, ajustable
   const iconSize = size ? size + 8 : 48;
 
   if (!mounted) {
-    // Placeholder: círculo animado (spinner minimalista)
+    // Spinner accesible mientras se monta el componente
     return (
       <span
         className="inline-block animate-spin bg-gray-200 dark:bg-gray-700 rounded-full"
@@ -26,6 +34,7 @@ export function ThemeToggle({ size = 40 }: { size?: number }) {
     );
   }
 
+  // Alterna el tema al hacer click
   const handleClick = () => {
     toggleTheme();
   };
@@ -36,6 +45,8 @@ export function ThemeToggle({ size = 40 }: { size?: number }) {
       onClick={handleClick}
       className="relative flex items-center justify-center rounded-full h-10 w-10 p-0 bg-transparent transition-colors duration-200 focus:outline-none hover:bg-black/10 dark:hover:bg-white/10 active:bg-black/20 dark:active:bg-white/20"
       style={{ boxShadow: 'none', border: 'none' }}
+      title="Cambiar tema claro/oscuro"
+      tabIndex={0}
     >
       <span
         className="transition-transform duration-200 hover:scale-110 active:scale-95"

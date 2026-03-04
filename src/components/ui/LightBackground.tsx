@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useTheme } from "@/hooks/useTheme";
 
 // Fondo para modo claro: partículas sutiles sobre fondo blanco

@@ -23,7 +23,9 @@ export type Project = {
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <article
-      className="rounded-xl border-2 border-[#2563eb] bg-white dark:bg-neutral-900 shadow flex flex-col justify-between h-full min-h-[440px] transition-all hover:scale-[1.03] hover:shadow-[0_0_0_6px_rgba(37,99,235,0.10)] focus:scale-[1.03] cursor-pointer overflow-hidden mb-0"
+      className="rounded-xl border-2 border-[#2563eb] bg-white dark:bg-neutral-900 shadow flex flex-col justify-between h-full min-h-[320px] sm:min-h-[400px] md:min-h-[440px] transition-all hover:scale-[1.03] hover:shadow-[0_0_0_6px_rgba(37,99,235,0.10)] focus:scale-[1.03] cursor-pointer overflow-hidden mb-0"
+      tabIndex={0}
+      aria-label={`Proyecto: ${project.title}`}
     >
       {/* Imagen con aspect ratio fijo y fondo */}
       <div className="relative w-full aspect-[16/7] bg-white dark:bg-neutral-900 flex items-center justify-center border-b-2 border-[#2563eb]/10">
@@ -31,11 +33,9 @@ export function ProjectCard({ project }: { project: Project }) {
           <img
             src={project.image.startsWith('/') ? project.image : `/projects/${project.image}`}
             alt={project.title}
-            className="object-contain w-auto h-24 max-h-full mx-auto my-2"
-            style={{ maxWidth: '80%', maxHeight: '80%' }}
+            className="object-contain w-full h-20 sm:h-24 max-h-full mx-auto my-2"
+            style={{ maxWidth: '100%', maxHeight: '100%' }}
             loading="lazy"
-            width={200}
-            height={96}
             decoding="async"
           />
         ) : (
@@ -43,14 +43,14 @@ export function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
       {/* Contenido */}
-      <div className="flex-1 flex flex-col p-6 gap-2 pb-0">
+      <div className="flex-1 flex flex-col p-4 sm:p-6 gap-2 pb-0 min-w-0">
         <div className="flex flex-col flex-1">
           <div>
-            <h3 className="text-lg font-extrabold text-[#232a3a] dark:text-white mb-2 line-clamp-1" style={{marginTop: '-1.1rem'}}>
+            <h3 className="text-base sm:text-lg font-extrabold text-[#232a3a] dark:text-white mb-2 line-clamp-1 truncate" style={{marginTop: '-0.5rem'}}>
               <Link href={`/proyectos/${project.slug}`}>{project.title}</Link>
             </h3>
-            <div className="text-xs text-gray-500 dark:text-gray-400 mb-1 flex flex-col gap-0.5">
-              <div className="flex flex-wrap gap-3 items-center">
+            <div className="text-xs text-gray-500 dark:text-gray-400 mb-1 flex flex-col gap-0.5 min-w-0">
+              <div className="flex flex-wrap gap-2 items-center min-w-0">
                 {project.company && (
                   <span className="flex items-center gap-1"><HiOfficeBuilding className="inline-block text-[15px] align-middle" /> <span className="font-semibold">{project.company}</span></span>
                 )}
@@ -58,7 +58,7 @@ export function ProjectCard({ project }: { project: Project }) {
                   <span className="flex items-center gap-1"><FiUser className="inline-block text-[14px] align-middle" /> {project.role}</span>
                 )}
               </div>
-              <div className="flex flex-wrap gap-3 items-center mt-0.5">
+              <div className="flex flex-wrap gap-2 items-center mt-0.5 min-w-0">
                 {project.duration && (
                   <span className="flex items-center gap-1"><FiClock className="inline-block text-[13px] align-middle" /> {project.duration}</span>
                 )}
@@ -68,14 +68,14 @@ export function ProjectCard({ project }: { project: Project }) {
               </div>
             </div>
             <hr className="my-2 border-t border-[#2563eb]/10 dark:border-white/10" />
-            <p className="mb-2 text-sm text-[#232a3a] dark:text-white line-clamp-6 overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 6, WebkitBoxOrient: 'vertical' }}>
+            <p className="mb-2 text-xs sm:text-sm text-[#232a3a] dark:text-white line-clamp-6 overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 6, WebkitBoxOrient: 'vertical' }}>
               {project.description}
             </p>
             <hr className="my-2 border-t border-[#2563eb]/10 dark:border-white/10" />
           </div>
-          <div className="mt-auto mb-6 flex flex-col items-start min-h-[60px] justify-end" style={{marginTop: 'auto'}}>
+          <div className="mt-auto mb-4 flex flex-col items-start min-h-[40px] justify-end" style={{marginTop: 'auto'}}>
             {project.technologies && project.technologies.length > 0 && (
-              <div className="flex flex-nowrap gap-1 overflow-hidden w-full">
+              <div className="flex flex-wrap gap-1 overflow-hidden w-full min-w-0">
                 {project.technologies.slice(0, 3).map((tech: string) => (
                   <span
                     key={tech}
@@ -92,8 +92,10 @@ export function ProjectCard({ project }: { project: Project }) {
             )}
             <Link
               href={`/proyectos/${project.slug}`}
-              className="inline-flex mt-3 px-0 py-0 text-gray-500 dark:text-gray-400 font-bold text-base w-auto underline underline-offset-2"
+              className="inline-flex mt-2 px-0 py-0 text-[#2563eb] dark:text-[#2563eb] font-bold text-xs sm:text-base w-auto underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-[#2563eb] rounded"
               style={{ minHeight: 'unset' }}
+              aria-label={`Ver proyecto completo: ${project.title}`}
+              tabIndex={0}
             >
               Ver proyecto completo
             </Link>
