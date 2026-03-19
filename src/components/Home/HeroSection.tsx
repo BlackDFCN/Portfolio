@@ -108,15 +108,18 @@ export default function HeroSection() {
       </div>
       {/* Columna derecha: avatar y badge de disponibilidad */}
       <div className="flex-1 flex flex-col items-center justify-center relative mt-0 md:-mt-16 md:pl-12">
-        <div className="relative flex items-center justify-center">
-          {/* Aura circular azul animada */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] md:w-[440px] md:h-[440px] rounded-full bg-gradient-to-tr from-[#2196f3]/30 via-[#2196f3]/10 to-transparent blur-2xl opacity-80 animate-pulse" />
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[340px] md:h-[340px] rounded-full bg-gradient-to-br from-[#2196f3]/20 via-[#2196f3]/10 to-transparent blur-lg opacity-50 animate-spin-slow" />
+        <div className="group relative flex items-center justify-center transition-transform duration-300 hover:scale-[1.02]">
+          {/* Aura circular azul, más suave para no competir con el título */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-full bg-gradient-to-tr from-[#2196f3]/18 via-[#2196f3]/8 to-transparent blur-3xl opacity-65 transition-opacity duration-300 group-hover:opacity-85" />
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] md:w-[320px] md:h-[320px] rounded-full bg-gradient-to-br from-[#2196f3]/14 via-[#2196f3]/5 to-transparent blur-xl opacity-45 transition-opacity duration-300 group-hover:opacity-60" />
           {/* Avatar principal */}
-          <img src="/avatar.png" alt="Bastián Tapia" className="relative w-52 h-52 md:w-80 md:h-80 rounded-full object-cover border-4 border-[#2563eb] z-10 shadow-[0_12px_64px_0_rgba(37,99,235,0.30)] dark:shadow-[0_12px_64px_0_rgba(59,130,246,0.30)]" />
+          <div className="relative z-10 rounded-full overflow-hidden">
+            <img src="/avatar.png" alt="Bastián Tapia" className="w-52 h-52 md:w-80 md:h-80 rounded-full object-cover object-[center_38%] border-2 border-[#2563eb] shadow-[0_10px_48px_0_rgba(37,99,235,0.25)] dark:shadow-[0_10px_48px_0_rgba(59,130,246,0.22)] transition-shadow duration-300 group-hover:shadow-[0_14px_56px_0_rgba(37,99,235,0.30)]" />
+            <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-b from-transparent via-transparent to-black/10" />
+          </div>
           {/* Badge de disponibilidad */}
           <span
-            className="absolute left-1/2 -translate-x-1/2 -bottom-8 px-10 py-3 rounded-[2rem] flex items-center gap-3 text-sm font-black uppercase tracking-[0.2em] border-2 border-[#2563eb] bg-white dark:bg-neutral-900 text-[#2563eb] z-20 whitespace-nowrap shadow mt-8 md:mt-0"
+            className="absolute left-1/2 -translate-x-1/2 -bottom-6 px-8 py-2.5 rounded-[2rem] flex items-center gap-3 text-xs md:text-sm font-black uppercase tracking-[0.16em] border-2 border-[#2563eb] bg-white dark:bg-neutral-900 text-[#2563eb] z-20 whitespace-nowrap shadow mt-8 md:mt-0"
           >
             <span className="relative flex items-center justify-center">
               <span className="w-3 h-3 rounded-full bg-[#22c55e]"></span>
