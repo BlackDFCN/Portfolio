@@ -43,8 +43,8 @@ export function ThemeToggle({ size = 40 }: { size?: number }) {
     <button
       aria-label="Cambiar tema"
       onClick={handleClick}
-      className="relative flex items-center justify-center rounded-full h-10 w-10 p-0 bg-transparent transition-colors duration-200 focus:outline-none hover:bg-black/10 dark:hover:bg-white/10 active:bg-black/20 dark:active:bg-white/20"
-      style={{ boxShadow: 'none', border: 'none' }}
+      className="relative flex items-center justify-center rounded-full h-10 w-10 p-0 bg-transparent transition-transform duration-200 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
+      style={{ boxShadow: 'none', border: 'none', outline: 'none', WebkitTapHighlightColor: 'transparent' }}
       title="Cambiar tema claro/oscuro"
       tabIndex={0}
     >
