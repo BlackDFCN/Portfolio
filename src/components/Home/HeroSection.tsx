@@ -77,7 +77,7 @@ export default function HeroSection() {
           </a>
           {/* Botón CV */}
           <a
-            href="/bastiantapia_cv.pdf"
+            href="/Bastian_Tapia_CV.pdf"
             download="Bastian_Tapia_CV.pdf"
             className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-[#2563eb] bg-white dark:bg-neutral-900 text-[#2563eb] font-extrabold shadow hover:bg-[#2563eb]/10 hover:text-[#3b82f6] hover:shadow-blue-400/40 transition-all text-lg py-3 px-8 group min-w-[120px] h-14 md:h-14 relative overflow-hidden uppercase tracking-[0.2em]"
             style={{alignSelf: 'stretch'}}
