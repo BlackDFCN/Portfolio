@@ -80,13 +80,13 @@ export default function MobileMenu() {
           {/* Panel lateral */}
           <aside
             id="mobile-menu-panel"
-            className="relative ml-auto w-[84%] max-w-[340px] h-screen px-5 py-6 pt-5 flex flex-col animate-fade-in-right overflow-y-auto border-l border-[#2c2c34]/30 shadow-2xl"
+            className="relative ml-auto w-[84%] max-w-[340px] h-[100dvh] px-5 py-5 flex flex-col animate-fade-in-right overflow-hidden border-l border-[#2c2c34]/30 shadow-2xl"
           >
             {/* Fondo sólido según tema */}
             <div className="absolute inset-0 z-0 bg-white dark:bg-[#0c0c0c]" />
             <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-[#2563eb]/[0.05] via-transparent to-transparent" />
             {/* Contenido del menú */}
-            <div className="relative z-10 flex flex-col min-h-full">
+            <div className="relative z-10 flex flex-col h-full min-h-0">
               {/* Header menú */}
               <div className="flex justify-between items-center mb-5">
                 <span className="text-xl font-bold text-[#2563eb] dark:text-[#2563eb] tracking-tight">Menú</span>
@@ -98,21 +98,21 @@ export default function MobileMenu() {
                   ×
                 </button>
               </div>
-              <div className="flex items-center gap-3 mb-7">
-                  <img src="/avatar.png" alt="Bastián Tapia" className="w-20 h-20 rounded-full shadow-lg object-cover border-2 border-[#2563eb] bg-white dark:bg-[#0c0c0c]" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Bastian+Tapia&background=2563eb&color=fff'; }} />
+              <div className="flex items-center gap-3 mb-5">
+                  <img src="/avatar.png" alt="Bastián Tapia" className="w-16 h-16 rounded-full shadow-lg object-cover border-2 border-[#2563eb] bg-white dark:bg-[#0c0c0c]" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Bastian+Tapia&background=2563eb&color=fff'; }} />
                   <div className="flex flex-col">
-                    <span className="text-lg font-bold text-[#232a3a] dark:text-[#f8fafc] drop-shadow">Bastián Tapia</span>
+                    <span className="text-base font-bold text-[#232a3a] dark:text-[#f8fafc] drop-shadow">Bastián Tapia</span>
                     <span className="text-xs text-[#2563eb] dark:text-[#2563eb] font-semibold drop-shadow">Full Stack Developer</span>
                   </div>
               </div>
-              <hr className="mb-4 border-t border-[#2563eb]/10 dark:border-white/10" />
+              <hr className="mb-3 border-t border-[#2563eb]/10 dark:border-white/10" />
 
-              <nav aria-label="Navegación móvil" className="flex flex-col">
+              <nav aria-label="Navegación móvil" className="flex-1 min-h-0 overflow-y-auto pr-1">
                   {navItems.map((item) => (
                     <Link
                       key={item.label}
                       href={getHref(item.href)}
-                      className="text-[1.28rem] font-bold text-[#232a3a] dark:text-[#f8fafc] hover:text-[#2563eb] dark:hover:text-[#2563eb] transition-colors px-2 py-3 rounded-lg border-b border-[#2563eb]/10 dark:border-white/10 active:bg-[#2563eb]/5"
+                      className="block text-[1.2rem] font-bold text-[#232a3a] dark:text-[#f8fafc] hover:text-[#2563eb] dark:hover:text-[#2563eb] transition-colors px-2 py-2.5 rounded-lg border-b border-[#2563eb]/10 dark:border-white/10 active:bg-[#2563eb]/5"
                       onClick={(e) => handleLinkClick(e, item.href)}
                     >
                       {item.label}
@@ -120,9 +120,9 @@ export default function MobileMenu() {
                   ))}
               </nav>
 
-              <div className="mt-auto pt-8">
-              <hr className="mb-5 border-t border-[#2563eb]/10 dark:border-white/10" />
-              <div className="flex items-center justify-center gap-4 mb-2">
+              <div className="pt-3">
+              <hr className="mb-3 border-t border-[#2563eb]/10 dark:border-white/10" />
+              <div className="flex items-center justify-center gap-3 pb-[max(0.25rem,env(safe-area-inset-bottom))]">
                 <a href="https://linkedin.com/in/bastiantapia07" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="h-10 w-10 rounded-full border border-[#2563eb]/40 inline-flex items-center justify-center text-[#2563eb] dark:text-[#2563eb] text-xl hover:bg-[#2563eb]/10">
                   <FaLinkedin />
                 </a>
