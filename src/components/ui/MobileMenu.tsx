@@ -99,7 +99,10 @@ export default function MobileMenu() {
                 </button>
               </div>
               <div className="flex items-center gap-3 mb-5">
-                  <img src="/avatar.png" alt="Bastián Tapia" className="w-16 h-16 rounded-full shadow-lg object-cover border-2 border-[#2563eb] bg-white dark:bg-[#0c0c0c]" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Bastian+Tapia&background=2563eb&color=fff'; }} />
+                  <div className="relative">
+                    <span className="pointer-events-none absolute inset-0 rounded-full bg-[#2563eb]/20 blur-md scale-110" />
+                    <img src="/avatar.png" alt="Bastián Tapia" className="relative w-16 h-16 rounded-full object-cover object-[center_38%] border-2 border-[#2563eb] bg-white dark:bg-[#0c0c0c] shadow-[0_10px_48px_0_rgba(37,99,235,0.25)]" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Bastian+Tapia&background=2563eb&color=fff'; }} />
+                  </div>
                   <div className="flex flex-col">
                     <span className="text-base font-bold text-[#232a3a] dark:text-[#f8fafc] drop-shadow">Bastián Tapia</span>
                     <span className="text-xs text-[#2563eb] dark:text-[#2563eb] font-semibold drop-shadow">Full Stack Developer</span>
