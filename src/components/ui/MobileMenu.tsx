@@ -15,6 +15,7 @@ const navItems = [
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState<string>("/");
 
   useEffect(() => {
     if (!open) return;
@@ -34,9 +35,53 @@ export default function MobileMenu() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection(pathname);
+      return;
+    }
+
+    const trackSection = () => {
+      const offsets = navItems
+        .filter((item) => item.href.startsWith("#"))
+        .map((item) => {
+          const id = item.href.replace("#", "");
+          const el = document.getElementById(id);
+          if (!el) return { href: item.href, top: Infinity };
+          const rect = el.getBoundingClientRect();
+          return { href: item.href, top: Math.abs(rect.top - 90) };
+        });
+
+      const closest = offsets.reduce(
+        (a, b) => (a.top < b.top ? a : b),
+        { href: "/", top: Infinity }
+      );
+
+      if (window.scrollY < 100) setActiveSection("/");
+      else setActiveSection(closest.href);
+    };
+
+    trackSection();
+    window.addEventListener("scroll", trackSection, { passive: true });
+    return () => window.removeEventListener("scroll", trackSection);
+  }, [pathname]);
+
   const getHref = (href: string) => {
     if (href.startsWith("#") && pathname !== "/") return `/${href}`;
     return href;
+  };
+
+  const isActiveItem = (label: string, href: string) => {
+    // Misma lógica del header de escritorio.
+    if (label === "Proyectos") {
+      return pathname.startsWith("/proyectos") || (pathname === "/" && activeSection === "#proyectos");
+    }
+
+    if (href === "/") {
+      return pathname === "/" && activeSection === "/";
+    }
+
+    return pathname === "/" && activeSection === href;
   };
 
   const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -80,7 +125,7 @@ export default function MobileMenu() {
           {/* Panel lateral */}
           <aside
             id="mobile-menu-panel"
-            className="relative ml-auto w-[84%] max-w-[340px] h-[100dvh] px-5 py-5 flex flex-col animate-fade-in-right overflow-hidden border-l border-[#2c2c34]/30 shadow-2xl"
+            className="relative ml-auto w-[84%] max-w-[340px] h-[100dvh] px-5 py-4 flex flex-col animate-fade-in-right overflow-hidden border-l border-[#2c2c34]/30 shadow-2xl"
           >
             {/* Fondo sólido según tema */}
             <div className="absolute inset-0 z-0 bg-white dark:bg-[#0c0c0c]" />
@@ -88,7 +133,7 @@ export default function MobileMenu() {
             {/* Contenido del menú */}
             <div className="relative z-10 flex flex-col h-full min-h-0">
               {/* Header menú */}
-              <div className="flex justify-between items-center mb-5">
+              <div className="flex justify-between items-center mb-4">
                 <span className="text-xl font-bold text-[#2563eb] dark:text-[#2563eb] tracking-tight">Menú</span>
                 <button
                   onClick={() => setOpen(false)}
@@ -98,24 +143,25 @@ export default function MobileMenu() {
                   ×
                 </button>
               </div>
-              <div className="flex items-center gap-3 mb-5">
-                  <div className="relative">
-                    <span className="pointer-events-none absolute inset-0 rounded-full bg-[#2563eb]/20 blur-md scale-110" />
-                    <img src="/avatar.png" alt="Bastián Tapia" className="relative w-16 h-16 rounded-full object-cover object-[center_38%] border-2 border-[#2563eb] bg-white dark:bg-[#0c0c0c] shadow-[0_10px_48px_0_rgba(37,99,235,0.25)]" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Bastian+Tapia&background=2563eb&color=fff'; }} />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-base font-bold text-[#232a3a] dark:text-[#f8fafc] drop-shadow">Bastián Tapia</span>
-                    <span className="text-xs text-[#2563eb] dark:text-[#2563eb] font-semibold drop-shadow">Full Stack Developer</span>
+              <div className="flex flex-col items-center text-center gap-2 mb-5">
+                  <img src="/avatar.png" alt="Bastián Tapia" className="w-24 h-24 rounded-full shadow-lg object-cover border-2 border-[#2563eb] bg-white dark:bg-[#0c0c0c]" onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Bastian+Tapia&background=2563eb&color=fff'; }} />
+                  <div className="flex flex-col items-center">
+                    <span className="text-base font-semibold text-[#232a3a] dark:text-[#f8fafc] drop-shadow">Bastián Tapia</span>
+                    <span className="text-[11px] text-[#2563eb]/85 dark:text-[#2563eb]/90 font-medium tracking-wide">Full Stack Developer</span>
                   </div>
               </div>
-              <hr className="mb-3 border-t border-[#2563eb]/10 dark:border-white/10" />
+              <hr className="mb-2 border-t border-[#2563eb]/8 dark:border-white/8" />
 
               <nav aria-label="Navegación móvil" className="flex-1 min-h-0 overflow-y-auto pr-1">
                   {navItems.map((item) => (
                     <Link
                       key={item.label}
                       href={getHref(item.href)}
-                      className="block text-[1.2rem] font-bold text-[#232a3a] dark:text-[#f8fafc] hover:text-[#2563eb] dark:hover:text-[#2563eb] transition-colors px-2 py-2.5 rounded-lg border-b border-[#2563eb]/10 dark:border-white/10 active:bg-[#2563eb]/5"
+                      className={`block text-[1.1rem] font-semibold transition-all px-2 py-2 rounded-lg border-b active:bg-[#2563eb]/5 ${
+                        isActiveItem(item.label, item.href)
+                          ? "text-[#2563eb] dark:text-[#60a5fa] border-[#2563eb]/25 dark:border-[#60a5fa]/25 bg-[#2563eb]/[0.08]"
+                          : "text-[#232a3a] dark:text-[#f8fafc] hover:text-[#2563eb] dark:hover:text-[#2563eb] border-[#2563eb]/8 dark:border-white/8"
+                      }`}
                       onClick={(e) => handleLinkClick(e, item.href)}
                     >
                       {item.label}
@@ -123,21 +169,23 @@ export default function MobileMenu() {
                   ))}
               </nav>
 
-              <div className="pt-3">
-              <hr className="mb-3 border-t border-[#2563eb]/10 dark:border-white/10" />
-              <div className="flex items-center justify-center gap-3 pb-[max(0.25rem,env(safe-area-inset-bottom))]">
-                <a href="https://linkedin.com/in/bastiantapia07" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="h-10 w-10 rounded-full border border-[#2563eb]/40 inline-flex items-center justify-center text-[#2563eb] dark:text-[#2563eb] text-xl hover:bg-[#2563eb]/10">
+              <div className="pt-2">
+              <hr className="mb-2 border-t border-[#2563eb]/8 dark:border-white/8" />
+              <div className="rounded-2xl border border-[#2563eb]/15 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-sm px-2 py-2">
+              <div className="flex items-center justify-center gap-3 pb-[max(0.15rem,env(safe-area-inset-bottom))]">
+                <a href="https://linkedin.com/in/bastiantapia07" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="h-10 w-10 rounded-full border border-[#2563eb]/35 inline-flex items-center justify-center text-[#2563eb] dark:text-[#2563eb] text-lg hover:bg-[#2563eb]/10 transition-colors">
                   <FaLinkedin />
                 </a>
-                <a href="https://github.com/BlackDFCN" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="h-10 w-10 rounded-full border border-[#2563eb]/40 inline-flex items-center justify-center text-[#2563eb] dark:text-[#2563eb] text-xl hover:bg-[#2563eb]/10">
+                <a href="https://github.com/BlackDFCN" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="h-10 w-10 rounded-full border border-[#2563eb]/35 inline-flex items-center justify-center text-[#2563eb] dark:text-[#2563eb] text-lg hover:bg-[#2563eb]/10 transition-colors">
                   <FaGithub />
                 </a>
-                <a href="mailto:bastiantapia.dev@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" className="h-10 w-10 rounded-full border border-[#2563eb]/40 inline-flex items-center justify-center text-[#2563eb] dark:text-[#2563eb] text-xl hover:bg-[#2563eb]/10">
+                <a href="mailto:bastiantapia.dev@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" className="h-10 w-10 rounded-full border border-[#2563eb]/35 inline-flex items-center justify-center text-[#2563eb] dark:text-[#2563eb] text-lg hover:bg-[#2563eb]/10 transition-colors">
                   <FaEnvelope />
                 </a>
-                  <a href="https://wa.me/56959800748" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="h-10 w-10 rounded-full border border-[#2563eb]/40 inline-flex items-center justify-center text-[#2563eb] text-xl hover:bg-[#2563eb]/10">
+                  <a href="https://wa.me/56959800748" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="h-10 w-10 rounded-full border border-[#2563eb]/35 inline-flex items-center justify-center text-[#2563eb] text-lg hover:bg-[#2563eb]/10 transition-colors">
                     <FaWhatsapp />
                   </a>
+              </div>
               </div>
               </div>
             </div>
