@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
           <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <Header />
-            <main style={{ flex: 1 }}>{children}</main>
+            <main className="w-full px-4 sm:px-6 md:px-8" style={{ flex: 1 }}>{children}</main>
             <Footer />
           </div>
         </ThemeProvider>
