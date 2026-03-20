@@ -35,12 +35,12 @@ const AboutSection = () => {
             </div>
           </div>
           {/* Columna derecha: cards de certificaciones y títulos */}
-          <div className="flex-1 flex flex-col justify-center items-center gap-2 sm:gap-3 w-full max-w-xs min-w-[180px] sm:min-w-[260px] h-full">
+          <div className="flex-1 flex flex-col justify-center items-center gap-2 sm:gap-3 w-full max-w-sm min-w-[180px] sm:min-w-[260px] h-full">
             {/* Card Títulos profesionales */}
             <div className="flex-1 rounded-xl border-2 border-[#2563eb] bg-white dark:bg-neutral-900 px-3 sm:px-5 py-3 sm:py-4 shadow flex flex-col items-start w-full transition-all hover:scale-[1.03] hover:shadow-[0_0_0_6px_rgba(37,99,235,0.10)] focus:scale-[1.03] cursor-pointer" tabIndex={0} aria-label="Títulos profesionales">
               <h3 className="text-xs sm:text-base font-bold text-[#232a3a] dark:text-white mb-1 flex items-center gap-2"><Award className="w-4 h-4 sm:w-5 sm:h-5 text-[#2563eb]" /> Títulos profesionales</h3>
               <div className="w-full h-[1px] bg-[#2563eb]/10 mb-2" />
-              <ul className="text-[#232a3a] dark:text-neutral-200 text-[10px] sm:text-xs font-semibold w-full list-disc list-inside">
+              <ul className="text-[#232a3a] dark:text-white text-xs sm:text-sm w-full list-disc list-inside">
                 <li className="pb-1">Ingeniero en Computación e Informática</li>
                 <li className="pb-1">Técnico Profesional en Telecomunicaciones</li>
               </ul>
@@ -49,7 +49,7 @@ const AboutSection = () => {
             <div className="flex-1 rounded-xl border-2 border-[#2563eb] bg-white dark:bg-neutral-900 px-3 sm:px-5 py-3 sm:py-4 shadow flex flex-col items-start w-full transition-all hover:scale-[1.03] hover:shadow-[0_0_0_6px_rgba(37,99,235,0.10)] focus:scale-[1.03] cursor-pointer" tabIndex={0} aria-label="Certificaciones">
               <h3 className="text-xs sm:text-base font-bold text-[#232a3a] dark:text-white mb-1 flex items-center gap-2"><Award className="w-4 h-4 sm:w-5 sm:h-5 text-[#2563eb]" /> Certificaciones</h3>
               <div className="w-full h-[1px] bg-[#2563eb]/10 mb-2" />
-              <ul className="text-[#232a3a] dark:text-neutral-200 text-[10px] sm:text-xs font-semibold w-full list-disc list-inside">
+              <ul className="text-[#232a3a] dark:text-white text-xs sm:text-sm w-full list-disc list-inside">
                 <li className="pb-1">Google Cloud Computing Foundations</li>
                 <li className="pb-1">Kubernetes in Google Cloud</li>
                 <li className="pb-1">Introduction to Cloud 101</li>
