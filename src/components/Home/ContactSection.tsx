@@ -35,7 +35,7 @@ export default function ContactSection() {
   return (
     <section
       id="contacto"
-      className="w-full max-w-6xl mx-auto py-8 sm:py-12 px-2 sm:px-4 relative z-10"
+      className="w-full max-w-6xl mx-auto py-8 sm:py-12 px-4 z-10"
       aria-labelledby="contacto-title"
     >
       <div className="mb-6 md:mb-8 text-center">
