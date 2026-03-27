@@ -2,7 +2,14 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
 
-const resend = new Resend(process.env.RESEND_API_KEY || 're_YourKeyFallback');
+export const dynamic = 'force-dynamic';
+
+const getResend = () => {
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error('Missing RESEND_API_KEY environment variable');
+  }
+  return new Resend(process.env.RESEND_API_KEY);
+};
 
 // Validación de la solicitud con Zod (Estándar Chile / Límites de Proyecto)
 const solicitudSchema = z.object({
@@ -129,6 +136,7 @@ export async function POST(request: Request) {
       </div>
     `;
 
+    const resend = getResend();
     const resendResponse = await resend.emails.send({
       from: 'Portfolio Onboarding <onboarding@resend.dev>',
       to: 'bastiantapia.dev@gmail.com',

@@ -6,6 +6,7 @@ import { Rocket, CheckCircle2, ChevronRight, Target, Flame, FileBox, Banknote, S
 
 export default function SolicitudPage() {
   const [formState, setFormState] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -58,19 +59,33 @@ export default function SolicitudPage() {
         body: JSON.stringify(payload)
       });
       
-      const data = await response.json();
+      const rawText = await response.text();
+      let data: any = {};
+      try { data = JSON.parse(rawText); } catch(e) {}
 
       if (response.ok) {
         setFormState('sent');
         form.reset();
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
-        console.error("Backend error:", data);
+        console.error("Status Http:", response.status, response.statusText);
+        console.error("Raw response:", rawText);
+        console.error("Parsed data:", data);
+        
+        let customErrorMsg = data.error || `HTTP ${response.status}: Error interno o validación fallida.`;
+        if (data.details) {
+          // Flatten Zod error dictionary
+          const errs = Object.keys(data.details).filter(k => k !== '_errors');
+          customErrorMsg = `Faltan campos obligatorios o son demasiado cortos: ${errs.join(', ')}`;
+        }
+        
+        setErrorMessage(customErrorMsg);
         setFormState('error');
         window.scrollBy({ top: 300, behavior: "smooth" });
       }
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      console.error("Crash during fetch:", error);
+      setErrorMessage(error.message || "Falla crítica en el envío.");
       setFormState('error');
     }
   };
@@ -339,8 +354,9 @@ export default function SolicitudPage() {
               </div>
 
               {formState === 'error' && (
-                <div className="mx-6 md:mx-8 mb-6 p-5 rounded-2xl bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 font-bold border border-red-200 dark:border-red-900">
-                  Transmisión bloqueada por error de sintaxis en validación. Checkee que todos los campos y el Checkbox final de validación estén marcados.
+                <div className="mx-6 md:mx-8 mb-6 p-5 rounded-2xl bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 font-bold border border-red-200 dark:border-red-900 shadow-sm flex flex-col gap-2">
+                  <span className="flex items-center gap-2"><ShieldAlert size={18} /> Transmisión bloqueada (Error de Validación o Servidor)</span>
+                  <span className="text-sm font-medium opacity-90">{errorMessage}</span>
                 </div>
               )}
 

@@ -18,10 +18,10 @@ const AboutSection = () => {
               Perfil <span className="text-[#2563eb]">Profesional</span>
             </h2>
             <p className="text-[#232a3a] dark:text-neutral-300 max-w-2xl font-medium text-base sm:text-xl md:text-2xl mb-4 sm:mb-6 mt-2">
-              Soy un Ingeniero en Computación y Desarrollador Full Stack enfocado en construir herramientas que resuelven problemas reales. Cuento con experiencia estructurando <span className="text-[#2563eb] font-bold">soluciones SaaS multi-tenant</span>, orquestando <span className="text-[#2563eb] font-bold">automatizaciones complejas</span> y liderando la implementación de herramientas internas en equipos ágiles.
+              Soy un Ingeniero en Computación enfocado en construir herramientas que resuelven dolores reales de mercado. Ayudo tanto a <span className="text-[#2563eb] font-bold">Pymes y profesionales</span> a escalar sus ventas con E-Commerce y Sitios Corporativos, como a empresas a estructurar <span className="text-[#2563eb] font-bold">sistemas SaaS</span> y automatizaciones complejas.
             </p>
             <p className="text-[#232a3a] dark:text-neutral-300 max-w-2xl font-medium text-xs sm:text-lg md:text-xl mb-2">
-              Mi carrera abarca desde la modernización de comunidades digitales con <span className="text-[#2563eb] font-bold">Discord API y Supabase</span>, hasta la integración de <span className="text-[#2563eb] font-bold">Backstage</span> para estandarizar el ciclo de desarrollo empresarial. Aplico siempre <span className="text-[#2563eb] font-bold">clean code</span> para asegurar que el software escale silenciosa y eficazmente.
+              Mi carrera abarca desde la creación de landings comerciales y plataformas de agendamiento, hasta la orquestación de APIs corporativas. Diseño entregando siempre la mejor <strong>experiencia visual (UX/UI)</strong> en el frente, y el motor más eficiente gracias al <span className="text-[#2563eb] font-bold">clean code</span> bajo el capó.
             </p>
             <hr className="my-3 sm:my-5 border-[#2563eb]/20 w-full max-w-2xl" />
             <h4 className="mb-2 text-[#232a3a] dark:text-white font-bold text-xs sm:text-base">Stack Tecnológico</h4>

@@ -43,19 +43,19 @@ export default function HeroSection() {
         </h1>
         {/* Rol principal */}
         <span className="inline-flex items-center gap-2 border-2 border-[#2563eb] text-[#2563eb] px-5 py-2 rounded-full text-sm font-bold mb-10 mt-8 md:mt-3 bg-white dark:bg-neutral-900 shadow-md">
-          <FaLayerGroup className="text-[#2563eb] text-xl" /> Full Stack Developer
+          <FaLayerGroup className="text-[#2563eb] text-xl" /> Soluciones Web & Desarrollo Full Stack
         </span>
-        {/* Descripción profesional */}
+        {/* Descripción profesional para todo público */}
         <p className="text-lg md:text-xl text-[#232a3a] dark:text-neutral-100 max-w-2xl mb-2 font-semibold leading-relaxed">
-          Diseño plataformas SaaS y sistemas web utilizando <span className="text-[#2563eb] font-bold">arquitecturas escalables</span> y <span className="text-[#2563eb] font-bold">principios SOLID</span> orientados a resultados.
+          Transformo problemas en soluciones digitales. Ya sea creando <strong>sitios web y tiendas online</strong> para impulsar Pymes, o diseñando <span className="text-[#2563eb] font-bold">sistemas SaaS escalables</span> para operaciones corporativas.
         </p>
-        {/* Intereses y enfoque */}
+        {/* Intereses y enfoque híbrido */}
         <p className="text-lg md:text-xl text-[#232a3a] dark:text-neutral-200 max-w-2xl mb-2 leading-relaxed">
-          Especializado en integrar y <span className="font-bold text-[#2563eb]">automatizar</span> flujos de negocio en entornos de alta concurrencia, aplicando <span className="font-bold text-[#2563eb]">clean code</span> en el ecosistema Frontend/Backend.
+          Especializado en <span className="font-bold text-[#2563eb]">elevar la presencia online</span> de tu marca y <span className="font-bold text-[#2563eb]">automatizar flujos</span> de negocio, asegurando interfaces atractivas sobre código seguro y limpio.
         </p>
-        {/* Especialidad */}
+        {/* Especialidad técnica resumida */}
         <p className="text-base md:text-lg text-[#3b82f6] dark:text-[#60a5fa] max-w-2xl mb-10 italic font-medium">
-          Experto en React, Next.js, NestJS, TypeScript e infraestructura Cloud (GCP/Docker).
+          Experto en E-Commerce, React/Next.js, automatizaciones API e Infraestructura en la Nube.
         </p>
         {/* Botones de llamada a la acción (CTA) */}
         <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch md:items-center mt-2 w-full">

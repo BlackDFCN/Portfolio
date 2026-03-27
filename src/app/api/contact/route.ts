@@ -2,7 +2,14 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export const dynamic = 'force-dynamic';
+
+const getResend = () => {
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error('Missing RESEND_API_KEY environment variable');
+  }
+  return new Resend(process.env.RESEND_API_KEY);
+};
 
 // Validación de los datos esperados
 const contactSchema = z.object({
@@ -56,6 +63,7 @@ export async function POST(request: Request) {
     }
 
     // Enviar el correo a través de Resend
+    const resend = getResend();
     const data = await resend.emails.send({
       from: 'Portfolio Bastián Tapia <onboarding@resend.dev>', // Usar onbording para Free tier de Resend (o tu dominio si está verificado e.g. hello@tudominio.com)
       to: 'bastiantapia.dev@gmail.com', // A dónde llegan tus correos
