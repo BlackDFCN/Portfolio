@@ -5,6 +5,7 @@ import Header from '@/components/ui/Header';
 import GlobalBackground from '@/components/ui/GlobalBackground';
 import { Footer } from '@/components/ui/Footer';
 import { ThemeProvider } from '@/hooks/useTheme';
+import WhatsAppBubble from '@/components/ui/WhatsAppBubble';
 
 import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
@@ -29,6 +30,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
+        <title>Bastián Tapia | Senior Full Stack Developer — Portfolio</title>
+        <meta name="description" content="Portfolio profesional de Bastián Tapia, Ingeniero en Informática y Senior Full Stack Developer. Especialista en Arquitecturas SaaS, NestJS, React, Next.js y Cloud (GCP)." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Bastián Tapia" />
+        <meta property="og:title" content="Bastián Tapia | Senior Full Stack Developer" />
+        <meta property="og:description" content="Construcción de arquitecturas SaaS multi-tenant, automatizaciones complejas y sistemas web escalables con React, NestJS y GCP." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="es_CL" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Bastián Tapia | Senior Full Stack Developer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -58,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Header />
             <main className="w-full px-4 sm:px-6 md:px-8" style={{ flex: 1 }}>{children}</main>
             <Footer />
+            <WhatsAppBubble />
           </div>
         </ThemeProvider>
       </body>

@@ -47,15 +47,15 @@ export default function HeroSection() {
         </span>
         {/* Descripción profesional */}
         <p className="text-lg md:text-xl text-[#232a3a] dark:text-neutral-100 max-w-2xl mb-2 font-semibold leading-relaxed">
-          Desarrollo productos digitales <span className="text-[#2563eb] font-bold">robustos</span>, <span className="text-[#2563eb] font-bold">escalables</span> y <span className="text-[#2563eb] font-bold">seguros</span> que optimizan procesos y generan valor real.
+          Diseño plataformas SaaS y sistemas web utilizando <span className="text-[#2563eb] font-bold">arquitecturas escalables</span> y <span className="text-[#2563eb] font-bold">principios SOLID</span> orientados a resultados.
         </p>
         {/* Intereses y enfoque */}
         <p className="text-lg md:text-xl text-[#232a3a] dark:text-neutral-200 max-w-2xl mb-2 leading-relaxed">
-          Apasionado por la <span className="font-bold text-[#2563eb]">automatización</span>, la <span className="font-bold text-[#2563eb]">escalabilidad</span> y la <span className="font-bold text-[#2563eb]">seguridad</span>, aplico arquitectura limpia y buenas prácticas en cada desarrollo.
+          Especializado en integrar y <span className="font-bold text-[#2563eb]">automatizar</span> flujos de negocio en entornos de alta concurrencia, aplicando <span className="font-bold text-[#2563eb]">clean code</span> en el ecosistema Frontend/Backend.
         </p>
         {/* Especialidad */}
-        <p className="text-base md:text-lg text-[#3b82f6] dark:text-[#60a5fa] max-w-2xl mb-10 italic">
-          Especialista en TypeScript, Node.js y React.
+        <p className="text-base md:text-lg text-[#3b82f6] dark:text-[#60a5fa] max-w-2xl mb-10 italic font-medium">
+          Experto en React, Next.js, NestJS, TypeScript e infraestructura Cloud (GCP/Docker).
         </p>
         {/* Botones de llamada a la acción (CTA) */}
         <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch md:items-center mt-2 w-full">
@@ -69,11 +69,13 @@ export default function HeroSection() {
             <span className="truncate">Contacto</span>
           </a>
           <a
+            href="#proyectos"
             className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-[#2563eb] bg-white dark:bg-neutral-900 text-[#2563eb] font-extrabold shadow hover:bg-[#2563eb]/10 hover:text-[#3b82f6] hover:shadow-blue-400/40 transition-all text-lg py-3 px-10 group min-w-[160px] h-14 md:h-14 relative overflow-hidden"
             style={{alignSelf: 'stretch'}}
           >
             <span className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:shadow-[0_0_16px_2px_rgba(33,150,243,0.4)] transition-all pointer-events-none" />
             <FaFolderOpen className="text-xl group-hover:animate-bounce transition-transform" />
+            <span className="truncate">Proyectos</span>
           </a>
           {/* Botón CV */}
           <a

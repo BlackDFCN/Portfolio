@@ -158,7 +158,7 @@ function Header() {
         <div className="hidden md:flex items-center gap-4 lg:gap-6 min-w-0" style={{marginLeft: '2.5rem'}}>
           <ThemeToggle size={20} />
           <a
-            href="#contacto"
+            href="/#contacto"
             className="ml-4 px-4 py-2 rounded-full bg-gradient-to-r from-[#2563eb] to-[#3b82f6] text-white font-bold shadow-md hover:from-[#3b82f6] hover:to-[#2563eb] transition-all duration-200 text-base focus:outline-none focus:ring-2 focus:ring-[#3b82f6] scale-100 hover:scale-105 active:scale-95"
             style={{boxShadow: '0 2px 16px 0 #3b82f644'}}
             aria-label="Ir a contacto"

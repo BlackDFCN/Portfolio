@@ -6,24 +6,24 @@ import { FaCode, FaCloud, FaLock } from 'react-icons/fa';
 const SERVICES = [
   {
     icon: <FaCode className="text-3xl md:text-4xl text-[#2563eb] mb-3" />,
-    badge: "Full Stack",
-    title: "Desarrollo Web Full Stack",
+    badge: "Pymes & Profesionales",
+    title: "Sitios Web & Landings",
     description:
-      "Diseño y desarrollo de sitios y sistemas web a medida, utilizando tecnologías modernas como React, Next.js y Node.js. Experiencia en frontend y backend para entregar soluciones robustas, escalables y seguras.",
+      "Desarrollo de sitios web corporativos, landings de alta conversión para servicios, sistemas de agendamiento y blogs. Presencia digital optimizada para captar clientes en tu negocio local o digital.",
   },
   {
     icon: <FaCloud className="text-3xl md:text-4xl text-[#2563eb] mb-3" />,
-    badge: "Automatización",
-    title: "Automatización de Procesos Digitales",
+    badge: "Plataformas SaaS",
+    title: "Sistemas Web a Medida",
     description:
-      "Implementación de soluciones para automatizar tareas y flujos de trabajo, integrando plataformas y servicios (Discord, Telegram, APIs, tareas repetitivas) para mejorar la eficiencia operativa.",
+      "Construcción de aplicaciones web complejas, e-commerce escalables y plataformas con dashboards administrativos. Soluciones robustas creadas con Next.js y arquitecturas seguras.",
   },
   {
     icon: <FaLock className="text-3xl md:text-4xl text-[#2563eb] mb-3" />,
-    badge: "Integración",
-    title: "Integración de Sistemas y APIs",
+    badge: "Automatización",
+    title: "Integraciones & APIs",
     description:
-      "Conexión e integración de plataformas, servicios y APIs para centralizar información, facilitar la interoperabilidad y potenciar el crecimiento digital de tu empresa.",
+      "Automatización de procesos para ahorrarte tiempo. Conexión nativa con pasarelas de pago (Transbank, Flow), CRMs, facturación electrónica y bots personalizados para tu ecosistema.",
   },
 ];
 

@@ -18,20 +18,20 @@ const AboutSection = () => {
               Perfil <span className="text-[#2563eb]">Profesional</span>
             </h2>
             <p className="text-[#232a3a] dark:text-neutral-300 max-w-2xl font-medium text-base sm:text-xl md:text-2xl mb-4 sm:mb-6 mt-2">
-              Soy un apasionado de la tecnología y la innovación. Me encanta transformar ideas en soluciones digitales que realmente marcan la diferencia para las personas y los negocios. Disfruto enfrentar <span className="text-[#2563eb] font-bold">retos técnicos</span> y colaborar con equipos <span className="text-[#2563eb] font-bold">diversos</span>, siempre buscando la <span className="text-[#2563eb] font-bold">excelencia</span> y la <span className="text-[#2563eb] font-bold">innovación</span>.
+              Soy un Ingeniero en Computación y Desarrollador Full Stack enfocado en construir herramientas que resuelven problemas reales. Cuento con experiencia estructurando <span className="text-[#2563eb] font-bold">soluciones SaaS multi-tenant</span>, orquestando <span className="text-[#2563eb] font-bold">automatizaciones complejas</span> y liderando la implementación de herramientas internas en equipos ágiles.
             </p>
             <p className="text-[#232a3a] dark:text-neutral-300 max-w-2xl font-medium text-xs sm:text-lg md:text-xl mb-2">
-              Mi enfoque combina <span className="text-[#2563eb] font-bold">automatización</span>, <span className="text-[#2563eb] font-bold">arquitectura limpia</span> y <span className="text-[#2563eb] font-bold">buenas prácticas</span> para crear productos <span className="text-[#2563eb] font-bold">robustos</span>, <span className="text-[#2563eb] font-bold">escalables</span> y <span className="text-[#2563eb] font-bold">seguros</span>. Creo en el <span className="text-[#2563eb] font-bold">aprendizaje continuo</span> y en aportar <span className="text-[#2563eb] font-bold">valor real</span> en cada proyecto.
+              Mi carrera abarca desde la modernización de comunidades digitales con <span className="text-[#2563eb] font-bold">Discord API y Supabase</span>, hasta la integración de <span className="text-[#2563eb] font-bold">Backstage</span> para estandarizar el ciclo de desarrollo empresarial. Aplico siempre <span className="text-[#2563eb] font-bold">clean code</span> para asegurar que el software escale silenciosa y eficazmente.
             </p>
             <hr className="my-3 sm:my-5 border-[#2563eb]/20 w-full max-w-2xl" />
-            <h4 className="mb-2 text-[#232a3a] dark:text-white font-bold text-xs sm:text-base">Tecnologías principales</h4>
+            <h4 className="mb-2 text-[#232a3a] dark:text-white font-bold text-xs sm:text-base">Stack Tecnológico</h4>
             <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
               <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">TypeScript</span>
-              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">JavaScript</span>
-              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">React</span>
-              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">Next.js</span>
-              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">Node.js</span>
-              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">Docker</span>
+              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">Next.js / React</span>
+              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">NestJS / Node</span>
+              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">PostgreSQL</span>
+              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">GCP & Docker</span>
+              <span className="px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border-2 border-[#2563eb] text-[#2563eb] font-bold text-xs shadow hover:bg-[#2563eb]/10 dark:hover:bg-[#2563eb]/20 transition">CI/CD</span>
             </div>
           </div>
           {/* Columna derecha: cards de certificaciones y títulos */}
