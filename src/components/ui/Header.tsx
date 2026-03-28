@@ -17,9 +17,12 @@ const navItems = [
 function Header() {
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState<string>("/");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+      
       // Incluye #proyectos como sección scrollable
       const offsets = navItems
         .filter(item => item.href.startsWith('#'))
@@ -58,17 +61,29 @@ function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#232a3a]/10 dark:border-[#232a3a]/30 bg-white dark:bg-[#0c0c0c]" role="banner">
-      <nav className="max-w-6xl w-full mx-auto flex h-16 sm:h-20 items-center justify-between px-4 sm:px-6" aria-label="Navegación principal">
+    <header 
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled 
+          ? "border-b border-slate-200/50 dark:border-slate-800/50 bg-white/80 dark:bg-[#0c0c0c]/80 backdrop-blur-md shadow-sm" 
+          : "border-b border-transparent bg-white dark:bg-[#0c0c0c]"
+      }`} 
+      role="banner"
+    >
+      <nav 
+        className={`max-w-6xl w-full mx-auto flex items-center justify-between px-4 sm:px-6 transition-all duration-300 ${
+          scrolled ? "h-16" : "h-16 sm:h-20"
+        }`} 
+        aria-label="Navegación principal"
+      >
         <div className="flex items-center gap-2 sm:gap-3 md:gap-4 min-w-0">
           <Link className="group flex items-center gap-2.5 min-w-0" href="/" aria-label="Ir al inicio">
-            <span className="relative h-9 w-9 sm:h-10 sm:w-10">
+            <span className="relative h-9 w-9 sm:h-10 sm:w-10 transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
               <Image
                 src="/icon-negro.svg"
                 alt="Logo"
                 width={40}
                 height={40}
-                className="block rounded-lg dark:hidden"
+                className="block rounded-lg dark:hidden transition-all duration-300 group-hover:drop-shadow-sm"
                 priority
               />
               <Image
@@ -76,13 +91,13 @@ function Header() {
                 alt="Logo"
                 width={40}
                 height={40}
-                className="hidden rounded-lg dark:block"
+                className="hidden rounded-lg dark:block transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.4)]"
                 priority
               />
             </span>
-            <span className="flex flex-col leading-tight min-w-0">
-              <span className="font-extrabold tracking-tight text-base sm:text-lg text-[#232a3a] dark:text-[#f8fafc] truncate">Bastian Tapia</span>
-              <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 tracking-widest uppercase truncate">Full Stack Developer</span>
+            <span className="flex flex-col leading-tight min-w-0 transition-opacity duration-300 group-hover:opacity-80">
+              <span className="font-extrabold tracking-tight text-lg sm:text-xl text-slate-900 dark:text-slate-50 truncate">Bastian Tapia</span>
+              <span className="text-[9px] sm:text-[10px] font-bold text-blue-600 dark:text-blue-400 tracking-[0.2em] uppercase truncate font-mono mt-0.5">Full Stack Developer</span>
             </span>
           </Link>
         </div>
@@ -134,23 +149,19 @@ function Header() {
                 key={item.label}
                 href={href}
                 onClick={handleClick}
-                className={`text-base font-semibold px-2 py-1 rounded transition-all duration-200 relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0c0c0c] ${
+                className={`text-sm font-bold px-4 py-2 rounded-full transition-all duration-300 relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
                   isActive
-                    ? "text-[#2563eb] dark:text-[#2563eb]"
-                    : "text-[#232a3a] dark:text-[#c7c7c7] hover:text-[#2563eb] dark:hover:text-[#2563eb]"
+                    ? "text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/20"
+                    : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/50"
                 }`}
-                style={{ marginTop: 2, marginBottom: 2, textDecoration: "none" }}
+                style={{ textDecoration: "none" }}
                 aria-current={isActive ? "page" : undefined}
                 tabIndex={0}
               >
-                <span className="transition-all duration-200 truncate">{item.label}</span>
-                <span
-                  className={`absolute left-0 -bottom-1 h-0.5 transition-all duration-300 ${
-                      isActive
-                        ? "w-full bg-[#2563eb] dark:bg-[#2563eb]"
-                        : "w-0 group-hover:w-full bg-[#2563eb] dark:bg-[#2563eb]"
-                  }`}
-                ></span>
+                <span className="transition-all duration-300">{item.label}</span>
+                {isActive && (
+                  <span className="absolute inset-0 rounded-full border border-blue-200/50 dark:border-blue-800/50 animate-pulse-slow"></span>
+                )}
               </a>
             );
           })}
@@ -159,16 +170,21 @@ function Header() {
           <ThemeToggle size={20} />
           <a
             href="/#contacto"
-            className="ml-4 px-4 py-2 rounded-full bg-gradient-to-r from-[#2563eb] to-[#3b82f6] text-white font-bold shadow-md hover:from-[#3b82f6] hover:to-[#2563eb] transition-all duration-200 text-base focus:outline-none focus:ring-2 focus:ring-[#3b82f6] scale-100 hover:scale-105 active:scale-95"
-            style={{boxShadow: '0 2px 16px 0 #3b82f644'}}
+            className={`
+              ml-4 px-6 py-2.5 rounded-full font-bold transition-all duration-300 text-sm ring-offset-2 focus:outline-none focus:ring-2 focus:ring-blue-500
+              ${scrolled 
+                ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30 hover:bg-blue-700 hover:shadow-blue-600/40" 
+                : "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md hover:shadow-xl hover:-translate-y-0.5"
+              }
+            `}
             aria-label="Ir a contacto"
             tabIndex={0}
           >
             Hablemos
           </a>
         </div>
-        <div className="md:hidden flex items-center gap-2 min-w-0">
-          <ThemeToggle size={20} />
+        <div className="md:hidden flex items-center gap-3 min-w-0">
+          <ThemeToggle size={22} />
           <MobileMenu />
         </div>
       </nav>

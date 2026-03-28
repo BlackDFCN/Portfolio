@@ -11,34 +11,33 @@ const getResend = () => {
   return new Resend(process.env.RESEND_API_KEY);
 };
 
-// Validación de la solicitud con Zod (Estándar Chile / Límites de Proyecto)
+// Validación de la solicitud con Zod (Formulario Optimizado - 5 pasos)
 const solicitudSchema = z.object({
-  // Fase 1: Identificación
+  // Paso 1: Contacto
   name: z.string().min(2, "Nombre requerido"),
-  email: z.string().email("Correo inválido"),
-  company: z.string().optional(),
-  phone: z.string().optional(),
+  email: z.string().email("Email inválido"),
+  phone: z.string().min(5, "Teléfono requerido"),
 
-  // Fase 2: Alcance Web Exacto
-  project_type: z.string().min(1, "Especifique el alcance de web a desarrollar (Landing, Sistema, etc.)"),
-  business_pain: z.string().min(5, "Redacte el dolor comercial a mitigar"),
-  ticket_size: z.string().min(1, "Seleccione su ticket promedio u operativa de ingresos"),
+  // Paso 2: Tu Negocio
+  company: z.string().min(2, "Nombre de empresa requerido"),
+  industry: z.string().min(2, "Rubro requerido"),
+  business_location: z.string().optional(),
 
-  // Fase 3: Integraciones y Diseño (Chile Local)
-  gateways: z.array(z.string()).optional(),
-  integrations: z.string().optional(),
-  design_status: z.string().min(1, "Debe aclarar el estatus del diseño o UX"),
+  // Paso 3: El Proyecto
+  solution_type: z.string().min(1, "Tipo de solución requerido"),
+  main_objective: z.string().min(1, "Objetivo principal requerido"),
+  has_design: z.boolean().optional(),
+  has_content: z.boolean().optional(),
 
-  // Fase 4: Activos y Referencias
-  assets: z.array(z.string()).optional(),
-  references: z.string().min(3, "Provea URLs como referencia de diseño y arquitectura"),
+  // Paso 4: Presupuesto y Tiempos
+  estimated_budget: z.string().min(1, "Presupuesto estimado requerido"),
+  timeline: z.string().min(1, "Timeline requerido"),
 
-  // Fase 5: Tiempos y Honorarios (CLP)
-  budget: z.string().min(1, "Indique el rango de base presupuestaria (en Pesos o UF)"),
-  urgency: z.string().min(1, "El plazo límite de factibilidad"),
-  consent: z.boolean().refine((val) => val === true, {
-    message: "Acepte la condición de scoping para cotizar",
+  // Paso 5: Confirmar
+  consent_data: z.boolean().refine((val) => val === true, {
+    message: "Debes aceptar los términos para continuar",
   }),
+  additional_notes: z.string().optional(),
 
   // Anti-spam
   honeypot: z.string().optional() 
@@ -72,8 +71,8 @@ export async function POST(request: Request) {
     const json = await request.json();
     
     // Convertir literal strict de checkbox a boleano si viene en texto
-    if (json.consent === 'true' || json.consent === true) json.consent = true;
-    else json.consent = false;
+    if (json.consent_data === 'true' || json.consent_data === true) json.consent_data = true;
+    else json.consent_data = false;
 
     const result = solicitudSchema.safeParse(json);
 
@@ -85,54 +84,106 @@ export async function POST(request: Request) {
     const data = result.data;
 
     if (data.honeypot) {
-      console.warn("Spam atrapado en Honeypot CLP form.");
+      console.warn("Spam atrapado en Honeypot form.");
       return NextResponse.json({ success: true, message: "OK simulado." }, { status: 200 });
     }
 
-    const joinGateways = data.gateways && data.gateways.length > 0 ? data.gateways.join(', ') : 'Ninguna seleccionada.';
-    const joinAssets = data.assets && data.assets.length > 0 ? data.assets.join(', ') : 'Ninguno. Asumir todo desde cero (Comprar servidor, dominios, UX).';
-
     const htmlEmail = `
-      <div style="font-family: Arial, sans-serif; max-w: 750px; margin: auto; padding: 30px; border: 1px solid #cbd5e1; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
-        <h2 style="color: #1e3a8a; border-bottom: 3px solid #1e3a8a; padding-bottom: 12px; font-weight: 900; letter-spacing: -0.5px;">📄 Blueprint Técnico (Scoping) de Lead Chile</h2>
-        
-        <h3 style="color: #0f172a; border-left: 5px solid #2563eb; padding-left: 10px; margin-top: 25px;">1. Facturación e Identificación</h3>
-        <p><strong>Nombres y Apellidos:</strong> ${data.name}</p>
-        <p><strong>Razón Social / Startup:</strong> ${data.company || 'No especificada'}</p>
-        <p><strong>Mail Principal:</strong> <a href="mailto:${data.email}">${data.email}</a></p>
-        <p><strong>WhatsApp Remoto:</strong> ${data.phone || 'No especificado'}</p>
+      <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border-radius: 12px; background-color: #f8fafc; border: 1px solid #e2e8f0;">
+        <div style="background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+          
+          <h1 style="color: #1e40af; margin-top: 0; font-size: 24px; border-bottom: 2px solid #2563eb; padding-bottom: 15px;">
+            ✅ Nueva Solicitud de Proyecto Recibida
+          </h1>
 
-        <h3 style="color: #0f172a; border-left: 5px solid #2563eb; padding-left: 10px; margin-top: 30px;">2. Límites Estrictos del Desarrollo (Base de SLA)</h3>
-        <p style="background-color: #dbeafe; padding: 10px; border-radius: 6px; font-weight: bold; color: #1e40af;">
-          <strong>Estructura Solicitada:</strong> ${data.project_type}
-        </p>
-        <div style="background-color: #f8fafc; padding: 12px; border-radius: 6px; margin-bottom: 10px; border: 1px solid #e2e8f0;">
-          <p style="margin: 0; font-weight: bold;">Dolor de Negocio (El 'Por qué' del Software):</p>
-          <p style="white-space: pre-wrap; margin-top: 5px; color: #475569;">${data.business_pain}</p>
+          <h2 style="color: #334155; font-size: 16px; margin-top: 20px; font-weight: 600; border-left: 3px solid #2563eb; padding-left: 10px;">
+            📋 Información de Contacto
+          </h2>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <tr>
+              <td style="padding: 8px; color: #475569; font-weight: 500; width: 30%;">Nombre:</td>
+              <td style="padding: 8px; color: #1e293b;">${data.name}</td>
+            </tr>
+            <tr style="background-color: #f1f5f9;">
+              <td style="padding: 8px; color: #475569; font-weight: 500;">Email:</td>
+              <td style="padding: 8px; color: #1e293b;"><a href="mailto:${data.email}" style="color: #2563eb; text-decoration: none;">${data.email}</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; color: #475569; font-weight: 500;">Teléfono:</td>
+              <td style="padding: 8px; color: #1e293b;">${data.phone}</td>
+            </tr>
+          </table>
+
+          <h2 style="color: #334155; font-size: 16px; margin-top: 25px; font-weight: 600; border-left: 3px solid #2563eb; padding-left: 10px;">
+            🏢 Información del Negocio
+          </h2>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <tr>
+              <td style="padding: 8px; color: #475569; font-weight: 500; width: 30%;">Empresa:</td>
+              <td style="padding: 8px; color: #1e293b;">${data.company}</td>
+            </tr>
+            <tr style="background-color: #f1f5f9;">
+              <td style="padding: 8px; color: #475569; font-weight: 500;">Rubro:</td>
+              <td style="padding: 8px; color: #1e293b;">${data.industry}</td>
+            </tr>
+            ${data.business_location ? `
+            <tr>
+              <td style="padding: 8px; color: #475569; font-weight: 500;">Ubicación:</td>
+              <td style="padding: 8px; color: #1e293b;">${data.business_location}</td>
+            </tr>
+            ` : ''}
+          </table>
+
+          <h2 style="color: #334155; font-size: 16px; margin-top: 25px; font-weight: 600; border-left: 3px solid #2563eb; padding-left: 10px;">
+            🎯 Detalles del Proyecto
+          </h2>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <tr>
+              <td style="padding: 8px; color: #475569; font-weight: 500; width: 30%;">Tipo de Solución:</td>
+              <td style="padding: 8px; color: #1e293b;">${data.solution_type}</td>
+            </tr>
+            <tr style="background-color: #f1f5f9;">
+              <td style="padding: 8px; color: #475569; font-weight: 500;">Objetivo:</td>
+              <td style="padding: 8px; color: #1e293b;">${data.main_objective}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; color: #475569; font-weight: 500;">¿Diseño listo?</td>
+              <td style="padding: 8px; color: #1e293b;">${data.has_design ? '✓ Sí' : '✗ No'}</td>
+            </tr>
+            <tr style="background-color: #f1f5f9;">
+              <td style="padding: 8px; color: #475569; font-weight: 500;">¿Contenido listo?</td>
+              <td style="padding: 8px; color: #1e293b;">${data.has_content ? '✓ Sí' : '✗ No'}</td>
+            </tr>
+          </table>
+
+          <h2 style="color: #334155; font-size: 16px; margin-top: 25px; font-weight: 600; border-left: 3px solid #2563eb; padding-left: 10px;">
+            💰 Presupuesto y Tiempos
+          </h2>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <tr>
+              <td style="padding: 8px; color: #475569; font-weight: 500; width: 30%;">Presupuesto:</td>
+              <td style="padding: 8px; color: #1e293b; font-weight: 500;">${data.estimated_budget}</td>
+            </tr>
+            <tr style="background-color: #f1f5f9;">
+              <td style="padding: 8px; color: #475569; font-weight: 500;">Timeline:</td>
+              <td style="padding: 8px; color: #1e293b; font-weight: 500;">${data.timeline}</td>
+            </tr>
+          </table>
+
+          ${data.additional_notes ? `
+          <h2 style="color: #334155; font-size: 16px; margin-top: 25px; font-weight: 600; border-left: 3px solid #2563eb; padding-left: 10px;">
+            📝 Notas Adicionales
+          </h2>
+          <div style="background-color: #f1f5f9; padding: 12px; border-radius: 6px; margin-top: 10px; border-left: 3px solid #64748b; white-space: pre-wrap; color: #334155;">
+            ${data.additional_notes}
+          </div>
+          ` : ''}
+
+          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #64748b;">
+            <p style="margin: 0;">✓ Solicitud recibida correctamente</p>
+            <p style="margin: 10px 0 0 0;">⏱️ Nos contactaremos en las próximas 24-48 horas para agendar la llamada de descubrimiento.</p>
+          </div>
         </div>
-        <p><strong>Ticket Operativo Promedio del Cliente:</strong> ${data.ticket_size}</p>
-
-        <h3 style="color: #0f172a; border-left: 5px solid #2563eb; padding-left: 10px; margin-top: 30px;">3. Arquitectura de Integraciones Locales & UX</h3>
-        <p style="color: #b91c1c; font-weight: 600;"><strong>Pasarelas de Cobro (Chile):</strong> ${joinGateways}</p>
-        <div style="background-color: #f8fafc; padding: 12px; border-radius: 6px; margin-top: 10px; border: 1px solid #e2e8f0;">
-          <p style="margin: 0; font-weight: bold;">Conexiones Especiales de 3eros (ERPs, Bsale, API SII, Mailers):</p>
-          <p style="white-space: pre-wrap; margin-top: 5px; color: #334155;">${data.integrations || 'Ninguna especificada.'}</p>
-        </div>
-        <p style="background-color: #fef08a; padding: 10px; border-radius: 6px; font-weight: bold; color: #854d0e;">
-          <strong>Responsabilidad de Interfaces (UI/UX):</strong> ${data.design_status}
-        </p>
-
-        <h3 style="color: #0f172a; border-left: 5px solid #2563eb; padding-left: 10px; margin-top: 30px;">4. Activos & Assets Declarados</h3>
-        <p><strong>Lo que tiene el cliente:</strong> ${joinAssets}</p>
-        <div style="background-color: #f8fafc; padding: 12px; border-radius: 6px; margin-top: 10px; border: 1px solid #e2e8f0;">
-          <p style="margin: 0; font-weight: bold;">Referencias Creativas o Competencia (Moodboard Legal):</p>
-          <p style="white-space: pre-wrap; margin-top: 5px; color: #334155;">${data.references}</p>
-        </div>
-
-        <h3 style="color: #0f172a; border-left: 5px solid #2563eb; padding-left: 10px; margin-top: 30px;">5. Cotización Macro y Fechas</h3>
-        <p style="font-size: 1.1em; border-left: 3px solid #16a34a; padding-left: 8px;"><strong>Caja / Inversión Asignada (CLP):</strong> ${data.budget}</p>
-        <p style="font-size: 1.1em; border-left: 3px solid #dc2626; padding-left: 8px;"><strong>Plazo Mandatorio:</strong> ${data.urgency}</p>
-        <p style="margin-top: 20px; font-size: 12px; color: #64748b;"><em>* Este requerimiento es constitutivo de un pre-acuerdo de Scoping para cotizar Desarrollo Custom. El cliente asume que adiciones extra requerirán re-presupuestación en CLP/UF.</em></p>
       </div>
     `;
 
@@ -140,7 +191,7 @@ export async function POST(request: Request) {
     const resendResponse = await resend.emails.send({
       from: 'Portfolio Onboarding <onboarding@resend.dev>',
       to: 'bastiantapia.dev@gmail.com',
-      subject: `Nueva Cotización Local: ${data.company || data.name} - ${data.budget.substring(0, 30)}...`,
+      subject: `Nueva Solicitud: ${data.company || data.name}`,
       replyTo: data.email,
       html: htmlEmail,
     });
